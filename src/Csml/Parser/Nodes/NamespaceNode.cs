@@ -8,5 +8,5 @@ public class NamespaceNode : BaseNode
     public AbstractTypeNode[]? Types { get; init; }
 
     [XmlAttribute("Name")]
-    public string? Name { get; init; }
+    public required string Name { get; init; }
 }

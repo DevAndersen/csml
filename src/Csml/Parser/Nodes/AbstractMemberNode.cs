@@ -3,10 +3,10 @@
 public abstract class AbstractMemberNode : BaseNode
 {
     [XmlAttribute("Name")]
-    public string? Name { get; init; }
+    public required string Name { get; init; }
 
     [XmlAttribute("Type")]
-    public string? Type { get; init; }
+    public required string Type { get; init; }
 
     [XmlAttribute("Value")]
     public string? Value { get; init; }

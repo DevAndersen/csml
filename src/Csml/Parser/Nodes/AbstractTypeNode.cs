@@ -3,7 +3,7 @@
 public abstract class AbstractTypeNode : BaseNode
 {
     [XmlAttribute("Name")]
-    public string? Name { get; init; }
+    public required string Name { get; init; }
 
     [XmlAttribute("Access")]
     public string? Access { get; init; }
