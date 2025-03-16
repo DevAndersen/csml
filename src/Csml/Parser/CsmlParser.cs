@@ -47,8 +47,13 @@ public static class CsmlParser
                 element.SetAttributeValue(CsmlConstants.LineNumberMetadataAttribute, lineInfo.LineNumber);
             }
 
-            XmlReader reader = xdoc.CreateReader();
+            using XmlReader reader = xdoc.CreateReader();
             parsedResult = serializer.Deserialize(reader) as CsmlNode;
+
+            if (parsedResult != null)
+            {
+                ObjectValidator.Validate(parsedResult, errors);
+            }
         }
         catch (XmlException xmlException)
         {

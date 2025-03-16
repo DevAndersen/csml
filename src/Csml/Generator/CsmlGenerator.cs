@@ -3,6 +3,7 @@ using Csml.Parser;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
+using Microsoft.CodeAnalysis.Text;
 using System.Diagnostics;
 
 namespace Csml.Generator;
@@ -39,9 +40,38 @@ internal class CsmlGenerator : IIncrementalGenerator
 
             CsmlParseResult result = CsmlParser.Parse(sourceFile.FileContent);
 
-            CompilationUnitSyntax syntax = CsmlBuilder.Build(result.Result!);
-            SyntaxTree syntaxTree = SyntaxFactory.SyntaxTree(syntax, encoding: System.Text.Encoding.Unicode);
-            context.AddSource($"{sourceFile.FileName}.g.cs", syntaxTree.GetText());
+            if (result is { Result: not null, Errors.Count: 0 })
+            {
+                CompilationUnitSyntax syntax = CsmlBuilder.Build(result.Result!);
+                SyntaxTree syntaxTree = SyntaxFactory.SyntaxTree(syntax, encoding: System.Text.Encoding.Unicode);
+
+                context.AddSource($"{sourceFile.FileName}.g.cs", syntaxTree.GetText());
+            }
+
+            foreach (CsmlParseError error in result.Errors)
+            {
+                Location location;
+                if (error.LineNumber == null)
+                {
+                    location = Location.None;
+                }
+                else
+                {
+                    LinePositionSpan linePositionSpan = new LinePositionSpan(
+                        new LinePosition(error.LineNumber.Value - 1, 0),
+                        new LinePosition(error.LineNumber.Value - 1, 0)
+                    );
+
+                    location = Location.Create(
+                        sourceFile.FullFileName,
+                        default,
+                        linePositionSpan);
+                }
+
+                context.ReportDiagnostic(Diagnostic.Create(
+                    GeneratorDiagnostics.ParseError,
+                    location));
+            }
         });
     }
 
@@ -61,12 +91,20 @@ internal class CsmlGenerator : IIncrementalGenerator
 
             if (!string.IsNullOrWhiteSpace(fileContent))
             {
-                return new CsmlSourceFile(fileName, fileExtension, fileContent!);
+                return new CsmlSourceFile(
+                    additionalText.Path,
+                    fileName,
+                    fileExtension,
+                    fileContent!);
             }
         }
 
         return null;
     }
 
-    private record CsmlSourceFile(string FileName, string FileExtension, string FileContent);
+    private record CsmlSourceFile(
+        string FullFileName,
+        string FileName,
+        string FileExtension,
+        string FileContent);
 }

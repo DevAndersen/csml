@@ -2,4 +2,4 @@
 
 namespace Csml.Parser;
 
-public record CsmlParseResult(CsmlNode? Result, IEnumerable<CsmlParseError>? Errors);
+public record CsmlParseResult(CsmlNode? Result, List<CsmlParseError> Errors);

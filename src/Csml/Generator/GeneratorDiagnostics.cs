@@ -11,4 +11,12 @@ internal static class GeneratorDiagnostics
         category: "CSML",
         DiagnosticSeverity.Warning,
         isEnabledByDefault: true);
+
+    public static readonly DiagnosticDescriptor ParseError = new DiagnosticDescriptor(
+        id: "CSML0002",
+        title: "Parse error title",
+        messageFormat: "Parse error message",
+        category: "CSML",
+        DiagnosticSeverity.Error,
+        isEnabledByDefault: true);
 }
