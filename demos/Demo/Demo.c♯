@@ -1,31 +1,33 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Csml>
 
-  <UsingDirective Namespace="System" />
-  <UsingDirective Namespace="System.Text.Json" />
+	<UsingDirective Namespace="System" />
+	<UsingDirective Namespace="System.Text.Json" />
 
-  <Namespace Name="MyNamespace">
-    <UsingDirective Namespace="System.Text" />
-    <Namespace Name="Nested">
+	<Namespace Name="MyNamespace">
+		<UsingDirective Namespace="System.Text" />
+		<Namespace Name="Nested">
 
-      <Class Name="NestedClass">
+			<Class Name="NestedClass">
 
-      </Class>
+			</Class>
 
-    </Namespace>
+		</Namespace>
 
-    <Class Name="MyClass">
+		<Class Name="MyClass">
 
-    </Class>
+      <Property Name="Number" Access="Public" Accessors="GetSet" Type="int" />
 
-    <Struct Name="MyStruct" Access="Internal">
+		</Class>
 
-    </Struct>
+		<Struct Name="MyStruct" Access="Internal">
 
-    <Interface Name="IClass" Access="Public">
+		</Struct>
 
-    </Interface>
+		<Interface Name="IClass" Access="Public">
 
-  </Namespace>
+		</Interface>
+
+	</Namespace>
 
 </Csml>

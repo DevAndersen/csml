@@ -4,5 +4,5 @@
 public class PropertyNode : AbstractMemberNode
 {
     [XmlAttribute("Accessors")]
-    public required string Accessors { get; init; }
+    public required PropertyAccessor Accessors { get; init; }
 }

@@ -70,7 +70,8 @@ internal class CsmlGenerator : IIncrementalGenerator
 
                 context.ReportDiagnostic(Diagnostic.Create(
                     GeneratorDiagnostics.ParseError,
-                    location));
+                    location,
+                    [error.Message]));
             }
         });
     }

@@ -22,7 +22,7 @@ public static class ObjectValidator
             RequiredMemberAttribute? requiredAttribute = property.GetCustomAttribute<RequiredMemberAttribute>();
             if (requiredAttribute != null && property.PropertyType.IsClass && propertyValue == null)
             {
-                results.Add(new CsmlParseError("REQUIRED PROPERTY WAS NULL", node.LineNumber));
+                results.Add(new CsmlParseError($"Required property '{property.Name}' is null", node.LineNumber));
             }
 
             if (propertyValue != null)

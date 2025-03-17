@@ -10,4 +10,7 @@ public abstract class AbstractMemberNode : BaseNode
 
     [XmlAttribute("Value")]
     public string? Value { get; init; }
+
+    [XmlAttribute("Access")]
+    public AccessModifier Access { get; init; }
 }
