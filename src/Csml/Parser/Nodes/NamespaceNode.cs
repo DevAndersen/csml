@@ -9,4 +9,7 @@ public class NamespaceNode : BaseNode
 
     [XmlAttribute("Name")]
     public required string Name { get; init; }
+
+    [XmlElement("Namespace")]
+    public NamespaceNode[]? Namespaces { get; init; }
 }
