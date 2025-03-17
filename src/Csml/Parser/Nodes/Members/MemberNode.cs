@@ -1,6 +1,6 @@
 ﻿namespace Csml.Parser.Nodes.Members;
 
-public abstract class AbstractMemberNode : BaseNode
+public abstract class MemberNode : BaseNode
 {
     [XmlAttribute("Name")]
     public required string Name { get; init; }

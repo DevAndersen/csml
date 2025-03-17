@@ -1,6 +1,6 @@
 ﻿namespace Csml.Parser.Nodes.Members;
 
 [XmlType("Field")]
-public class FieldNode : AbstractMemberNode
+public class FieldNode : MemberNode
 {
 }

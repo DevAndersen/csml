@@ -31,7 +31,7 @@ internal static class TypeBuilder
         SyntaxList<MemberDeclarationSyntax> memberList = SF.List<MemberDeclarationSyntax>();
         if (typeNode.Members != null)
         {
-            foreach (AbstractMemberNode member in typeNode.Members)
+            foreach (MemberNode member in typeNode.Members)
             {
                 memberList = member switch
                 {
