@@ -5,6 +5,14 @@
   <UsingDirective Namespace="System.Text.Json" />
 
   <Namespace Name="MyNamespace">
+    <UsingDirective Namespace="System.Text" />
+    <Namespace Name="Nested">
+
+      <Class Name="NestedClass">
+
+      </Class>
+
+    </Namespace>
 
     <Class Name="MyClass">
 

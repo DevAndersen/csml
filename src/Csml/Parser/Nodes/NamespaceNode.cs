@@ -10,6 +10,9 @@ public class NamespaceNode : BaseNode
     [XmlAttribute("Name")]
     public required string Name { get; init; }
 
+    [XmlElement("UsingDirective")]
+    public UsingDirectiveNode[]? UsingDirectives { get; init; }
+
     [XmlElement("Namespace")]
     public NamespaceNode[]? Namespaces { get; init; }
 }

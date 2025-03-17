@@ -7,10 +7,30 @@ namespace Csml.Generator.SyntaxBuilders;
 
 internal static class NamespaceBuilder
 {
+    public static SyntaxList<MemberDeclarationSyntax> BuildMultiple(NamespaceNode[]? nodes, NamespaceNode? parentNamespace)
+    {
+        SyntaxList<MemberDeclarationSyntax> namespaceList = SF.List<MemberDeclarationSyntax>();
+
+        if (nodes != null)
+        {
+            foreach (NamespaceNode item in nodes)
+            {
+                namespaceList = namespaceList.Add(Build(item, parentNamespace));
+            }
+        }
+
+        return namespaceList;
+    }
+
     public static NamespaceDeclarationSyntax Build(NamespaceNode node, NamespaceNode? parentNamespace)
     {
         NamespaceDeclarationSyntax syntax = SF.NamespaceDeclaration(SF.IdentifierName(node.Name));
         SyntaxList<MemberDeclarationSyntax> list = SF.List<MemberDeclarationSyntax>();
+
+        SyntaxList<UsingDirectiveSyntax> usingList = UsingDirectiveBuilder.BuildMultiple(node.UsingDirectives, node);
+
+        SyntaxList<MemberDeclarationSyntax> namespaceList = BuildMultiple(node.Namespaces, node);
+        list = list.AddRange(namespaceList);
 
         if (node.Types != null)
         {
@@ -26,6 +46,8 @@ internal static class NamespaceBuilder
             }
         }
 
-        return syntax.WithMembers(list);
+        return syntax
+            .WithUsings(usingList)
+            .WithMembers(list);
     }
 }

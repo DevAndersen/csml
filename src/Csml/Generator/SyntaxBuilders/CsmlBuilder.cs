@@ -11,24 +11,8 @@ internal static class CsmlBuilder
     {
         CompilationUnitSyntax comp = SF.CompilationUnit();
 
-        SyntaxList<UsingDirectiveSyntax> usingList = SF.List<UsingDirectiveSyntax>();
-        if (node.UsingDirectives != null)
-        {
-            foreach (UsingDirectiveNode item in node.UsingDirectives)
-            {
-                usingList = usingList.Add(UsingDirectiveBuilder.Build(item, null));
-            }
-        }
-
-        SyntaxList<MemberDeclarationSyntax> namespaceList = SF.List<MemberDeclarationSyntax>();
-
-        if (node.Namespaces != null)
-        {
-            foreach (NamespaceNode item in node.Namespaces)
-            {
-                namespaceList = namespaceList.Add(NamespaceBuilder.Build(item, null));
-            }
-        }
+        SyntaxList<UsingDirectiveSyntax> usingList = UsingDirectiveBuilder.BuildMultiple(node.UsingDirectives, null);
+        SyntaxList<MemberDeclarationSyntax> namespaceList = NamespaceBuilder.BuildMultiple(node.Namespaces, null);
 
         return comp
             .WithUsings(usingList)
