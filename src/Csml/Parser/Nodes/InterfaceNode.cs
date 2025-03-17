@@ -1,6 +1,6 @@
 ﻿namespace Csml.Parser.Nodes;
 
 [XmlType("Interface")]
-public class InterfaceNode : AbstractTypeNode
+public class InterfaceNode : TypeNode
 {
 }

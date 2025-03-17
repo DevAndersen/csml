@@ -16,7 +16,7 @@ internal static class CsmlBuilder
         {
             foreach (UsingDirectiveNode item in node.UsingDirectives)
             {
-                usingList = usingList.Add(UsingDirectiveBuilder.Build(item));
+                usingList = usingList.Add(UsingDirectiveBuilder.Build(item, null));
             }
         }
 
@@ -26,7 +26,7 @@ internal static class CsmlBuilder
         {
             foreach (NamespaceNode item in node.Namespaces)
             {
-                namespaceList = namespaceList.Add(NamespaceBuilder.Build(item));
+                namespaceList = namespaceList.Add(NamespaceBuilder.Build(item, null));
             }
         }
 

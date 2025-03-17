@@ -1,4 +1,5 @@
 ﻿using Csml.Parser.Nodes;
+using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 
@@ -6,15 +7,30 @@ namespace Csml.Generator.SyntaxBuilders;
 
 internal class PropertyBuilder
 {
-    public static PropertyDeclarationSyntax Build(PropertyNode propertyNode)
+    public static PropertyDeclarationSyntax Build(PropertyNode propertyNode, TypeNode parentType)
     {
         PredefinedTypeSyntax type = SF.PredefinedType(SF.Token(SyntaxKind.IntKeyword));
         PropertyDeclarationSyntax syntax = SF.PropertyDeclaration(type, propertyNode.Name);
 
-        Microsoft.CodeAnalysis.SyntaxTokenList tokenList = SF.TokenList(
-        [
-            SF.Token(SyntaxKind.PublicKeyword),
-        ]);
+        //SyntaxKind[] accessModifiers = propertyNode.Access switch
+        //{
+        //    AccessModifier.Public => [SyntaxKind.PublicKeyword],
+        //    AccessModifier.Private => [SyntaxKind.PrivateKeyword],
+        //    AccessModifier.Protected => [SyntaxKind.ProtectedKeyword],
+        //    AccessModifier.Internal => [SyntaxKind.InternalKeyword],
+        //    AccessModifier.ProtectedInternal => [SyntaxKind.ProtectedKeyword, SyntaxKind.InternalKeyword],
+        //    AccessModifier.PrivateProtected => [SyntaxKind.PrivateKeyword, SyntaxKind.ProtectedKeyword],
+        //    AccessModifier.File => [SyntaxKind.FileKeyword],
+        //    null when parentType is InterfaceNode => [SyntaxKind.PublicKeyword],
+        //    _ => [SyntaxKind.PrivateKeyword],
+        //};
+
+        SyntaxTokenList tokenList = SF.TokenList();
+
+        //foreach (SyntaxKind accessModifier in accessModifiers)
+        //{
+        //    tokenList = tokenList.Add(SF.Token(accessModifier));
+        //}
 
         AccessorListSyntax accessors = SF.AccessorList(SF.List(
         [

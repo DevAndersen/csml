@@ -1,12 +1,12 @@
 ﻿namespace Csml.Parser.Nodes;
 
-public abstract class AbstractTypeNode : BaseNode
+public abstract class TypeNode : BaseNode
 {
     [XmlAttribute("Name")]
     public required string Name { get; init; }
 
     [XmlAttribute("Access")]
-    public string? Access { get; init; }
+    public AccessModifier Access { get; init; }
 
     [XmlElement("Field", typeof(FieldNode))]
     [XmlElement("Property", typeof(PropertyNode))]

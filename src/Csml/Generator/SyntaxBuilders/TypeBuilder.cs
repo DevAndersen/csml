@@ -1,4 +1,5 @@
 ﻿using Csml.Parser.Nodes;
+using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 
@@ -6,23 +7,37 @@ namespace Csml.Generator.SyntaxBuilders;
 
 internal static class TypeBuilder
 {
-    public static TypeDeclarationSyntax Build(SyntaxKind kind, AbstractTypeNode typeNode)
+    public static TypeDeclarationSyntax Build(SyntaxKind kind, TypeNode typeNode, BaseNode parentNode)
     {
         TypeDeclarationSyntax syntax = SF.TypeDeclaration(kind, typeNode.Name);
 
-        Microsoft.CodeAnalysis.SyntaxTokenList tokenList = SF.TokenList(
-        [
-            SF.Token(SyntaxKind.PublicKeyword),
-        ]);
+        SyntaxKind[] accessModifiers = typeNode.Access switch
+        {
+            AccessModifier.Public => [SyntaxKind.PublicKeyword],
+            AccessModifier.Private => [SyntaxKind.PrivateKeyword],
+            AccessModifier.Protected => [SyntaxKind.ProtectedKeyword],
+            AccessModifier.Internal => [SyntaxKind.InternalKeyword],
+            AccessModifier.ProtectedInternal => [SyntaxKind.ProtectedKeyword, SyntaxKind.InternalKeyword],
+            AccessModifier.PrivateProtected => [SyntaxKind.PrivateKeyword, SyntaxKind.ProtectedKeyword],
+            AccessModifier.File => [SyntaxKind.FileKeyword],
+            _ => [SyntaxKind.InternalKeyword]
+        };
 
-        Microsoft.CodeAnalysis.SyntaxList<MemberDeclarationSyntax> memberList = SF.List<MemberDeclarationSyntax>();
+        SyntaxTokenList tokenList = SF.TokenList();
+
+        foreach (SyntaxKind accessModifier in accessModifiers)
+        {
+            tokenList = tokenList.Add(SF.Token(accessModifier));
+        }
+
+        SyntaxList<MemberDeclarationSyntax> memberList = SF.List<MemberDeclarationSyntax>();
         if (typeNode.Members != null)
         {
             foreach (AbstractMemberNode member in typeNode.Members)
             {
                 memberList = member switch
                 {
-                    PropertyNode propertyNode => memberList.Add(PropertyBuilder.Build(propertyNode)),
+                    PropertyNode propertyNode => memberList.Add(PropertyBuilder.Build(propertyNode, typeNode)),
                     _ => throw new NotImplementedException($"BAD MEMBER NODE TYPE {member.GetType()}"), // Todo: Throw appropriate exception.
                 };
             }
