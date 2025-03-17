@@ -1,8 +1,5 @@
 ﻿using Csml.Generator.SyntaxBuilders;
 using Csml.Parser;
-using Microsoft.CodeAnalysis;
-using Microsoft.CodeAnalysis.CSharp;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.Text;
 using System.Diagnostics;
 

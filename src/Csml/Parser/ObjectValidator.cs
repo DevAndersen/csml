@@ -1,5 +1,4 @@
-﻿using Csml.Parser.Nodes;
-using System.Collections;
+﻿using System.Collections;
 using System.Reflection;
 using RequiredMemberAttribute = System.Runtime.CompilerServices.RequiredMemberAttribute;
 

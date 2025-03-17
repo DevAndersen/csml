@@ -1,8 +1,4 @@
-﻿using Csml.Parser.Nodes;
-using Microsoft.CodeAnalysis;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
-
-namespace Csml.Generator.SyntaxBuilders;
+﻿namespace Csml.Generator.SyntaxBuilders;
 
 internal static class UsingDirectiveBuilder
 {

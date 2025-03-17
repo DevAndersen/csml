@@ -1,6 +1,4 @@
-﻿using Microsoft.CodeAnalysis;
-
-namespace Csml.Generator;
+﻿namespace Csml.Generator;
 
 internal static class GeneratorDiagnostics
 {
