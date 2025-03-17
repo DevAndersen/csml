@@ -2,6 +2,8 @@
 
 public enum AccessModifier
 {
+    Unset,
+
     [XmlEnum("Public")]
     Public,
 
