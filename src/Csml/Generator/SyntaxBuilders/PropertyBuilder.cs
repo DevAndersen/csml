@@ -1,6 +1,6 @@
 ﻿namespace Csml.Generator.SyntaxBuilders;
 
-internal class PropertyBuilder
+internal static class PropertyBuilder
 {
     public static PropertyDeclarationSyntax Build(PropertyNode propertyNode, TypeNode parentType)
     {
