@@ -1,4 +1,6 @@
-﻿namespace Csml.Parser.Nodes;
+﻿using Csml.Parser.Nodes.Types;
+
+namespace Csml.Parser.Nodes;
 
 [XmlRoot(ElementName = "Csml", IsNullable = false)]
 public class CsmlNode : BaseNode

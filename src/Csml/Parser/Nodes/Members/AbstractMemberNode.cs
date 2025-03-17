@@ -1,4 +1,4 @@
-﻿namespace Csml.Parser.Nodes;
+﻿namespace Csml.Parser.Nodes.Members;
 
 public abstract class AbstractMemberNode : BaseNode
 {

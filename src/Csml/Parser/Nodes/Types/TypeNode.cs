@@ -1,4 +1,6 @@
-﻿namespace Csml.Parser.Nodes;
+﻿using Csml.Parser.Nodes.Members;
+
+namespace Csml.Parser.Nodes.Types;
 
 public abstract class TypeNode : BaseNode
 {

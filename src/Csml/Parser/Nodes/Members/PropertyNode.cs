@@ -1,4 +1,4 @@
-﻿namespace Csml.Parser.Nodes;
+﻿namespace Csml.Parser.Nodes.Members;
 
 [XmlType("Property")]
 public class PropertyNode : AbstractMemberNode
