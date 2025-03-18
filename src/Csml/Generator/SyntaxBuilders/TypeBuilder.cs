@@ -1,4 +1,5 @@
-﻿using Csml.Parser.Nodes.Members;
+﻿using Csml.Parser.Nodes;
+using Csml.Parser.Nodes.Members;
 using Csml.Parser.Nodes.Types;
 
 namespace Csml.Generator.SyntaxBuilders;
@@ -51,6 +52,11 @@ internal static class TypeBuilder
         foreach (SyntaxKind accessModifier in accessModifiers)
         {
             tokenList = tokenList.Add(SF.Token(accessModifier));
+        }
+
+        if (typeNode is ClassNode { Static: true })
+        {
+            tokenList = tokenList.Add(SF.Token(SyntaxKind.StaticKeyword));
         }
 
         SyntaxList<MemberDeclarationSyntax> memberList = SF.List<MemberDeclarationSyntax>();
