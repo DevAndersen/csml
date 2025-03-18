@@ -13,4 +13,9 @@ public abstract class TypeNode : BaseNode
     [XmlElement("Field", typeof(FieldNode))]
     [XmlElement("Property", typeof(PropertyNode))]
     public MemberNode[]? Members { get; init; }
+
+    [XmlElement("Class", typeof(ClassNode))]
+    [XmlElement("Struct", typeof(StructNode))]
+    [XmlElement("Interface", typeof(InterfaceNode))]
+    public TypeNode[]? Types { get; init; }
 }

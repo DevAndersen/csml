@@ -25,23 +25,12 @@ internal static class NamespaceBuilder
         SyntaxList<MemberDeclarationSyntax> list = SF.List<MemberDeclarationSyntax>();
 
         SyntaxList<UsingDirectiveSyntax> usingList = UsingDirectiveBuilder.BuildMultiple(node.UsingDirectives, node);
+        SyntaxList<MemberDeclarationSyntax> typeList = TypeBuilder.BuildMultiple(node.Types, node);
 
         SyntaxList<MemberDeclarationSyntax> namespaceList = BuildMultiple(node.Namespaces, node);
-        list = list.AddRange(namespaceList);
-
-        if (node.Types != null)
-        {
-            foreach (TypeNode typeNode in node.Types)
-            {
-                list = typeNode switch
-                {
-                    ClassNode classNode => list.Add(TypeBuilder.Build(SyntaxKind.ClassDeclaration, classNode, node)),
-                    StructNode structNode => list.Add(TypeBuilder.Build(SyntaxKind.StructDeclaration, structNode, node)),
-                    InterfaceNode interfaceNode => list.Add(TypeBuilder.Build(SyntaxKind.InterfaceDeclaration, interfaceNode, node)),
-                    _ => throw new NotImplementedException($"BAD TYPE NODE TYPE {typeNode.GetType()}"), // Todo: Throw appropriate exception.
-                };
-            }
-        }
+        list = list
+            .AddRange(namespaceList)
+            .AddRange(typeList);
 
         return syntax
             .WithUsings(usingList)

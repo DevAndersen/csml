@@ -5,6 +5,21 @@ namespace Csml.Generator.SyntaxBuilders;
 
 internal static class PropertyBuilder
 {
+    public static SyntaxList<MemberDeclarationSyntax> BuildMultiple(PropertyNode[]? nodes, TypeNode parentType)
+    {
+        SyntaxList<MemberDeclarationSyntax> propertyList = SF.List<MemberDeclarationSyntax>();
+
+        if (nodes != null)
+        {
+            foreach (PropertyNode item in nodes)
+            {
+                propertyList = propertyList.Add(Build(item, parentType));
+            }
+        }
+
+        return propertyList;
+    }
+
     public static PropertyDeclarationSyntax Build(PropertyNode propertyNode, TypeNode parentType)
     {
         PredefinedTypeSyntax type = SF.PredefinedType(SF.Token(SyntaxKind.IntKeyword));
