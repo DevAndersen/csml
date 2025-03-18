@@ -1,6 +1,5 @@
 ﻿using Csml.Generator;
 using Microsoft.CodeAnalysis.Text;
-using System.Collections.Immutable;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 

@@ -1,6 +1,4 @@
-﻿using System.Collections.Immutable;
-
-namespace CsmlTests;
+﻿namespace CsmlTests;
 
 public class FileExtensionTests
 {
