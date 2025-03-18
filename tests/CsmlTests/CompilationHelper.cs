@@ -15,7 +15,7 @@ internal static class CompilationHelper
     /// <returns></returns>
     public static IEnumerable<SyntaxNode> AssertCompileNoDiagnostics(string csml)
     {
-        IEnumerable<SyntaxNode> output = AssertCompile(csml, out ImmutableArray<Diagnostic> diagnostics);
+        IEnumerable<SyntaxNode> output = AssertCompile(csml, out ImmutableArray<Diagnostic> diagnostics, null);
         Assert.Empty(diagnostics);
         return output;
     }
@@ -26,14 +26,17 @@ internal static class CompilationHelper
     /// <param name="csml"></param>
     /// <param name="diagnostics"></param>
     /// <returns></returns>
-    public static IEnumerable<SyntaxNode> AssertCompile(string csml, out ImmutableArray<Diagnostic> diagnostics)
+    public static IEnumerable<SyntaxNode> AssertCompile(
+        string csml,
+        out ImmutableArray<Diagnostic> diagnostics,
+        string? fileName = null)
     {
         Compilation compilationInput = CSharpCompilation.Create(null,
             [],
             [MetadataReference.CreateFromFile(typeof(Binder).GetTypeInfo().Assembly.Location)],
             new CSharpCompilationOptions(OutputKind.ConsoleApplication));
 
-        FakeAdditionalText fake = new FakeAdditionalText(csml);
+        FakeAdditionalText fake = new FakeAdditionalText(csml, fileName);
         CsmlGenerator generator = new CsmlGenerator();
 
         GeneratorDriver driver = CSharpGeneratorDriver
