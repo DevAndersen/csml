@@ -1,5 +1,4 @@
-﻿using Csml.Parser.Nodes;
-using Csml.Parser.Nodes.Members;
+﻿using Csml.Parser.Nodes.Members;
 using Csml.Parser.Nodes.Types;
 
 namespace Csml.Generator.SyntaxBuilders;
