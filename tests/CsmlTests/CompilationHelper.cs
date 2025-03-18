@@ -28,7 +28,10 @@ internal static class CompilationHelper
     /// <returns></returns>
     public static IEnumerable<SyntaxNode> AssertCompile(string csml, out ImmutableArray<Diagnostic> diagnostics)
     {
-        Compilation compilationInput = CreateCompilation();
+        Compilation compilationInput = CSharpCompilation.Create(null,
+            [],
+            [MetadataReference.CreateFromFile(typeof(Binder).GetTypeInfo().Assembly.Location)],
+            new CSharpCompilationOptions(OutputKind.ConsoleApplication));
 
         FakeAdditionalText fake = new FakeAdditionalText(csml);
         CsmlGenerator generator = new CsmlGenerator();
@@ -52,14 +55,6 @@ internal static class CompilationHelper
 
         Assert.Fail($"Syntax tree root node was {tree.GetRoot().GetType().FullName}, expected {nameof(CompilationUnitSyntax)}");
         return default;
-    }
-
-    private static CSharpCompilation CreateCompilation()
-    {
-        return CSharpCompilation.Create(null,
-            [],
-            [MetadataReference.CreateFromFile(typeof(Binder).GetTypeInfo().Assembly.Location)],
-            new CSharpCompilationOptions(OutputKind.ConsoleApplication));
     }
 
     /// <summary>
