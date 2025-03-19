@@ -32,7 +32,7 @@ internal class CsmlGenerator : IIncrementalGenerator
 
             if (sourceFile.FileExtension != _preferredFileExtension)
             {
-                context.ReportDiagnostic(Diagnostic.Create(GeneratorDiagnostics.HastagFileExtension, Location.None));
+                context.ReportDiagnostic(Diagnostic.Create(GeneratorDiagnostics.NotPreferredFileExtension, Location.None));
             }
 
             CsmlParseResult result = CsmlParser.Parse(sourceFile.FileContent);

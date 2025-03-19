@@ -1,4 +1,4 @@
-﻿namespace CsmlTests;
+﻿namespace CsmlTests.Types;
 
 public class ClassDeclarationTests
 {
@@ -15,17 +15,17 @@ public class ClassDeclarationTests
             """;
 
         // Act
-        IEnumerable<SyntaxNode> output = AssertCompileNoDiagnostics(csml);
+        SyntaxNode[] output = AssertCompileNoDiagnostics(csml);
 
         // Assert
-        if (output.ToArray() is not [NamespaceDeclarationSyntax namespaceDeclaration])
+        if (output is not [NamespaceDeclarationSyntax namespaceDeclaration])
         {
             Assert.Fail();
             return;
         }
 
-        IEnumerable<SyntaxNode> namespaceChildren = namespaceDeclaration.ChildNodes();
-        if (namespaceChildren.ToArray() is not [IdentifierNameSyntax, ClassDeclarationSyntax classDeclaration])
+        SyntaxNode[] namespaceChildren = namespaceDeclaration.GetChildNodes();
+        if (namespaceChildren is not [IdentifierNameSyntax, ClassDeclarationSyntax classDeclaration])
         {
             Assert.Fail();
             return;
@@ -48,17 +48,17 @@ public class ClassDeclarationTests
             """;
 
         // Act
-        IEnumerable<SyntaxNode> output = AssertCompileNoDiagnostics(csml);
+        SyntaxNode[] output = AssertCompileNoDiagnostics(csml);
 
         // Assert
-        if (output.ToArray() is not [NamespaceDeclarationSyntax namespaceDeclaration])
+        if (output is not [NamespaceDeclarationSyntax namespaceDeclaration])
         {
             Assert.Fail();
             return;
         }
 
-        IEnumerable<SyntaxNode> namespaceChildren = namespaceDeclaration.ChildNodes();
-        if (namespaceChildren.ToArray() is not [IdentifierNameSyntax, ClassDeclarationSyntax classDeclarationA, ClassDeclarationSyntax classDeclarationB])
+        SyntaxNode[] namespaceChildren = namespaceDeclaration.GetChildNodes();
+        if (namespaceChildren is not [IdentifierNameSyntax, ClassDeclarationSyntax classDeclarationA, ClassDeclarationSyntax classDeclarationB])
         {
             Assert.Fail();
             return;
@@ -81,17 +81,17 @@ public class ClassDeclarationTests
             """;
 
         // Act
-        IEnumerable<SyntaxNode> output = AssertCompileNoDiagnostics(csml);
+        SyntaxNode[] output = AssertCompileNoDiagnostics(csml);
 
         // Assert
-        if (output.ToArray() is not [NamespaceDeclarationSyntax namespaceDeclaration])
+        if (output is not [NamespaceDeclarationSyntax namespaceDeclaration])
         {
             Assert.Fail();
             return;
         }
 
-        IEnumerable<SyntaxNode> namespaceChildren = namespaceDeclaration.ChildNodes();
-        if (namespaceChildren.ToArray() is not [IdentifierNameSyntax, ClassDeclarationSyntax classDeclaration])
+        SyntaxNode[] namespaceChildren = namespaceDeclaration.GetChildNodes();
+        if (namespaceChildren is not [IdentifierNameSyntax, ClassDeclarationSyntax classDeclaration])
         {
             Assert.Fail();
             return;
@@ -113,17 +113,17 @@ public class ClassDeclarationTests
             """;
 
         // Act
-        IEnumerable<SyntaxNode> output = AssertCompileNoDiagnostics(csml);
+        SyntaxNode[] output = AssertCompileNoDiagnostics(csml);
 
         // Assert
-        if (output.ToArray() is not [NamespaceDeclarationSyntax namespaceDeclaration])
+        if (output is not [NamespaceDeclarationSyntax namespaceDeclaration])
         {
             Assert.Fail();
             return;
         }
 
-        IEnumerable<SyntaxNode> namespaceChildren = namespaceDeclaration.ChildNodes();
-        if (namespaceChildren.ToArray() is not [IdentifierNameSyntax, ClassDeclarationSyntax classDeclaration])
+        SyntaxNode[] namespaceChildren = namespaceDeclaration.GetChildNodes();
+        if (namespaceChildren is not [IdentifierNameSyntax, ClassDeclarationSyntax classDeclaration])
         {
             Assert.Fail();
             return;
@@ -145,17 +145,17 @@ public class ClassDeclarationTests
             """;
 
         // Act
-        IEnumerable<SyntaxNode> output = AssertCompileNoDiagnostics(csml);
+        SyntaxNode[] output = AssertCompileNoDiagnostics(csml);
 
         // Assert
-        if (output.ToArray() is not [NamespaceDeclarationSyntax namespaceDeclaration])
+        if (output is not [NamespaceDeclarationSyntax namespaceDeclaration])
         {
             Assert.Fail();
             return;
         }
 
-        IEnumerable<SyntaxNode> namespaceChildren = namespaceDeclaration.ChildNodes();
-        if (namespaceChildren.ToArray() is not [IdentifierNameSyntax, ClassDeclarationSyntax classDeclaration])
+        SyntaxNode[] namespaceChildren = namespaceDeclaration.GetChildNodes();
+        if (namespaceChildren is not [IdentifierNameSyntax, ClassDeclarationSyntax classDeclaration])
         {
             Assert.Fail();
             return;

@@ -14,10 +14,10 @@ public class UsingDirectiveTests
             """;
 
         // Act
-        IEnumerable<SyntaxNode> output = AssertCompileNoDiagnostics(csml);
+        SyntaxNode[] output = AssertCompileNoDiagnostics(csml);
 
         // Assert
-        if (output.ToArray() is not [UsingDirectiveSyntax usingDirective, NamespaceDeclarationSyntax])
+        if (output is not [UsingDirectiveSyntax usingDirective, NamespaceDeclarationSyntax])
         {
             Assert.Fail();
             return;
@@ -39,10 +39,10 @@ public class UsingDirectiveTests
             """;
 
         // Act
-        IEnumerable<SyntaxNode> output = AssertCompileNoDiagnostics(csml);
+        SyntaxNode[] output = AssertCompileNoDiagnostics(csml);
 
         // Assert
-        if (output.ToArray() is not [UsingDirectiveSyntax usingDirective1, UsingDirectiveSyntax usingDirective2, NamespaceDeclarationSyntax])
+        if (output is not [UsingDirectiveSyntax usingDirective1, UsingDirectiveSyntax usingDirective2, NamespaceDeclarationSyntax])
         {
             Assert.Fail();
             return;
@@ -65,17 +65,17 @@ public class UsingDirectiveTests
             """;
 
         // Act
-        IEnumerable<SyntaxNode> output = AssertCompileNoDiagnostics(csml);
+        SyntaxNode[] output = AssertCompileNoDiagnostics(csml);
 
         // Assert
-        if (output.ToArray() is not [UsingDirectiveSyntax usingDirective1, NamespaceDeclarationSyntax namespaceDeclaration])
+        if (output is not [UsingDirectiveSyntax usingDirective1, NamespaceDeclarationSyntax namespaceDeclaration])
         {
             Assert.Fail();
             return;
         }
 
-        IEnumerable<SyntaxNode> nested = namespaceDeclaration.ChildNodes();
-        if (nested.ToArray() is not [IdentifierNameSyntax, UsingDirectiveSyntax usingDirective2])
+        SyntaxNode[] nested = namespaceDeclaration.GetChildNodes();
+        if (nested is not [IdentifierNameSyntax, UsingDirectiveSyntax usingDirective2])
         {
             Assert.Fail();
             return;

@@ -1,9 +1,8 @@
 ﻿using Csml.Generator;
 using Microsoft.CodeAnalysis.Text;
 using System.Reflection;
-using System.Runtime.CompilerServices;
 
-namespace CsmlTests;
+namespace CsmlTests.Helpers;
 
 internal static class CompilationHelper
 {
@@ -12,9 +11,9 @@ internal static class CompilationHelper
     /// </summary>
     /// <param name="csml"></param>
     /// <returns></returns>
-    public static IEnumerable<SyntaxNode> AssertCompileNoDiagnostics(string csml)
+    public static SyntaxNode[] AssertCompileNoDiagnostics(string csml)
     {
-        IEnumerable<SyntaxNode> output = AssertCompile(csml, out ImmutableArray<Diagnostic> diagnostics, null);
+        SyntaxNode[] output = Compile(csml, out ImmutableArray<Diagnostic> diagnostics, null);
         Assert.Empty(diagnostics);
         return output;
     }
@@ -25,7 +24,7 @@ internal static class CompilationHelper
     /// <param name="csml"></param>
     /// <param name="diagnostics"></param>
     /// <returns></returns>
-    public static IEnumerable<SyntaxNode> AssertCompile(
+    public static SyntaxNode[] Compile(
         string csml,
         out ImmutableArray<Diagnostic> diagnostics,
         string? fileName = null)
@@ -47,16 +46,12 @@ internal static class CompilationHelper
             out Compilation compilationOutput,
             out diagnostics);
 
-        Assert.Single(compilationOutput.SyntaxTrees);
-        SyntaxTree tree = compilationOutput.SyntaxTrees.First();
-
-        if (tree.GetRoot() is CompilationUnitSyntax unit)
+        if (compilationOutput.SyntaxTrees.FirstOrDefault()?.GetRoot() is CompilationUnitSyntax unit)
         {
-            return unit.ChildNodes();
+            return unit.GetChildNodes();
         }
 
-        Assert.Fail($"Syntax tree root node was {tree.GetRoot().GetType().FullName}, expected {nameof(CompilationUnitSyntax)}");
-        return default;
+        return [];
     }
 
     /// <summary>
@@ -69,10 +64,10 @@ internal static class CompilationHelper
 
         public override string Path => _path;
 
-        public FakeAdditionalText(string text, string? fileName = null, [CallerMemberName] string callerMemberName = "")
+        public FakeAdditionalText(string text, string? fileName = null)
         {
             _text = text;
-            _path = fileName ?? $"{callerMemberName}.c♯";
+            _path = fileName ?? $"SourceFile.c♯";
         }
 
         public override SourceText? GetText(CancellationToken cancellationToken = default)

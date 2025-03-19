@@ -2,4 +2,5 @@
 global using Microsoft.CodeAnalysis.CSharp;
 global using Microsoft.CodeAnalysis.CSharp.Syntax;
 global using System.Collections.Immutable;
-global using static CsmlTests.CompilationHelper;
+global using static CsmlTests.Helpers.CompilationHelper;
+global using static CsmlTests.Helpers.SyntaxNodeDescendantExtensions;

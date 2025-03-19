@@ -1,9 +1,11 @@
-﻿namespace CsmlTests;
+﻿using Csml.Generator;
+
+namespace CsmlTests;
 
 public class FileExtensionTests
 {
     [Fact]
-    public void PreferredFiletype_NoDiagnostics()
+    public void PreferredFileExtension_CompileSucceedsWithoutDiagnostics()
     {
         // Arrange
         string csml = """
@@ -14,15 +16,17 @@ public class FileExtensionTests
             """;
 
         // Act
-        IEnumerable<SyntaxNode> output = AssertCompile(csml, out ImmutableArray<Diagnostic> diagnostics, "Test.c♯");
+        SyntaxNode[] output = Compile(csml, out ImmutableArray<Diagnostic> diagnostics, "Test.c♯");
 
         // Assert
         Assert.Empty(diagnostics);
-        Assert.True(output.ToArray() is [NamespaceDeclarationSyntax]);
+        Assert.True(output is [NamespaceDeclarationSyntax]);
     }
 
-    [Fact]
-    public void NotPreferredFiletype_Diagnostic()
+    [Theory]
+    [InlineData(".c#")]
+    [InlineData(".csml")]
+    public void NotPreferredFileExtension_CompileSucceedsWithDiagnostic(string fileExtension)
     {
         // Arrange
         string csml = """
@@ -33,10 +37,31 @@ public class FileExtensionTests
             """;
 
         // Act
-        IEnumerable<SyntaxNode> output = AssertCompile(csml, out ImmutableArray<Diagnostic> diagnostics, "Test.c#");
+        SyntaxNode[] output = Compile(csml, out ImmutableArray<Diagnostic> diagnostics, $"Test{fileExtension}");
 
         // Assert
-        Assert.NotEmpty(diagnostics);
-        Assert.True(output.ToArray() is [NamespaceDeclarationSyntax]);
+        Assert.True(diagnostics is [Diagnostic { Id: GeneratorDiagnostics.NotPreferredFileExtensionId }]);
+        Assert.True(output is [NamespaceDeclarationSyntax]);
+    }
+
+    [Theory]
+    [InlineData(".cs")]
+    [InlineData("")]
+    public void UnexpectedFileExtension_CompileSkippedWithoutDiagnostic(string fileExtension)
+    {
+        // Arrange
+        string csml = """
+            <Csml>
+            	<Namespace Name="MyNamespace">
+                </Namespace>
+            </Csml>
+            """;
+
+        // Act
+        SyntaxNode[] output = Compile(csml, out ImmutableArray<Diagnostic> diagnostics, $"Test{fileExtension}");
+
+        // Assert
+        Assert.Empty(diagnostics);
+        Assert.Empty(output);
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace CsmlTests;
+﻿namespace CsmlTests.Types;
 
 public class ClassAccessModifierTests
 {
@@ -22,17 +22,17 @@ public class ClassAccessModifierTests
             """;
 
         // Act
-        IEnumerable<SyntaxNode> output = AssertCompileNoDiagnostics(csml);
+        SyntaxNode[] output = AssertCompileNoDiagnostics(csml);
 
         // Assert
-        if (output.ToArray() is not [NamespaceDeclarationSyntax namespaceDeclaration])
+        if (output is not [NamespaceDeclarationSyntax namespaceDeclaration])
         {
             Assert.Fail();
             return;
         }
 
-        IEnumerable<SyntaxNode> namespaceChildren = namespaceDeclaration.ChildNodes();
-        if (namespaceChildren.ToArray() is not [IdentifierNameSyntax, ClassDeclarationSyntax classDeclaration])
+        SyntaxNode[] namespaceChildren = namespaceDeclaration.GetChildNodes();
+        if (namespaceChildren is not [IdentifierNameSyntax, ClassDeclarationSyntax classDeclaration])
         {
             Assert.Fail();
             return;
@@ -54,17 +54,17 @@ public class ClassAccessModifierTests
             """;
 
         // Act
-        IEnumerable<SyntaxNode> output = AssertCompileNoDiagnostics(csml);
+        SyntaxNode[] output = AssertCompileNoDiagnostics(csml);
 
         // Assert
-        if (output.ToArray() is not [NamespaceDeclarationSyntax namespaceDeclaration])
+        if (output is not [NamespaceDeclarationSyntax namespaceDeclaration])
         {
             Assert.Fail();
             return;
         }
 
-        IEnumerable<SyntaxNode> namespaceChildren = namespaceDeclaration.ChildNodes();
-        if (namespaceChildren.ToArray() is not [IdentifierNameSyntax, ClassDeclarationSyntax classDeclaration])
+        SyntaxNode[] namespaceChildren = namespaceDeclaration.GetChildNodes();
+        if (namespaceChildren is not [IdentifierNameSyntax, ClassDeclarationSyntax classDeclaration])
         {
             Assert.Fail();
             return;
@@ -95,24 +95,24 @@ public class ClassAccessModifierTests
             """;
 
         // Act
-        IEnumerable<SyntaxNode> output = AssertCompileNoDiagnostics(csml);
+        SyntaxNode[] output = AssertCompileNoDiagnostics(csml);
 
         // Assert
-        if (output.ToArray() is not [NamespaceDeclarationSyntax namespaceDeclaration])
+        if (output is not [NamespaceDeclarationSyntax namespaceDeclaration])
         {
             Assert.Fail();
             return;
         }
 
-        IEnumerable<SyntaxNode> namespaceChildren = namespaceDeclaration.ChildNodes();
-        if (namespaceChildren.ToArray() is not [IdentifierNameSyntax, ClassDeclarationSyntax outerClassDeclaration])
+        SyntaxNode[] namespaceChildren = namespaceDeclaration.GetChildNodes();
+        if (namespaceChildren is not [IdentifierNameSyntax, ClassDeclarationSyntax outerClassDeclaration])
         {
             Assert.Fail();
             return;
         }
 
-        IEnumerable<SyntaxNode> outerClassChildren = outerClassDeclaration.ChildNodes();
-        if (outerClassChildren.ToArray() is not [ClassDeclarationSyntax innerClassDeclaration])
+        SyntaxNode[] outerClassChildren = outerClassDeclaration.GetChildNodes();
+        if (outerClassChildren is not [ClassDeclarationSyntax innerClassDeclaration])
         {
             Assert.Fail();
             return;
@@ -136,24 +136,24 @@ public class ClassAccessModifierTests
             """;
 
         // Act
-        IEnumerable<SyntaxNode> output = AssertCompileNoDiagnostics(csml);
+        SyntaxNode[] output = AssertCompileNoDiagnostics(csml);
 
         // Assert
-        if (output.ToArray() is not [NamespaceDeclarationSyntax namespaceDeclaration])
+        if (output is not [NamespaceDeclarationSyntax namespaceDeclaration])
         {
             Assert.Fail();
             return;
         }
 
-        IEnumerable<SyntaxNode> namespaceChildren = namespaceDeclaration.ChildNodes();
-        if (namespaceChildren.ToArray() is not [IdentifierNameSyntax, ClassDeclarationSyntax outerClassDeclaration])
+        SyntaxNode[] namespaceChildren = namespaceDeclaration.GetChildNodes();
+        if (namespaceChildren is not [IdentifierNameSyntax, ClassDeclarationSyntax outerClassDeclaration])
         {
             Assert.Fail();
             return;
         }
 
-        IEnumerable<SyntaxNode> outerClassChildren = outerClassDeclaration.ChildNodes();
-        if (outerClassChildren.ToArray() is not [ClassDeclarationSyntax innerClassDeclaration])
+        SyntaxNode[] outerClassChildren = outerClassDeclaration.GetChildNodes();
+        if (outerClassChildren is not [ClassDeclarationSyntax innerClassDeclaration])
         {
             Assert.Fail();
             return;

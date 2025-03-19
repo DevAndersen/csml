@@ -13,10 +13,10 @@ public class NamespaceTests
             """;
 
         // Act
-        IEnumerable<SyntaxNode> output = AssertCompileNoDiagnostics(csml);
+        SyntaxNode[] output = AssertCompileNoDiagnostics(csml);
 
         // Assert
-        if (output.ToArray() is not [NamespaceDeclarationSyntax namespaceDeclaration])
+        if (output is not [NamespaceDeclarationSyntax namespaceDeclaration])
         {
             Assert.Fail();
             return;
@@ -37,10 +37,10 @@ public class NamespaceTests
             """;
 
         // Act
-        IEnumerable<SyntaxNode> output = AssertCompileNoDiagnostics(csml);
+        SyntaxNode[] output = AssertCompileNoDiagnostics(csml);
 
         // Assert
-        if (output.ToArray() is not [NamespaceDeclarationSyntax namespaceDeclaration1, NamespaceDeclarationSyntax namespaceDeclaration2])
+        if (output is not [NamespaceDeclarationSyntax namespaceDeclaration1, NamespaceDeclarationSyntax namespaceDeclaration2])
         {
             Assert.Fail();
             return;
@@ -63,17 +63,17 @@ public class NamespaceTests
             """;
 
         // Act
-        IEnumerable<SyntaxNode> output = AssertCompileNoDiagnostics(csml);
+        SyntaxNode[] output = AssertCompileNoDiagnostics(csml);
 
         // Assert
-        if (output.ToArray() is not [NamespaceDeclarationSyntax namespaceDeclaration1])
+        if (output is not [NamespaceDeclarationSyntax namespaceDeclaration1])
         {
             Assert.Fail();
             return;
         }
 
-        IEnumerable<SyntaxNode> nested = namespaceDeclaration1.ChildNodes();
-        if (nested.ToArray() is not [IdentifierNameSyntax, NamespaceDeclarationSyntax namespaceDeclaration2])
+        SyntaxNode[] nested = namespaceDeclaration1.GetChildNodes();
+        if (nested is not [IdentifierNameSyntax, NamespaceDeclarationSyntax namespaceDeclaration2])
         {
             Assert.Fail();
             return;
