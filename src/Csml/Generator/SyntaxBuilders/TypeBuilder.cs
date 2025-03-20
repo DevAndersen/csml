@@ -70,6 +70,7 @@ internal static class TypeBuilder
                 memberList = member switch
                 {
                     PropertyNode propertyNode => memberList.Add(PropertyBuilder.Build(propertyNode, typeNode)),
+                    FieldNode fieldNode => memberList.Add(FieldBuilder.Build(fieldNode, typeNode)),
                     _ => throw new UnexpectedCsmlPermutationException(typeNode.LineNumber, member.GetType().FullName, "member")
                 };
             }
