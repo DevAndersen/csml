@@ -9,6 +9,10 @@ internal static class CsmlDiagnostics
     public const string MissingRequiredPropertyId = "CSML0003";
     public const string XmlParseExceptionId = "CSML0004";
     public const string UnexpectedParseExceptionId = "CSML0005";
+    public const string UnexpectedPermutationId = "CSML0006";
+    public const string UnexpectedAttributeId = "CSML0007";
+    public const string UnexpectedElementId = "CSML0008";
+    public const string InvalidAccessorId = "CSML0009";
 
     public static readonly DiagnosticDescriptor NotPreferredFileExtension = new DiagnosticDescriptor(
         id: NotPreferredFileExtensionId,
@@ -45,7 +49,39 @@ internal static class CsmlDiagnostics
     public static readonly DiagnosticDescriptor UnexpectedParseException = new DiagnosticDescriptor(
         id: UnexpectedParseExceptionId,
         title: "Unexpected parse exception",
-        messageFormat: "Unexpected '{0}' thrown during parsing, message: {1}",
+        messageFormat: "Unexpected {0} thrown during parsing, message: {1}",
+        category: _category,
+        DiagnosticSeverity.Error,
+        isEnabledByDefault: true);
+
+    public static readonly DiagnosticDescriptor UnexpectedPermutation = new DiagnosticDescriptor(
+        id: UnexpectedPermutationId,
+        title: "Unexpected permutation",
+        messageFormat: "Unexpected permutation '{0}' of '{1}'",
+        category: _category,
+        DiagnosticSeverity.Error,
+        isEnabledByDefault: true);
+
+    public static readonly DiagnosticDescriptor UnexpectedAttribute = new DiagnosticDescriptor(
+        id: UnexpectedAttributeId,
+        title: "Unexpected attribute",
+        messageFormat: "Unexpected attribute '{0}'",
+        category: _category,
+        DiagnosticSeverity.Error,
+        isEnabledByDefault: true);
+
+    public static readonly DiagnosticDescriptor UnexpectedElement = new DiagnosticDescriptor(
+        id: UnexpectedElementId,
+        title: "Unexpected element",
+        messageFormat: "Unexpected element '{0}'",
+        category: _category,
+        DiagnosticSeverity.Error,
+        isEnabledByDefault: true);
+
+    public static readonly DiagnosticDescriptor InvalidAccessor = new DiagnosticDescriptor(
+        id: InvalidAccessorId,
+        title: "Invalid accessor",
+        messageFormat: "'{0}' is not a valid access modifier for {1}",
         category: _category,
         DiagnosticSeverity.Error,
         isEnabledByDefault: true);

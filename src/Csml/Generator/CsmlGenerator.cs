@@ -1,4 +1,5 @@
-﻿using Csml.Generator.SyntaxBuilders;
+﻿using Csml.Exceptions;
+using Csml.Generator.SyntaxBuilders;
 using Csml.Parser;
 using Microsoft.CodeAnalysis.Text;
 using System.Diagnostics;
@@ -39,10 +40,20 @@ internal class CsmlGenerator : IIncrementalGenerator
 
             if (result is { Result: not null, Errors.Count: 0 })
             {
-                CompilationUnitSyntax syntax = CsmlBuilder.Build(result.Result!);
-                SyntaxTree syntaxTree = SyntaxFactory.SyntaxTree(syntax, encoding: System.Text.Encoding.Unicode);
+                try
+                {
+                    CompilationUnitSyntax syntax = CsmlBuilder.Build(result.Result!);
+                    SyntaxTree syntaxTree = SyntaxFactory.SyntaxTree(syntax, encoding: System.Text.Encoding.Unicode);
 
-                context.AddSource($"{sourceFile.FileName}.g.cs", syntaxTree.GetText());
+                    context.AddSource($"{sourceFile.FileName}.g.cs", syntaxTree.GetText());
+                }
+                catch (InvalidAccessorException invalidAccessorException)
+                {
+                    result.Errors.Add(new CsmlParseError(
+                        CsmlDiagnostics.InvalidAccessor,
+                        invalidAccessorException.LineNumber,
+                        [invalidAccessorException.AccessModifiers.ToString(), invalidAccessorException.Target]));
+                }
             }
 
             foreach (CsmlParseError error in result.Errors)
@@ -55,8 +66,8 @@ internal class CsmlGenerator : IIncrementalGenerator
                 else
                 {
                     LinePositionSpan linePositionSpan = new LinePositionSpan(
-                        new LinePosition(error.LineNumber.Value - 1, 0),
-                        new LinePosition(error.LineNumber.Value - 1, 0)
+                        new LinePosition(error.LineNumber.Value, 0),
+                        new LinePosition(error.LineNumber.Value, 0)
                     );
 
                     location = Location.Create(

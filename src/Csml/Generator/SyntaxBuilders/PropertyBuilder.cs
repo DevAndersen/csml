@@ -1,4 +1,5 @@
-﻿using Csml.Parser.Nodes.Members;
+﻿using Csml.Exceptions;
+using Csml.Parser.Nodes.Members;
 using Csml.Parser.Nodes.Types;
 
 namespace Csml.Generator.SyntaxBuilders;
@@ -25,7 +26,7 @@ internal static class PropertyBuilder
         PredefinedTypeSyntax type = SF.PredefinedType(SF.Token(SyntaxKind.IntKeyword));
         PropertyDeclarationSyntax syntax = SF.PropertyDeclaration(type, propertyNode.Name);
 
-        SyntaxKind[] accessModifiers = propertyNode.Access switch
+        SyntaxKind[] propertyAccessModifiers = propertyNode.Access switch
         {
             AccessModifier.Public => [SyntaxKind.PublicKeyword],
             AccessModifier.Private => [SyntaxKind.PrivateKeyword],
@@ -33,28 +34,60 @@ internal static class PropertyBuilder
             AccessModifier.Internal => [SyntaxKind.InternalKeyword],
             AccessModifier.ProtectedInternal => [SyntaxKind.ProtectedKeyword, SyntaxKind.InternalKeyword],
             AccessModifier.PrivateProtected => [SyntaxKind.PrivateKeyword, SyntaxKind.ProtectedKeyword],
-            AccessModifier.File => [SyntaxKind.FileKeyword],
+            AccessModifier.File => throw new InvalidAccessorException(propertyNode.LineNumber, propertyNode.Access, "property"),
             _ when parentType is InterfaceNode => [SyntaxKind.PublicKeyword],
             _ => [SyntaxKind.PrivateKeyword],
         };
 
         SyntaxTokenList tokenList = SF.TokenList();
 
-        foreach (SyntaxKind accessModifier in accessModifiers)
+        foreach (SyntaxKind accessModifier in propertyAccessModifiers)
         {
             tokenList = tokenList.Add(SF.Token(accessModifier));
         }
 
-        AccessorListSyntax accessors = SF.AccessorList(SF.List(
-        [
-            SF.AccessorDeclaration(SyntaxKind.GetAccessorDeclaration)
-                .WithSemicolonToken(SF.Token(SyntaxKind.SemicolonToken)),
-            SF.AccessorDeclaration(SyntaxKind.SetAccessorDeclaration)
-                .WithSemicolonToken(SF.Token(SyntaxKind.SemicolonToken))
-        ]));
+        AccessorListSyntax accessors = SF.AccessorList();
+
+        if (propertyNode.Getter != PropertyGetterAccessor.Unset)
+        {
+            SyntaxTokenList getterAccessTokens = SF.TokenList(GetAccessorAccessModifiers(propertyNode.GetterAccess, propertyNode).Select(SF.Token));
+            accessors = accessors
+                .AddAccessors(SF.AccessorDeclaration(SyntaxKind.GetAccessorDeclaration)
+                .WithModifiers(getterAccessTokens)
+                .WithSemicolonToken(SF.Token(SyntaxKind.SemicolonToken)));
+        }
+
+        if (propertyNode.Setter != PropertySetterAccessor.Unset)
+        {
+            SyntaxTokenList setterAccessTokens = SF.TokenList(GetAccessorAccessModifiers(propertyNode.SetterAccess, propertyNode).Select(SF.Token));
+
+            SyntaxKind setterSyntaxKind = propertyNode.Setter == PropertySetterAccessor.Set
+                ? SyntaxKind.SetAccessorDeclaration
+                : SyntaxKind.InitAccessorDeclaration;
+
+            accessors = accessors
+                .AddAccessors(SF.AccessorDeclaration(setterSyntaxKind)
+                .WithModifiers(setterAccessTokens)
+                .WithSemicolonToken(SF.Token(SyntaxKind.SemicolonToken)));
+        }
 
         return syntax
             .WithModifiers(tokenList)
             .WithAccessorList(accessors);
+    }
+
+    private static SyntaxKind[] GetAccessorAccessModifiers(AccessModifier modifier, PropertyNode propertyNode)
+    {
+        return modifier switch
+        {
+            AccessModifier.Public => [SyntaxKind.PublicKeyword],
+            AccessModifier.Private => [SyntaxKind.PrivateKeyword],
+            AccessModifier.Protected => [SyntaxKind.ProtectedKeyword],
+            AccessModifier.Internal => [SyntaxKind.InternalKeyword],
+            AccessModifier.ProtectedInternal => [SyntaxKind.ProtectedKeyword, SyntaxKind.InternalKeyword],
+            AccessModifier.PrivateProtected => [SyntaxKind.PrivateKeyword, SyntaxKind.ProtectedKeyword],
+            AccessModifier.File => throw new InvalidAccessorException(propertyNode.LineNumber, modifier, "property accessor"),
+            _ => [],
+        };
     }
 }

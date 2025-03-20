@@ -1,4 +1,5 @@
-﻿using Csml.Parser.Nodes.Members;
+﻿using Csml.Exceptions;
+using Csml.Parser.Nodes.Members;
 using Csml.Parser.Nodes.Types;
 
 namespace Csml.Generator.SyntaxBuilders;
@@ -27,7 +28,7 @@ internal static class TypeBuilder
             ClassNode => SyntaxKind.ClassDeclaration,
             StructNode => SyntaxKind.StructDeclaration,
             InterfaceNode => SyntaxKind.InterfaceDeclaration,
-            _ => throw new NotImplementedException($"BAD TYPE NODE TYPE {typeNode.GetType()}"), // Todo: Throw appropriate exception.
+            _ => throw new UnexpectedCsmlPermutationException(typeNode.LineNumber, typeNode.GetType().FullName, "type")
         };
 
         TypeDeclarationSyntax syntax = SF.TypeDeclaration(kind, typeNode.Name);
@@ -69,7 +70,7 @@ internal static class TypeBuilder
                 memberList = member switch
                 {
                     PropertyNode propertyNode => memberList.Add(PropertyBuilder.Build(propertyNode, typeNode)),
-                    _ => throw new NotImplementedException($"BAD MEMBER NODE TYPE {member.GetType()}"), // Todo: Throw appropriate exception.
+                    _ => throw new UnexpectedCsmlPermutationException(typeNode.LineNumber, member.GetType().FullName, "member")
                 };
             }
         }

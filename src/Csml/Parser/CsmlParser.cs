@@ -18,22 +18,17 @@ public static class CsmlParser
         XmlSerializer serializer = new XmlSerializer(typeof(CsmlNode), validNodes);
         serializer.UnknownElement += (s, e) =>
         {
-            errors.Add(new CsmlParseError(CsmlDiagnostics.ParseError, e.LineNumber, "[UNKNOWN ELEMENT]"));
+            errors.Add(new CsmlParseError(CsmlDiagnostics.UnexpectedElement, e.LineNumber, e.Element.Name));
         };
 
         serializer.UnknownAttribute += (s, e) =>
         {
-            errors.Add(new CsmlParseError(CsmlDiagnostics.ParseError, e.LineNumber, "[UNKNOWN ATTRIBUTE]"));
-        };
-
-        serializer.UnknownNode += (s, e) =>
-        {
-            errors.Add(new CsmlParseError(CsmlDiagnostics.ParseError, e.LineNumber, "[UNKNOWN NODE]"));
+            errors.Add(new CsmlParseError(CsmlDiagnostics.UnexpectedAttribute, e.LineNumber, e.Attr.Name));
         };
 
         serializer.UnreferencedObject += (s, e) =>
         {
-            errors.Add(new CsmlParseError(CsmlDiagnostics.ParseError, null, "[UNREFERENCED OBJECT]"));
+            errors.Add(new CsmlParseError(CsmlDiagnostics.ParseError, null, $"Unreferenced object {e.UnreferencedObject}"));
         };
 
         CsmlNode? parsedResult = null;
@@ -60,7 +55,7 @@ public static class CsmlParser
         }
         catch (Exception exception)
         {
-            errors.Add(new CsmlParseError(CsmlDiagnostics.UnexpectedParseException, null, exception.Message));
+            errors.Add(new CsmlParseError(CsmlDiagnostics.UnexpectedParseException, null, exception.GetType().Name, exception.Message));
         }
 
         return new CsmlParseResult(parsedResult, errors);

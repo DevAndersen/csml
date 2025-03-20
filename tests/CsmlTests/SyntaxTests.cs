@@ -93,12 +93,12 @@ public class SyntaxTests
     }
 
     [Fact]
-    public void UnexpectedTags_CompileFails()
+    public void UnexpectedTag_CompileFails()
     {
         // Arrange
         string csml = """
             <Csml>
-            	<Namespace>
+            	<Namespace Name="MyNamespace">
                     <Csml>
                     </Csml>
                 </Namespace>
@@ -110,6 +110,46 @@ public class SyntaxTests
 
         // Assert
         Assert.Empty(output);
-        Assert.True(diagnostics is [Diagnostic { Id: CsmlDiagnostics.ParseErrorId }]);
+        Assert.True(diagnostics is [Diagnostic { Id: CsmlDiagnostics.UnexpectedElementId }]);
+    }
+
+    [Fact]
+    public void UnknownTag_CompileFails()
+    {
+        // Arrange
+        string csml = """
+            <Csml>
+            	<Namespace Name="MyNamespace">
+                    <NotAValidTagName>
+                    </NotAValidTagName>
+                </Namespace>
+            </Csml>
+            """;
+
+        // Act
+        SyntaxNode[] output = Compile(csml, out ImmutableArray<Diagnostic> diagnostics);
+
+        // Assert
+        Assert.Empty(output);
+        Assert.True(diagnostics is [Diagnostic { Id: CsmlDiagnostics.UnexpectedElementId }]);
+    }
+
+    [Fact]
+    public void UnknownAttribute_CompileFails()
+    {
+        // Arrange
+        string csml = """
+            <Csml>
+            	<Namespace Name="MyNamespace" NotAValidAttribute="Value">
+                </Namespace>
+            </Csml>
+            """;
+
+        // Act
+        SyntaxNode[] output = Compile(csml, out ImmutableArray<Diagnostic> diagnostics);
+
+        // Assert
+        Assert.Empty(output);
+        Assert.True(diagnostics is [Diagnostic { Id: CsmlDiagnostics.UnexpectedAttributeId }]);
     }
 }

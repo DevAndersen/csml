@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using System.Reflection;
-using RequiredMemberAttribute = System.Runtime.CompilerServices.RequiredMemberAttribute;
+using System.Runtime.CompilerServices;
 
 namespace Csml.Parser;
 

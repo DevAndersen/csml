@@ -10,13 +10,13 @@
 
 			<Class Name="NestedClass">
 
-			</Class>
+        <Property Access="Public" Name="Number" Type="int" Getter="Get" Setter="Set" SetterAccess="Private" />
 
-		</Namespace>
+      </Class>
 
-		<Class Name="MyClass">
+    </Namespace>
 
-      <Property Name="Number" Access="Public" Accessors="GetSet" Type="int" />
+    <Class Name="MyClass">
 
 		</Class>
 

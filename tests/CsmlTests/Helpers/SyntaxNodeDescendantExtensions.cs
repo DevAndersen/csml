@@ -99,7 +99,7 @@ internal static class SyntaxNodeDescendantExtensions
     {
         match = null;
 
-        foreach (var descendant in nodes.SelectMany(x => x.DescendantNodesAndSelf()))
+        foreach (SyntaxNode descendant in nodes.SelectMany(x => x.DescendantNodesAndSelf()))
         {
             if (descendant is T matchingNode && predicate?.Invoke(matchingNode) != false)
             {
