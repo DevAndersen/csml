@@ -18,6 +18,10 @@ C♯ML source files use the `.C♯` file extension. That is the letter `C` follo
 
 In order to get C♯ML source files working, they need to be added as an "additional file".
 
+**Note:** As IDEs such as Visual Studio and Rider have yet to add syntax highlight for C♯ML, it is recommended that you add the following at the beginning of the source files:
+
+    <?xml version="1.0" encoding="utf-8" ?>
+
 [WORK IN PROGRESS]
 
 ## Code examples
