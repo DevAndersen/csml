@@ -40,7 +40,7 @@ public class FileExtensionTests
         SyntaxNode[] output = Compile(csml, out ImmutableArray<Diagnostic> diagnostics, $"Test{fileExtension}");
 
         // Assert
-        Assert.True(diagnostics is [Diagnostic { Id: GeneratorDiagnostics.NotPreferredFileExtensionId }]);
+        Assert.True(diagnostics is [Diagnostic { Id: CsmlDiagnostics.NotPreferredFileExtensionId }]);
         Assert.True(output is [NamespaceDeclarationSyntax]);
     }
 

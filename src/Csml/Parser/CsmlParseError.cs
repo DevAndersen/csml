@@ -1,3 +1,3 @@
 ﻿namespace Csml.Parser;
 
-public record CsmlParseError(string Message, int? LineNumber);
+public record CsmlParseError(DiagnosticDescriptor Descriptor, int? LineNumber, params string[] Arguments);

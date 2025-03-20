@@ -1,4 +1,5 @@
-﻿global using Csml.Parser.Nodes;
+﻿global using Csml.Generator;
+global using Csml.Parser.Nodes;
 global using Microsoft.CodeAnalysis;
 global using Microsoft.CodeAnalysis.CSharp;
 global using Microsoft.CodeAnalysis.CSharp.Syntax;

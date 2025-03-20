@@ -32,7 +32,7 @@ internal class CsmlGenerator : IIncrementalGenerator
 
             if (sourceFile.FileExtension != _preferredFileExtension)
             {
-                context.ReportDiagnostic(Diagnostic.Create(GeneratorDiagnostics.NotPreferredFileExtension, Location.None));
+                context.ReportDiagnostic(Diagnostic.Create(CsmlDiagnostics.NotPreferredFileExtension, Location.None));
             }
 
             CsmlParseResult result = CsmlParser.Parse(sourceFile.FileContent);
@@ -66,9 +66,9 @@ internal class CsmlGenerator : IIncrementalGenerator
                 }
 
                 context.ReportDiagnostic(Diagnostic.Create(
-                    GeneratorDiagnostics.ParseError,
+                    error.Descriptor,
                     location,
-                    [error.Message]));
+                    error.Arguments));
             }
         });
     }

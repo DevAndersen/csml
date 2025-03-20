@@ -51,7 +51,7 @@ public class SyntaxTests
 
         // Assert
         Assert.Empty(output);
-        Assert.True(diagnostics is [Diagnostic { Id: GeneratorDiagnostics.ParseErrorId }]);
+        Assert.True(diagnostics is [Diagnostic { Id: CsmlDiagnostics.XmlParseExceptionId }]);
     }
 
     [Fact]
@@ -70,7 +70,7 @@ public class SyntaxTests
 
         // Assert
         Assert.Empty(output);
-        Assert.True(diagnostics is [Diagnostic { Id: GeneratorDiagnostics.ParseErrorId }]);
+        Assert.True(diagnostics is [Diagnostic { Id: CsmlDiagnostics.UnexpectedParseExceptionId }]);
     }
 
     [Fact]
@@ -89,6 +89,6 @@ public class SyntaxTests
 
         // Assert
         Assert.Empty(output);
-        Assert.True(diagnostics is [Diagnostic { Id: GeneratorDiagnostics.ParseErrorId }]);
+        Assert.True(diagnostics is [Diagnostic { Id: CsmlDiagnostics.MissingRequiredPropertyId }]);
     }
 }
