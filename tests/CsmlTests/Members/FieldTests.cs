@@ -1,5 +1,4 @@
 ﻿using Csml.Generator;
-using Microsoft.CodeAnalysis;
 
 namespace CsmlTests.Members;
 
@@ -31,7 +30,7 @@ public class FieldTests
 
         Assert.True(fieldDeclaration.Modifiers is [SyntaxToken { RawKind: (int)SyntaxKind.PrivateKeyword }]);
         Assert.Equal("int", fieldDeclaration.Declaration.Type.GetText().ToString().Trim());
-        Assert.True(fieldDeclaration.Declaration.Variables is [VariableDeclaratorSyntax { Identifier.Text: "myField"}]);
+        Assert.True(fieldDeclaration.Declaration.Variables is [VariableDeclaratorSyntax { Identifier.Text: "myField" }]);
     }
 
     [Theory]
@@ -66,7 +65,7 @@ public class FieldTests
 
         Assert.Equal(accessSyntaxKinds, fieldDeclaration.Modifiers.Select(x => x.Kind()));
         Assert.Equal("int", fieldDeclaration.Declaration.Type.GetText().ToString().Trim());
-        Assert.True(fieldDeclaration.Declaration.Variables is [VariableDeclaratorSyntax { Identifier.Text: "myField"}]);
+        Assert.True(fieldDeclaration.Declaration.Variables is [VariableDeclaratorSyntax { Identifier.Text: "myField" }]);
     }
 
     [Fact]
