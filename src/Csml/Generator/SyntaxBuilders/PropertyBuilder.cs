@@ -23,8 +23,7 @@ internal static class PropertyBuilder
 
     public static PropertyDeclarationSyntax Build(PropertyNode propertyNode, TypeNode parentType)
     {
-        PredefinedTypeSyntax type = SF.PredefinedType(SF.Token(SyntaxKind.IntKeyword));
-        PropertyDeclarationSyntax syntax = SF.PropertyDeclaration(type, propertyNode.Name);
+        PropertyDeclarationSyntax syntax = SF.PropertyDeclaration(SF.IdentifierName(propertyNode.Type), propertyNode.Name);
 
         SyntaxKind[] propertyAccessModifiers = propertyNode.Access switch
         {
