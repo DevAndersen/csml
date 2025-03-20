@@ -91,4 +91,25 @@ public class SyntaxTests
         Assert.Empty(output);
         Assert.True(diagnostics is [Diagnostic { Id: CsmlDiagnostics.MissingRequiredPropertyId }]);
     }
+
+    [Fact]
+    public void UnexpectedTags_CompileFails()
+    {
+        // Arrange
+        string csml = """
+            <Csml>
+            	<Namespace>
+                    <Csml>
+                    </Csml>
+                </Namespace>
+            </Csml>
+            """;
+
+        // Act
+        SyntaxNode[] output = Compile(csml, out ImmutableArray<Diagnostic> diagnostics);
+
+        // Assert
+        Assert.Empty(output);
+        Assert.True(diagnostics is [Diagnostic { Id: CsmlDiagnostics.ParseErrorId }]);
+    }
 }
