@@ -8,10 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Demo.c♯" />
-  </ItemGroup>
-
-  <ItemGroup>
     <AdditionalFiles Include="Demo.c♯" />
   </ItemGroup>
 

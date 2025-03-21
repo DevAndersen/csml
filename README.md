@@ -10,15 +10,23 @@ Unlike C#, which derives its syntax from C, C♯ML leverages the powerful syntax
 
 C♯ML uses a [.NET source generator](https://devblogs.microsoft.com/dotnet/introducing-c-source-generators/), which builds the C♯ML source files as the code gets written, allowing seamless interoperability between C♯ML and C#. This allows development teams of all sizes to smoothly transition their code from C# to C♯ML, one file at a time, without interrupting product delivery.
 
-C♯ML also addresses C#'s misleading name. While it is pronounced "C sharp", it does not actually use the sharp sign (`♯`), but instead inappropriately uses a number sign (aka. hash- or pound sign) (`#`). C♯ML improves upon C# in this regard, by correctly using the sharp sign.
+C♯ML also addresses C#'s misleading name. While it is pronounced "C sharp", it does not actually use the sharp sign (`♯`), but instead inappropriately uses a number sign (`#`, aka. hash- or pound sign). C♯ML improves upon C# in this regard, by correctly using the sharp sign, both in its name and the file extension of its source files.
 
 ## Usage guide
 
-C♯ML source files use the `.C♯` file extension. That is the letter `C` followed by the sharp sign (`♯`, unicode character DEC `9839`, HEX `266F`). Alternatively, the `.C#` and `.CSML` file extensions can also be used, however using these will result in a warning, as these file extensions are considered misleading.
+C♯ML source files use the `.C♯` file extension. That is the letter `C` followed by the sharp sign (`♯`, unicode character DEC `9839`, HEX `266F`). Alternatively, the `.C#` and `.CSML` file extensions can also be used, however using these will result in an analyzer warning, as these file extensions are considered misleading.
 
-In order to get C♯ML source files working, they need to be added as an "additional file".
+In order to get C♯ML source files working, they need to be added to your `.csproj` as "additional files". This can be done either by manually editing the `.csproj` file, or by using your IDE of choice.
 
-**Note:** As IDEs such as Visual Studio and Rider have yet to add syntax highlight for C♯ML, it is recommended that you add the following at the beginning of the source files:
+```xml
+  <ItemGroup>
+    <AdditionalFiles Include="Filename.c♯" />
+  </ItemGroup>
+```
+
+[IDE EXAMPLE]
+
+**Note:** IDEs such as Visual Studio and Rider have yet to add syntax highlight for C♯ML, and it is therefore recommended that you add the following at the beginning of the source files:
 
     <?xml version="1.0" encoding="utf-8" ?>
 
@@ -40,11 +48,11 @@ In order to get C♯ML source files working, they need to be added as an "additi
 
 **Q:** Does this really qualify as a programming language? It's just an XML parser and a source generator.
 
-- **A:** The question of what constitutes a programming language has been the source of much debate in the software development community. C# itself is traditionally compiled to CIL, which itself traditionally gets JIT-compiled into native code at runtime. I say we give C♯ML the benefit of the doubt, and consider it a programming language until proven otherwise.
+- **A:** The question of what constitutes a programming language has been the source of much debate in the software development community. C# itself is traditionally compiled to CIL, which itself traditionally gets JIT-compiled into native code at runtime. This is quite similar to how C♯ML works, from a certain point of view. I say we give C♯ML the benefit of the doubt, and consider it a programming language until proven otherwise.
 
 **Q:** Why does C♯ML succesfully building C# code that does not compile?
 
-- **A:** While C♯ML will prevent broken code, it is designed to be flexible and future-proof, and therefore does not perform strict compilability validation. Ultimately, the responsibility for writing code correctly lies with the developer, not the tooling.
+- **A:** While C♯ML will provide analyzer warnings and errors for broken syntax, it is designed to be flexible and future-proof, and therefore does not perform strict compilability validation. Ultimately, the responsibility for writing code correctly lies with the developer, not the language or associated tooling.
 
 ## Special thanks to
 
