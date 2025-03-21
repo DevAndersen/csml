@@ -18,4 +18,7 @@ public abstract class TypeNode : BaseNode
     [XmlElement("Struct", typeof(StructNode))]
     [XmlElement("Interface", typeof(InterfaceNode))]
     public TypeNode[]? Types { get; init; }
+
+    [XmlElement("Method")]
+    public MethodNode[]? Methods { get; init; }
 }

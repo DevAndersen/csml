@@ -76,6 +76,11 @@ internal static class TypeBuilder
             }
         }
 
+        if (typeNode.Methods != null)
+        {
+            memberList = memberList.AddRange(MethodBuilder.BuildMultiple(typeNode.Methods, typeNode));
+        }
+
         return syntax
             .WithModifiers(tokenList)
             .WithMembers(memberList);
