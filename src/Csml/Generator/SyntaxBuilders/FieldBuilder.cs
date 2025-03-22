@@ -4,7 +4,7 @@ using Csml.Parser.Nodes.Types;
 
 namespace Csml.Generator.SyntaxBuilders;
 
-public static class FieldBuilder
+internal static class FieldBuilder
 {
     public static SyntaxList<MemberDeclarationSyntax> BuildMultiple(FieldNode[]? nodes, TypeNode parentType)
     {

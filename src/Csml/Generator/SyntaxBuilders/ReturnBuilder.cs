@@ -1,8 +1,7 @@
 ﻿using Csml.Parser.Nodes.Statements;
 
 namespace Csml.Generator.SyntaxBuilders;
-
-public static class ReturnBuilder
+internal static class ReturnBuilder
 {
     public static ReturnStatementSyntax Build(ReturnNode node, BaseNode parentNode)
     {

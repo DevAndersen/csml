@@ -5,7 +5,7 @@ using Csml.Parser.Nodes.Types;
 
 namespace Csml.Generator.SyntaxBuilders;
 
-public class MethodBuilder
+internal class MethodBuilder
 {
     public static SyntaxList<MemberDeclarationSyntax> BuildMultiple(MethodNode[]? nodes, TypeNode parentType)
     {
