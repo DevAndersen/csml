@@ -28,7 +28,9 @@ In order to get C♯ML source files working, they need to be added to your `.csp
 
 **Note:** IDEs such as Visual Studio and Rider have yet to add syntax highlight for C♯ML, and it is therefore recommended that you add the following at the beginning of the source files:
 
-    <?xml version="1.0" encoding="utf-8" ?>
+```xml
+<?xml version="1.0" encoding="utf-8" ?>
+```
 
 [WORK IN PROGRESS]
 
