@@ -12,14 +12,14 @@ internal static class UsingDirectiveBuilder
         {
             foreach (UsingDirectiveNode item in nodes)
             {
-                usingList = usingList.Add(Build(item, parentNamespace));
+                usingList = usingList.Add(Build(item));
             }
         }
 
         return usingList;
     }
 
-    public static UsingDirectiveSyntax Build(UsingDirectiveNode node, NamespaceNode? parentNamespace)
+    public static UsingDirectiveSyntax Build(UsingDirectiveNode node)
     {
         return SF.UsingDirective(SF.IdentifierName(node.Namespace));
     }

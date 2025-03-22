@@ -12,14 +12,14 @@ internal static class NamespaceBuilder
         {
             foreach (NamespaceNode item in nodes)
             {
-                namespaceList = namespaceList.Add(Build(item, parentNamespace));
+                namespaceList = namespaceList.Add(Build(item));
             }
         }
 
         return namespaceList;
     }
 
-    public static NamespaceDeclarationSyntax Build(NamespaceNode node, NamespaceNode? parentNamespace)
+    public static NamespaceDeclarationSyntax Build(NamespaceNode node)
     {
         NamespaceDeclarationSyntax syntax = SF.NamespaceDeclaration(SF.IdentifierName(node.Name));
         SyntaxList<MemberDeclarationSyntax> list = SF.List<MemberDeclarationSyntax>();

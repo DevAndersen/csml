@@ -3,7 +3,7 @@
 namespace Csml.Generator.SyntaxBuilders;
 internal static class ReturnBuilder
 {
-    public static ReturnStatementSyntax Build(ReturnNode node, BaseNode parentNode)
+    public static ReturnStatementSyntax Build(ReturnNode node)
     {
         if (node.Value == null)
         {
