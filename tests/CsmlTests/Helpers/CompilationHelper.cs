@@ -41,7 +41,7 @@ internal static class CompilationHelper
             .Create(generator)
             .AddAdditionalTexts([fake]);
 
-        driver = driver.RunGeneratorsAndUpdateCompilation(
+        driver.RunGeneratorsAndUpdateCompilation(
             compilationInput,
             out Compilation compilationOutput,
             out diagnostics);
