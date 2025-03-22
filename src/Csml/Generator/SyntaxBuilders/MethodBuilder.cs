@@ -61,7 +61,6 @@ public class MethodBuilder
                 {
                     ReturnNode returnNode => ReturnBuilder.Build(returnNode, methodNode),
                     _ => throw new UnknownCsmlElementException(
-                        CsmlDiagnostics.UnexpectedElement,
                         statementNode.LineNumber,
                         statementNode.GetType().Name)
                 };
