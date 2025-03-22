@@ -1,5 +1,6 @@
 ﻿using Csml.Exceptions;
 using Csml.Parser.Nodes.Members;
+using Csml.Parser.Nodes.Statements;
 using Csml.Parser.Nodes.Types;
 
 namespace Csml.Generator.SyntaxBuilders;
@@ -51,6 +52,23 @@ public class MethodBuilder
             SF.Identifier(methodNode.Name));
 
         BlockSyntax block = SF.Block();
+
+        if (methodNode.Statements?.Length > 0)
+        {
+            foreach (BaseNode statementNode in methodNode.Statements)
+            {
+                StatementSyntax statementSyntax = statementNode switch
+                {
+                    ReturnNode returnNode => ReturnBuilder.Build(returnNode, methodNode),
+                    _ => throw new UnknownCsmlElementException(
+                        CsmlDiagnostics.UnexpectedElement,
+                        statementNode.LineNumber,
+                        statementNode.GetType().Name)
+                };
+
+                block = block.AddStatements(statementSyntax);
+            }
+        }
 
         return methodDeclaration
             .WithModifiers(tokenList)
