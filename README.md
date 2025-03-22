@@ -44,7 +44,7 @@ In order to get C♯ML source files working, they need to be added to your `.csp
 
 - **A:** [WORK IN PROGRESS]
 
-**Q:** Why does *[insert C# functionality]* not work?
+**Q:** Why is some C# functionality not supported?
 
 - **A:** A lot of C# functionality can be considered syntactic sugar; it's a sweeter way of doing something that can already be done. However, as too much sugar can be damaging to your health, C♯ML made the bold decision to cut down on sugar. Consider it a healthy alternative to sugary C#.
 
