@@ -8,9 +8,9 @@ C♯ML is a programming language designed to provide the functionality of C#, th
 
 Unlike C#, which derives its syntax from C, C♯ML leverages the powerful syntax of XML. This allows for more expressive code, without getting bogged down by the semantic idiosyncrasies of the C language family.
 
-C♯ML uses a [.NET source generator](https://devblogs.microsoft.com/dotnet/introducing-c-source-generators/), which builds the C♯ML source files as the code gets written, allowing seamless interoperability between C♯ML and C#. This allows development teams of all sizes to smoothly transition their code from C# to C♯ML, one file at a time, without interrupting product delivery.
+C♯ML supports seamless interoperability with C# code. This allows development teams of all sizes to smoothly transition their code from C# to C♯ML, one file at a time, without interrupting product delivery. This is achieved via the C♯ML [source generator](https://devblogs.microsoft.com/dotnet/introducing-c-source-generators/).
 
-C♯ML also addresses C#'s misleading name. While it is pronounced "C sharp", it does not actually use the sharp sign (`♯`), but instead inappropriately uses a number sign (`#`, aka. hash- or pound sign). C♯ML improves upon C# in this regard, by correctly using the sharp sign, both in its name and the file extension of its source files.
+Furthermore, C♯ML improves upon C# in naming. While C# is pronounced "C sharp", it does not actually use the sharp sign (`♯`), but instead inappropriately uses a number sign (`#`, aka. hash- or pound sign). C♯ML correctly using the sharp sign, both in its name and the file extension of its source files.
 
 ## Usage guide
 
