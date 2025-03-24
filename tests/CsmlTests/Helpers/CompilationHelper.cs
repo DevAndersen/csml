@@ -23,6 +23,7 @@ internal static class CompilationHelper
     /// </summary>
     /// <param name="csml"></param>
     /// <param name="diagnostics"></param>
+    /// <param name="fileName"></param>
     /// <returns></returns>
     public static SyntaxNode[] Compile(
         string csml,

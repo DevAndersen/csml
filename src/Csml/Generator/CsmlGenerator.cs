@@ -84,11 +84,6 @@ internal class CsmlGenerator : IIncrementalGenerator
         });
     }
 
-    public static bool IsValidSourceFile(string path)
-    {
-        return _validFileExtensions.Contains(Path.GetExtension(path), StringComparer.OrdinalIgnoreCase);
-    }
-
     private CsmlSourceFile? ValidateSourceFile(AdditionalText additionalText, CancellationToken cancellationToken)
     {
         string fileName = Path.GetFileNameWithoutExtension(additionalText.Path);

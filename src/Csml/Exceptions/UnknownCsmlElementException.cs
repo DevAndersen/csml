@@ -1,5 +1,4 @@
-﻿
-namespace Csml.Exceptions;
+﻿namespace Csml.Exceptions;
 
 public class UnknownCsmlElementException : CsmlParseException
 {

@@ -20,6 +20,8 @@ public class MethodAccessModifierTests
 
         // Act
         SyntaxNode[] output = AssertCompileNoDiagnostics(csml);
+
+        // Assert
         if (!output.FirstDescendant(out MethodDeclarationSyntax? methodDeclaration))
         {
             Assert.Fail();
@@ -102,6 +104,8 @@ public class MethodAccessModifierTests
 
         // Act
         SyntaxNode[] output = AssertCompileNoDiagnostics(csml);
+
+        // Assert
         if (!output.FirstDescendant(out MethodDeclarationSyntax? methodDeclaration))
         {
             Assert.Fail();
@@ -184,6 +188,8 @@ public class MethodAccessModifierTests
 
         // Act
         SyntaxNode[] output = AssertCompileNoDiagnostics(csml);
+
+        // Assert
         if (!output.FirstDescendant(out MethodDeclarationSyntax? methodDeclaration))
         {
             Assert.Fail();
