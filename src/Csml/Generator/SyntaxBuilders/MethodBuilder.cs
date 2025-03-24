@@ -47,6 +47,11 @@ internal class MethodBuilder
             tokenList = tokenList.Add(SF.Token(accessModifier));
         }
 
+        if (methodNode.Static)
+        {
+            tokenList = tokenList.Add(SF.Token(SyntaxKind.StaticKeyword));
+        }
+
         MethodDeclarationSyntax methodDeclaration = SF.MethodDeclaration(
             SF.IdentifierName(methodNode.Return),
             SF.Identifier(methodNode.Name));
