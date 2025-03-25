@@ -7,7 +7,7 @@ internal class VariableBuilder
     public static LocalDeclarationStatementSyntax Build(VariableNode node)
     {
         VariableDeclaratorSyntax variableDeclarator = SF.VariableDeclarator(node.Name);
-        
+
         if (!string.IsNullOrWhiteSpace(node.Value))
         {
             variableDeclarator = variableDeclarator.WithInitializer(SF.EqualsValueClause(SF.IdentifierName(node.Value!)));

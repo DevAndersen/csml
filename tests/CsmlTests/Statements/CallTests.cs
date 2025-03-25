@@ -94,7 +94,7 @@ public class CallTests
         Assert.Equal("System", namespaceAccess.Identifier.Text);
         Assert.Equal("Console", typeAccess.Name.Identifier.Text);
         Assert.Equal("WriteLine", methodAccess.Name.Identifier.Text);
-        Assert.True(invocation.ArgumentList.Arguments is [ArgumentSyntax { Expression: LiteralExpressionSyntax expression}]
+        Assert.True(invocation.ArgumentList.Arguments is [ArgumentSyntax { Expression: LiteralExpressionSyntax expression }]
             && expression.Token is { Value: 123 });
     }
 }

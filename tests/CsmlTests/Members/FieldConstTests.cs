@@ -53,7 +53,7 @@ public class FieldConstTests
             return;
         }
 
-        Assert.True(fieldDeclaration.Modifiers is [SyntaxToken { RawKind: (int)SyntaxKind.PrivateKeyword }, SyntaxToken { RawKind: (int)SyntaxKind.ConstKeyword}]);
+        Assert.True(fieldDeclaration.Modifiers is [SyntaxToken { RawKind: (int)SyntaxKind.PrivateKeyword }, SyntaxToken { RawKind: (int)SyntaxKind.ConstKeyword }]);
     }
 
     [Fact]
