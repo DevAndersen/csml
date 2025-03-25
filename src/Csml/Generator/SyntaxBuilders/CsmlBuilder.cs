@@ -6,8 +6,8 @@ internal static class CsmlBuilder
     {
         CompilationUnitSyntax comp = SF.CompilationUnit();
 
-        SyntaxList<UsingDirectiveSyntax> usingList = UsingDirectiveBuilder.BuildMultiple(node.UsingDirectives, null);
-        SyntaxList<MemberDeclarationSyntax> namespaceList = NamespaceBuilder.BuildMultiple(node.Namespaces, null);
+        SyntaxList<UsingDirectiveSyntax> usingList = UsingDirectiveBuilder.BuildMultiple(node.UsingDirectives);
+        SyntaxList<MemberDeclarationSyntax> namespaceList = NamespaceBuilder.BuildMultiple(node.Namespaces);
 
         return comp
             .WithUsings(usingList)

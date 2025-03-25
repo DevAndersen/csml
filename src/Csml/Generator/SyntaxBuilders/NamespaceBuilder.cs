@@ -4,7 +4,7 @@ namespace Csml.Generator.SyntaxBuilders;
 
 internal static class NamespaceBuilder
 {
-    public static SyntaxList<MemberDeclarationSyntax> BuildMultiple(NamespaceNode[]? nodes, NamespaceNode? parentNamespace)
+    public static SyntaxList<MemberDeclarationSyntax> BuildMultiple(NamespaceNode[]? nodes)
     {
         SyntaxList<MemberDeclarationSyntax> namespaceList = SF.List<MemberDeclarationSyntax>();
 
@@ -24,10 +24,10 @@ internal static class NamespaceBuilder
         NamespaceDeclarationSyntax syntax = SF.NamespaceDeclaration(SF.IdentifierName(node.Name));
         SyntaxList<MemberDeclarationSyntax> list = SF.List<MemberDeclarationSyntax>();
 
-        SyntaxList<UsingDirectiveSyntax> usingList = UsingDirectiveBuilder.BuildMultiple(node.UsingDirectives, node);
+        SyntaxList<UsingDirectiveSyntax> usingList = UsingDirectiveBuilder.BuildMultiple(node.UsingDirectives);
         SyntaxList<MemberDeclarationSyntax> typeList = TypeBuilder.BuildMultiple(node.Types, node);
 
-        SyntaxList<MemberDeclarationSyntax> namespaceList = BuildMultiple(node.Namespaces, node);
+        SyntaxList<MemberDeclarationSyntax> namespaceList = BuildMultiple(node.Namespaces);
         list = list
             .AddRange(namespaceList)
             .AddRange(typeList);

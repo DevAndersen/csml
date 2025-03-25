@@ -4,7 +4,7 @@ namespace Csml.Generator.SyntaxBuilders;
 
 internal static class UsingDirectiveBuilder
 {
-    public static SyntaxList<UsingDirectiveSyntax> BuildMultiple(UsingDirectiveNode[]? nodes, NamespaceNode? parentNamespace)
+    public static SyntaxList<UsingDirectiveSyntax> BuildMultiple(UsingDirectiveNode[]? nodes)
     {
         SyntaxList<UsingDirectiveSyntax> usingList = SF.List<UsingDirectiveSyntax>();
 
