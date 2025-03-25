@@ -66,6 +66,7 @@ internal class MethodBuilder
                 {
                     ReturnNode returnNode => ReturnBuilder.Build(returnNode),
                     VariableNode variableNode => VariableBuilder.Build(variableNode),
+                    CallNode callNode => CallBuilder.Build(callNode),
                     _ => throw new UnknownCsmlElementException(
                         statementNode.LineNumber,
                         statementNode.GetType().Name)

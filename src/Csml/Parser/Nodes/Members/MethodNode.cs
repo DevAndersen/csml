@@ -18,5 +18,6 @@ public class MethodNode : BaseNode
 
     [XmlElement("Return", typeof(ReturnNode))]
     [XmlElement("Variable", typeof(VariableNode))]
+    [XmlElement("Call", typeof(CallNode))]
     public BaseNode[]? Statements { get; init; }
 }
