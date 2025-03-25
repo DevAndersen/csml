@@ -17,5 +17,6 @@ public class MethodNode : BaseNode
     public bool Static { get; init; }
 
     [XmlElement("Return", typeof(ReturnNode))]
+    [XmlElement("Variable", typeof(VariableNode))]
     public BaseNode[]? Statements { get; init; }
 }

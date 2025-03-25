@@ -65,6 +65,7 @@ internal class MethodBuilder
                 StatementSyntax statementSyntax = statementNode switch
                 {
                     ReturnNode returnNode => ReturnBuilder.Build(returnNode),
+                    VariableNode variableNode => VariableBuilder.Build(variableNode),
                     _ => throw new UnknownCsmlElementException(
                         statementNode.LineNumber,
                         statementNode.GetType().Name)
