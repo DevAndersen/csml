@@ -59,6 +59,19 @@ internal static class TypeBuilder
             tokenList = tokenList.Add(SF.Token(SyntaxKind.StaticKeyword));
         }
 
+        if (typeNode is StructNode structNode)
+        {
+            if (structNode.ReadOnly)
+            {
+                tokenList = tokenList.Add(SF.Token(SyntaxKind.ReadOnlyKeyword));
+            }
+
+            if (structNode.Ref)
+            {
+                tokenList = tokenList.Add(SF.Token(SyntaxKind.RefKeyword));
+            }
+        }
+
         SyntaxList<MemberDeclarationSyntax> memberList = SF.List<MemberDeclarationSyntax>();
         SyntaxList<MemberDeclarationSyntax> typeList = BuildMultiple(typeNode.Types, typeNode);
         memberList = memberList.AddRange(typeList);

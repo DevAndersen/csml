@@ -45,6 +45,26 @@ internal static class FieldBuilder
             tokenList = tokenList.Add(SF.Token(accessModifier));
         }
 
+        if (fieldNode.Const)
+        {
+            tokenList = tokenList.Add(SF.Token(SyntaxKind.ConstKeyword));
+        }
+
+        if (fieldNode.Ref)
+        {
+            tokenList = tokenList.Add(SF.Token(SyntaxKind.RefKeyword));
+        }
+
+        if (fieldNode.ReadOnly)
+        {
+            tokenList = tokenList.Add(SF.Token(SyntaxKind.ReadOnlyKeyword));
+        }
+
+        if (fieldNode.Static)
+        {
+            tokenList = tokenList.Add(SF.Token(SyntaxKind.StaticKeyword));
+        }
+
         VariableDeclarationSyntax variable = SF
             .VariableDeclaration(SF.IdentifierName(fieldNode.Type))
             .WithVariables([SF.VariableDeclarator(fieldNode.Name)]);

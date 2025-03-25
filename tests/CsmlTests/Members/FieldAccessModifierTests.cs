@@ -2,7 +2,7 @@
 
 namespace CsmlTests.Members;
 
-public class FieldTests
+public class FieldAccessModifierTests
 {
     [Fact]
     public void UnspecifiedAccessModifiers_Private()
