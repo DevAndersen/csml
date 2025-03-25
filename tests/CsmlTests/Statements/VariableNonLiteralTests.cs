@@ -28,7 +28,7 @@ public class VariableNonLiteralTests
             return;
         }
 
-        if (variableDeclaration.Declaration.Variables is not [VariableDeclaratorSyntax variableDeclarator])
+        if (variableDeclaration.Declaration.Variables is not [VariableDeclaratorSyntax])
         {
             Assert.Fail();
             return;
