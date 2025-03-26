@@ -26,11 +26,13 @@ internal static class NamespaceBuilder
 
         SyntaxList<UsingDirectiveSyntax> usingList = UsingDirectiveBuilder.BuildMultiple(node.UsingDirectives);
         SyntaxList<MemberDeclarationSyntax> typeList = TypeBuilder.BuildMultiple(node.Types, node);
+        SyntaxList<MemberDeclarationSyntax> enumList = EnumBuilder.BuildMultiple(node.Enums, node);
 
         SyntaxList<MemberDeclarationSyntax> namespaceList = BuildMultiple(node.Namespaces);
         list = list
             .AddRange(namespaceList)
-            .AddRange(typeList);
+            .AddRange(typeList)
+            .AddRange(enumList);
 
         return syntax
             .WithUsings(usingList)

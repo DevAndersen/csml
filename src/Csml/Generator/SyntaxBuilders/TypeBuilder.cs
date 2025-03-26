@@ -1,6 +1,7 @@
 ﻿using Csml.Exceptions;
 using Csml.Parser.Nodes.Members;
 using Csml.Parser.Nodes.Types;
+using System.Xml.Linq;
 
 namespace Csml.Generator.SyntaxBuilders;
 
@@ -74,7 +75,11 @@ internal static class TypeBuilder
 
         SyntaxList<MemberDeclarationSyntax> memberList = SF.List<MemberDeclarationSyntax>();
         SyntaxList<MemberDeclarationSyntax> typeList = BuildMultiple(typeNode.Types, typeNode);
-        memberList = memberList.AddRange(typeList);
+        SyntaxList<MemberDeclarationSyntax> enumList = EnumBuilder.BuildMultiple(typeNode.Enums, typeNode);
+
+        memberList = memberList
+            .AddRange(typeList)
+            .AddRange(enumList);
 
         if (typeNode.Members != null)
         {

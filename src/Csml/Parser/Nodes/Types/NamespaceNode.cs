@@ -15,4 +15,7 @@ public class NamespaceNode : BaseNode
 
     [XmlElement("Namespace")]
     public NamespaceNode[]? Namespaces { get; init; }
+
+    [XmlElement("Enum", typeof(EnumNode))]
+    public EnumNode[]? Enums { get; init; }
 }

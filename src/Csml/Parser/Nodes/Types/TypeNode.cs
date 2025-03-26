@@ -19,6 +19,9 @@ public abstract class TypeNode : BaseNode
     [XmlElement("Interface", typeof(InterfaceNode))]
     public TypeNode[]? Types { get; init; }
 
+    [XmlElement("Enum", typeof(EnumNode))]
+    public EnumNode[]? Enums { get; init; }
+
     [XmlElement("Method")]
     public MethodNode[]? Methods { get; init; }
 }
