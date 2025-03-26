@@ -1,8 +1,9 @@
 ﻿using Csml.Exceptions;
+using Csml.Generator.SyntaxBuilders.Members;
 using Csml.Parser.Nodes.Members;
 using Csml.Parser.Nodes.Types;
 
-namespace Csml.Generator.SyntaxBuilders;
+namespace Csml.Generator.SyntaxBuilders.Types;
 
 internal static class TypeBuilder
 {

@@ -2,7 +2,7 @@
 using Csml.Parser.Nodes.Members;
 using Csml.Parser.Nodes.Types;
 
-namespace Csml.Generator.SyntaxBuilders;
+namespace Csml.Generator.SyntaxBuilders.Members;
 
 internal static class FieldBuilder
 {

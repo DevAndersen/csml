@@ -1,7 +1,7 @@
 ﻿using Csml.Parser.Nodes.Members;
 using Csml.Parser.Nodes.Types;
 
-namespace Csml.Generator.SyntaxBuilders;
+namespace Csml.Generator.SyntaxBuilders.Types;
 
 internal class EnumBuilder
 {
@@ -59,14 +59,14 @@ internal class EnumBuilder
             yield break;
         }
 
-        for (var i = 0; i < values.Length; i++)
+        for (int i = 0; i < values.Length; i++)
         {
             if (i != 0)
             {
                 yield return SF.MissingToken(SyntaxKind.CommaToken);
             }
 
-            var value = values[i];
+            EnumValue value = values[i];
             EnumMemberDeclarationSyntax declaration = SF.EnumMemberDeclaration(value.Name);
 
             if (value.Value != null)
