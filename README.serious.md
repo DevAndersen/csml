@@ -8,13 +8,15 @@ Its secondary purpose was to be funny. Hopefully, the fairly absurd idea of writ
 
 ## Conclusions and takeaways
 
-### Use testing for developing source generators
+### Using tests to debug source generators
 
-Debugging source generators can be quite the tedious process.
+Debugging source generators from a can be quite the tedious process.
 
-Not only do you have to attach the debugger via something like [`Debugger.Launch()`](https://learn.microsoft.com/en-us/dotnet/api/system.diagnostics.debugger.launch), but (at least on Visual Studio) you also have to deal with the debugger attachment windows popping up when you are already debugging.
+As the source generator is executed before the application starts, you have to attach the debugger via something like [`Debugger.Launch()`](https://learn.microsoft.com/en-us/dotnet/api/system.diagnostics.debugger.launch) in order to debug it.
 
-A far less frustrating approach is to avoid debugging when possible, and instead rely on tests to validate that the source generator works as intended.
+When using Visual Studio, this means you also have to deal with the debugger attachment windows popping up, which it sometimes does multiple times.
+
+A far less frustrating approach to debugging a source generator is by using tests which directly invoke the source generator. This way, debugging a test will hit breakpoints within the source generator, making for a much nicer debugging experience.
 
 ### Building C# syntax trees gets rather lengthy
 
