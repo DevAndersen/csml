@@ -19,6 +19,15 @@ public class MethodNode : BaseNode
     [XmlAttribute("Async")]
     public bool Async { get; init; }
 
+    [XmlAttribute("Abstract")]
+    public bool Abstract { get; init; }
+
+    [XmlAttribute("Virtual")]
+    public bool Virtual { get; init; }
+
+    [XmlAttribute("Override")]
+    public bool Override { get; init; }
+
     [XmlElement("Return", typeof(ReturnNode))]
     [XmlElement("Variable", typeof(VariableNode))]
     [XmlElement("Call", typeof(CallNode))]

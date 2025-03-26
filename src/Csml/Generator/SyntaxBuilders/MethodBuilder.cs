@@ -57,32 +57,54 @@ internal class MethodBuilder
             tokenList = tokenList.Add(SF.Token(SyntaxKind.AsyncKeyword));
         }
 
+        if (methodNode.Abstract)
+        {
+            tokenList = tokenList.Add(SF.Token(SyntaxKind.AbstractKeyword));
+        }
+
+        if (methodNode.Virtual)
+        {
+            tokenList = tokenList.Add(SF.Token(SyntaxKind.VirtualKeyword));
+        }
+
+        if (methodNode.Override)
+        {
+            tokenList = tokenList.Add(SF.Token(SyntaxKind.OverrideKeyword));
+        }
+
         MethodDeclarationSyntax methodDeclaration = SF.MethodDeclaration(
             SF.IdentifierName(methodNode.Return),
             SF.Identifier(methodNode.Name));
 
-        BlockSyntax block = SF.Block();
-
-        if (methodNode.Statements?.Length > 0)
+        if (methodNode.Abstract || (parentType is InterfaceNode && methodNode.Statements?.Any() != true))
         {
-            foreach (BaseNode statementNode in methodNode.Statements)
-            {
-                StatementSyntax statementSyntax = statementNode switch
-                {
-                    ReturnNode returnNode => ReturnBuilder.Build(returnNode),
-                    VariableNode variableNode => VariableBuilder.Build(variableNode),
-                    CallNode callNode => CallBuilder.Build(callNode),
-                    _ => throw new UnknownCsmlElementException(
-                        statementNode.LineNumber,
-                        statementNode.GetType().Name)
-                };
+            methodDeclaration = methodDeclaration.WithSemicolonToken(SF.Token(SyntaxKind.SemicolonToken));
+        }
+        else
+        {
+            BlockSyntax block = SF.Block();
 
-                block = block.AddStatements(statementSyntax);
+            if (methodNode.Statements?.Length > 0)
+            {
+                foreach (BaseNode statementNode in methodNode.Statements)
+                {
+                    StatementSyntax statementSyntax = statementNode switch
+                    {
+                        ReturnNode returnNode => ReturnBuilder.Build(returnNode),
+                        VariableNode variableNode => VariableBuilder.Build(variableNode),
+                        CallNode callNode => CallBuilder.Build(callNode),
+                        _ => throw new UnknownCsmlElementException(
+                            statementNode.LineNumber,
+                            statementNode.GetType().Name)
+                    };
+
+                    block = block.AddStatements(statementSyntax);
+                }
             }
+            methodDeclaration = methodDeclaration.WithBody(block);
         }
 
         return methodDeclaration
-            .WithModifiers(tokenList)
-            .WithBody(block);
+            .WithModifiers(tokenList);
     }
 }
