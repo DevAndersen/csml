@@ -14,7 +14,7 @@ public class MethodNode : BaseNode
     public required string Return { get; init; }
 
     [XmlAttribute("Static")]
-    public bool Static { get; init; } 
+    public bool Static { get; init; }
 
     [XmlAttribute("Async")]
     public bool Async { get; init; }

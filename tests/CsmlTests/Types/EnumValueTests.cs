@@ -77,7 +77,8 @@ public class EnumValueTests
             return;
         }
 
-        Assert.True(valueA.EqualsValue?.Value is LiteralExpressionSyntax {
+        Assert.True(valueA.EqualsValue?.Value is LiteralExpressionSyntax
+        {
             RawKind: (int)SyntaxKind.NumericLiteralExpression,
             Token: { RawKind: (int)SyntaxKind.NumericLiteralToken, Value: 1 }
         });

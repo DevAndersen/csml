@@ -1,7 +1,6 @@
 ﻿using Csml.Exceptions;
 using Csml.Parser.Nodes.Members;
 using Csml.Parser.Nodes.Types;
-using System.Xml.Linq;
 
 namespace Csml.Generator.SyntaxBuilders;
 
