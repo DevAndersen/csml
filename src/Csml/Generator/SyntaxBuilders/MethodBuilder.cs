@@ -50,6 +50,11 @@ internal class MethodBuilder
         if (methodNode.Static)
         {
             tokenList = tokenList.Add(SF.Token(SyntaxKind.StaticKeyword));
+        } 
+
+        if (methodNode.Async)
+        {
+            tokenList = tokenList.Add(SF.Token(SyntaxKind.AsyncKeyword));
         }
 
         MethodDeclarationSyntax methodDeclaration = SF.MethodDeclaration(
