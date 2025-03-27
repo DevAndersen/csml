@@ -81,44 +81,9 @@ internal class MethodBuilder
         {
             methodDeclaration = methodDeclaration.WithSemicolonToken(SF.Token(SyntaxKind.SemicolonToken));
         }
-        else
+        else if (methodNode.Statements != null)
         {
-            BlockSyntax block = SF.Block();
-
-            if (methodNode.Statements?.Length > 0)
-            {
-                for (int i = 0; i < methodNode.Statements.Length; i++)
-                {
-                    BaseNode statementNode = methodNode.Statements[i];
-
-                    StatementContainerNode[] elseNodeChain = [];
-                    if (statementNode is IfNode)
-                    {
-                        elseNodeChain = methodNode.Statements
-                            .Skip(i + 1)
-                            .TakeWhile(x => x is ElseIfNode or ElseNode)
-                            .OfType<StatementContainerNode>()
-                            .ToArray();
-
-                        i += elseNodeChain.Length;
-                    }
-
-                    StatementSyntax statementSyntax = statementNode switch
-                    {
-                        ReturnNode returnNode => ReturnBuilder.Build(returnNode),
-                        VariableNode variableNode => VariableBuilder.Build(variableNode),
-                        CallNode callNode => CallBuilder.Build(callNode),
-                        BreakNode breakNode => BreakBuilder.Build(),
-                        ContinueNode continueNode => ContinueBuilder.Build(),
-                        IfNode ifNode => IfBuilder.Build(ifNode, elseNodeChain),
-                        _ => throw new UnknownCsmlElementException(
-                            statementNode.LineNumber,
-                            statementNode.GetType().Name)
-                    };
-
-                    block = block.AddStatements(statementSyntax);
-                }
-            }
+            BlockSyntax block = BlockBuilder.Build(methodNode.Statements);
             methodDeclaration = methodDeclaration.WithBody(block);
         }
 
