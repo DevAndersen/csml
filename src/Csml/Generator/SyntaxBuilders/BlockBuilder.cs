@@ -6,9 +6,14 @@ namespace Csml.Generator.SyntaxBuilders;
 
 internal class BlockBuilder
 {
-    public static BlockSyntax Build(BaseNode[] nodes)
+    public static BlockSyntax Build(BaseNode[]? nodes)
     {
         BlockSyntax block = SF.Block();
+
+        if (nodes == null)
+        {
+            return block;
+        }
 
         if (nodes?.Length > 0)
         {

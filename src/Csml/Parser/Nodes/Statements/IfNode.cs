@@ -6,8 +6,8 @@ public class IfNode : StatementContainerNode
     public required string Left { get; init; }
 
     [XmlAttribute("Comparison")]
-    public ComparisonOperator Comparison { get; init; }
+    public required ComparisonOperator Comparison { get; init; }
 
     [XmlAttribute("Right")]
-    public string? Right { get; init; }
+    public required string Right { get; init; }
 }
