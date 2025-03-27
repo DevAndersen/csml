@@ -87,8 +87,22 @@ internal class MethodBuilder
 
             if (methodNode.Statements?.Length > 0)
             {
-                foreach (BaseNode statementNode in methodNode.Statements)
+                for (int i = 0; i < methodNode.Statements.Length; i++)
                 {
+                    BaseNode statementNode = methodNode.Statements[i];
+
+                    StatementContainerNode[] elseNodeChain = [];
+                    if (statementNode is IfNode)
+                    {
+                        elseNodeChain = methodNode.Statements
+                            .Skip(i + 1)
+                            .TakeWhile(x => x is ElseIfNode or ElseNode)
+                            .OfType<StatementContainerNode>()
+                            .ToArray();
+
+                        i += elseNodeChain.Length;
+                    }
+
                     StatementSyntax statementSyntax = statementNode switch
                     {
                         ReturnNode returnNode => ReturnBuilder.Build(returnNode),
@@ -96,6 +110,7 @@ internal class MethodBuilder
                         CallNode callNode => CallBuilder.Build(callNode),
                         BreakNode breakNode => BreakBuilder.Build(),
                         ContinueNode continueNode => ContinueBuilder.Build(),
+                        IfNode ifNode => IfBuilder.Build(ifNode, elseNodeChain),
                         _ => throw new UnknownCsmlElementException(
                             statementNode.LineNumber,
                             statementNode.GetType().Name)

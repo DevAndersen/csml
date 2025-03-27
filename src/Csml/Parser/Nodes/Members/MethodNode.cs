@@ -33,5 +33,8 @@ public class MethodNode : BaseNode
     [XmlElement("Call", typeof(CallNode))]
     [XmlElement("Break", typeof(BreakNode))]
     [XmlElement("Continue", typeof(ContinueNode))]
+    [XmlElement("If", typeof(IfNode))]
+    [XmlElement("ElseIf", typeof(ElseIfNode))]
+    [XmlElement("Else", typeof(ElseNode))]
     public BaseNode[]? Statements { get; init; }
 }
