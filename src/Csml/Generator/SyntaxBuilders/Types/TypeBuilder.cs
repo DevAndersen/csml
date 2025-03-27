@@ -1,7 +1,4 @@
-﻿using Csml.Exceptions;
-using Csml.Generator.SyntaxBuilders.Members;
-using Csml.Parser.Nodes.Members;
-using Csml.Parser.Nodes.Types;
+﻿using Csml.Generator.SyntaxBuilders.Members;
 
 namespace Csml.Generator.SyntaxBuilders.Types;
 

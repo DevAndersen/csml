@@ -1,6 +1,4 @@
-﻿using Csml.Parser.Nodes.Statements;
-
-namespace Csml.Generator.SyntaxBuilders.Statements;
+﻿namespace Csml.Generator.SyntaxBuilders.Statements;
 
 internal class VariableBuilder
 {

@@ -1,6 +1,4 @@
-﻿using Csml.Parser.Nodes.Types;
-
-namespace Csml.Generator.SyntaxBuilders;
+﻿namespace Csml.Generator.SyntaxBuilders;
 
 internal static class UsingDirectiveBuilder
 {

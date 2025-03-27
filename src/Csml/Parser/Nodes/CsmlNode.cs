@@ -1,6 +1,4 @@
-﻿using Csml.Parser.Nodes.Types;
-
-namespace Csml.Parser.Nodes;
+﻿namespace Csml.Parser.Nodes;
 
 /// <summary>
 /// The root node of a C♯ML source file.

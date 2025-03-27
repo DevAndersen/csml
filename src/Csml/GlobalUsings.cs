@@ -1,5 +1,9 @@
-﻿global using Csml.Generator;
+﻿global using Csml.Exceptions;
+global using Csml.Generator;
 global using Csml.Parser.Nodes;
+global using Csml.Parser.Nodes.Members;
+global using Csml.Parser.Nodes.Statements;
+global using Csml.Parser.Nodes.Types;
 global using Microsoft.CodeAnalysis;
 global using Microsoft.CodeAnalysis.CSharp;
 global using Microsoft.CodeAnalysis.CSharp.Syntax;

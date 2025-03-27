@@ -1,7 +1,4 @@
-﻿using Csml.Parser.Nodes.Members;
-using Csml.Parser.Nodes.Types;
-
-namespace Csml.Generator.SyntaxBuilders.Types;
+﻿namespace Csml.Generator.SyntaxBuilders.Types;
 
 internal class EnumBuilder
 {

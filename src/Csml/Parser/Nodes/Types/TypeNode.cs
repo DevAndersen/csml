@@ -1,6 +1,4 @@
-﻿using Csml.Parser.Nodes.Members;
-
-namespace Csml.Parser.Nodes.Types;
+﻿namespace Csml.Parser.Nodes.Types;
 
 /// <summary>
 /// Base class represents a type declaration (class, struct, or interface).

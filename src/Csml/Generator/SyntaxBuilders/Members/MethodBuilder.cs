@@ -1,10 +1,4 @@
-﻿using Csml.Exceptions;
-using Csml.Generator.SyntaxBuilders.Statements;
-using Csml.Parser.Nodes.Members;
-using Csml.Parser.Nodes.Statements;
-using Csml.Parser.Nodes.Types;
-
-namespace Csml.Generator.SyntaxBuilders.Members;
+﻿namespace Csml.Generator.SyntaxBuilders.Members;
 
 internal class MethodBuilder
 {

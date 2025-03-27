@@ -1,5 +1,4 @@
 ﻿using Csml.Generator.SyntaxBuilders.Types;
-using Csml.Parser.Nodes.Types;
 
 namespace Csml.Generator.SyntaxBuilders;
 

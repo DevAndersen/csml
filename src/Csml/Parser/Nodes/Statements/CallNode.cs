@@ -1,6 +1,4 @@
-﻿using Csml.Parser.Nodes.Members;
-
-namespace Csml.Parser.Nodes.Statements;
+﻿namespace Csml.Parser.Nodes.Statements;
 
 /// <summary>
 /// Represents a method invocation statement.

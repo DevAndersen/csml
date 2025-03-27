@@ -1,8 +1,4 @@
-﻿using Csml.Exceptions;
-using Csml.Parser.Nodes.Members;
-using Csml.Parser.Nodes.Types;
-
-namespace Csml.Generator.SyntaxBuilders.Members;
+﻿namespace Csml.Generator.SyntaxBuilders.Members;
 
 internal static class FieldBuilder
 {
