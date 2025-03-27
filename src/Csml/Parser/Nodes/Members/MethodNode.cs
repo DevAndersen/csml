@@ -36,5 +36,6 @@ public class MethodNode : BaseNode
     [XmlElement("If", typeof(IfNode))]
     [XmlElement("ElseIf", typeof(ElseIfNode))]
     [XmlElement("Else", typeof(ElseNode))]
+    [XmlElement("ForEach", typeof(ForEachNode))]
     public BaseNode[]? Statements { get; init; }
 }

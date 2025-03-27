@@ -41,6 +41,7 @@ internal class BlockBuilder
                     BreakNode breakNode => BreakBuilder.Build(),
                     ContinueNode continueNode => ContinueBuilder.Build(),
                     IfNode ifNode => IfBuilder.Build(ifNode, elseNodeChain),
+                    ForEachNode forEachNode => ForEachBuilder.Build(forEachNode),
                     _ => throw new UnknownCsmlElementException(
                         statementNode.LineNumber,
                         statementNode.GetType().Name)
