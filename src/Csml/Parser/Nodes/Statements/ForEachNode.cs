@@ -1,5 +1,8 @@
 ﻿namespace Csml.Parser.Nodes.Statements;
 
+/// <summary>
+/// Represents a <c>foreach</c> statement.
+/// </summary>
 public class ForEachNode : StatementContainerNode
 {
     [XmlAttribute("Type")]

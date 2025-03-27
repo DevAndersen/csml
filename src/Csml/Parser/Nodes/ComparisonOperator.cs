@@ -1,5 +1,8 @@
 ﻿namespace Csml.Parser.Nodes;
 
+/// <summary>
+/// Defines the valid values of a comparison operator.
+/// </summary>
 public enum ComparisonOperator
 {
     Unset,

@@ -1,5 +1,8 @@
 ﻿namespace Csml.Parser.Nodes;
 
+/// <summary>
+/// Defines the valid values of access modifiers.
+/// </summary>
 public enum AccessModifier
 {
     Unset,

@@ -1,5 +1,8 @@
 ﻿namespace Csml.Parser.Nodes.Members;
 
+/// <summary>
+/// Base class representing an type member.
+/// </summary>
 public abstract class MemberNode : BaseNode
 {
     [XmlAttribute("Name")]

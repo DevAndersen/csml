@@ -1,5 +1,8 @@
 ﻿namespace Csml.Parser.Nodes.Statements;
 
+/// <summary>
+/// Represents a variable declaration statement.
+/// </summary>
 public class VariableNode : BaseNode
 {
     [XmlAttribute("Const")]

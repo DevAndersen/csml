@@ -6,6 +6,10 @@ using System.Text;
 
 namespace Csml.Generator;
 
+/// <summary>
+/// The C♯ML source generator.
+/// Contains base logic for detecting C♯ML source files, attempting to invoke the parser and builder, and emitting diagnostics.
+/// </summary>
 [Generator(LanguageNames.CSharp)]
 internal class CsmlGenerator : IIncrementalGenerator
 {
@@ -79,6 +83,12 @@ internal class CsmlGenerator : IIncrementalGenerator
         });
     }
 
+    /// <summary>
+    /// Validates that <paramref name="additionalText"/> represents a valid C♯ML source file.
+    /// </summary>
+    /// <param name="additionalText"></param>
+    /// <param name="cancellationToken"></param>
+    /// <returns></returns>
     private CsmlSourceFile? ValidateSourceFile(AdditionalText additionalText, CancellationToken cancellationToken)
     {
         string fileName = Path.GetFileNameWithoutExtension(additionalText.Path);
@@ -101,6 +111,13 @@ internal class CsmlGenerator : IIncrementalGenerator
         return null;
     }
 
+    /// <summary>
+    /// Represents the values of interest for a C♯ML source file.
+    /// </summary>
+    /// <param name="FullFileName"></param>
+    /// <param name="FileName"></param>
+    /// <param name="FileExtension"></param>
+    /// <param name="FileContent"></param>
     private record CsmlSourceFile(
         string FullFileName,
         string FileName,

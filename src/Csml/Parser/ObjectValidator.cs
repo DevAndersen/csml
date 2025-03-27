@@ -4,8 +4,16 @@ using System.Runtime.CompilerServices;
 
 namespace Csml.Parser;
 
+/// <summary>
+/// Contains logic for validating the state of objects.
+/// </summary>
 public static class ObjectValidator
 {
+    /// <summary>
+    /// Ensures that all reference type properties on <paramref name="obj"/> marked as <c>required</c> have a non-null value.
+    /// </summary>
+    /// <param name="obj"></param>
+    /// <param name="results"></param>
     public static void Validate(object obj, List<CsmlParseError> results)
     {
         Type type = obj.GetType();

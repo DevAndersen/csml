@@ -2,6 +2,9 @@
 
 namespace Csml.Parser.Nodes.Statements;
 
+/// <summary>
+/// Represents a method invocation statement.
+/// </summary>
 public class CallNode : BaseNode
 {
     [XmlAttribute("Target")]

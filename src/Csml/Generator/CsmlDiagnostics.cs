@@ -1,5 +1,8 @@
 ﻿namespace Csml.Generator;
 
+/// <summary>
+/// Contains definitions of C♯ML diagnostics.
+/// </summary>
 internal static class CsmlDiagnostics
 {
     private const string _category = "CSML";

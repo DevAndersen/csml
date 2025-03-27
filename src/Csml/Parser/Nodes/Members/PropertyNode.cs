@@ -1,5 +1,8 @@
 ﻿namespace Csml.Parser.Nodes.Members;
 
+/// <summary>
+/// Represents a property.
+/// </summary>
 [XmlType("Property")]
 public class PropertyNode : MemberNode
 {

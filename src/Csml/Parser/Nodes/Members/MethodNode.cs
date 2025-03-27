@@ -2,6 +2,9 @@
 
 namespace Csml.Parser.Nodes.Members;
 
+/// <summary>
+/// Represents a method.
+/// </summary>
 public class MethodNode : BaseNode
 {
     [XmlAttribute("Name")]

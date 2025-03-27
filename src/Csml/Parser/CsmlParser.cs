@@ -3,7 +3,10 @@ using System.Xml.Linq;
 
 namespace Csml.Parser;
 
-public static class CsmlParser
+/// <summary>
+/// Parser to read C♯ML as <see cref="CsmlNode"/>.
+/// </summary>
+internal static class CsmlParser
 {
     public static CsmlParseResult Parse(string xml)
     {

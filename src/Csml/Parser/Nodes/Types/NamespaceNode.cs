@@ -1,5 +1,8 @@
 ﻿namespace Csml.Parser.Nodes.Types;
 
+/// <summary>
+/// Represents a <c>namespace</c> declaration.
+/// </summary>
 public class NamespaceNode : BaseNode
 {
     [XmlElement("Class", typeof(ClassNode))]

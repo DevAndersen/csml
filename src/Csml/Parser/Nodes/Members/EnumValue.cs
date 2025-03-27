@@ -1,5 +1,8 @@
 ﻿namespace Csml.Parser.Nodes.Members;
 
+/// <summary>
+/// Represents a value of an <c>enum</c>.
+/// </summary>
 [XmlType("EnumValue")]
 public class EnumValue : BaseNode
 {

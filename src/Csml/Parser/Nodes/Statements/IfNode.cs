@@ -1,5 +1,8 @@
 ﻿namespace Csml.Parser.Nodes.Statements;
 
+/// <summary>
+/// Represents an <c>if</c> statement.
+/// </summary>
 public class IfNode : StatementContainerNode
 {
     [XmlAttribute("Left")]

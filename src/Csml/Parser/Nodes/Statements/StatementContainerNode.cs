@@ -1,5 +1,8 @@
 ﻿namespace Csml.Parser.Nodes.Statements;
 
+/// <summary>
+/// Base class representing a node that can contain statements as child nodes.
+/// </summary>
 public abstract class StatementContainerNode : BaseNode
 {
     [XmlElement("Return", typeof(ReturnNode))]

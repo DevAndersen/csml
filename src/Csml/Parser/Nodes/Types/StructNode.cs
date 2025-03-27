@@ -1,5 +1,8 @@
 ﻿namespace Csml.Parser.Nodes.Types;
 
+/// <summary>
+/// Represents a <c>struct</c> declaration.
+/// </summary>
 [XmlType("Struct")]
 public class StructNode : TypeNode
 {

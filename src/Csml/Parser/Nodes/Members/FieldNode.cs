@@ -1,5 +1,8 @@
 ﻿namespace Csml.Parser.Nodes.Members;
 
+/// <summary>
+/// Represents a field.
+/// </summary>
 [XmlType("Field")]
 public class FieldNode : MemberNode
 {
