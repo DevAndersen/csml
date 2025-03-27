@@ -2,7 +2,7 @@
 using Csml.Generator.SyntaxBuilders;
 using Csml.Parser;
 using Microsoft.CodeAnalysis.Text;
-using System.Diagnostics;
+using System.Text;
 
 namespace Csml.Generator;
 
@@ -26,11 +26,6 @@ internal class CsmlGenerator : IIncrementalGenerator
 
         generatorContext.RegisterSourceOutput(sourceFiles, (context, sourceFile) =>
         {
-            if (!Debugger.IsAttached)
-            {
-                //Debugger.Launch();
-            }
-
             if (sourceFile.FileExtension != _preferredFileExtension)
             {
                 context.ReportDiagnostic(Diagnostic.Create(CsmlDiagnostics.NotPreferredFileExtension, Location.None));
@@ -42,8 +37,8 @@ internal class CsmlGenerator : IIncrementalGenerator
             {
                 try
                 {
-                    CompilationUnitSyntax syntax = CsmlBuilder.Build(result.Result!);
-                    SyntaxTree syntaxTree = SyntaxFactory.SyntaxTree(syntax, encoding: System.Text.Encoding.Unicode);
+                    CompilationUnitSyntax syntax = CsmlBuilder.Build(result.Result);
+                    SyntaxTree syntaxTree = SyntaxFactory.SyntaxTree(syntax, encoding: Encoding.Unicode);
 
                     context.AddSource($"{sourceFile.FileName}.g.cs", syntaxTree.GetText());
                 }
