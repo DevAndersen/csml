@@ -48,30 +48,12 @@ internal class MethodBuilder
             tokenList = tokenList.Add(SF.Token(accessModifier));
         }
 
-        if (methodNode.Static)
-        {
-            tokenList = tokenList.Add(SF.Token(SyntaxKind.StaticKeyword));
-        }
-
-        if (methodNode.Async)
-        {
-            tokenList = tokenList.Add(SF.Token(SyntaxKind.AsyncKeyword));
-        }
-
-        if (methodNode.Abstract)
-        {
-            tokenList = tokenList.Add(SF.Token(SyntaxKind.AbstractKeyword));
-        }
-
-        if (methodNode.Virtual)
-        {
-            tokenList = tokenList.Add(SF.Token(SyntaxKind.VirtualKeyword));
-        }
-
-        if (methodNode.Override)
-        {
-            tokenList = tokenList.Add(SF.Token(SyntaxKind.OverrideKeyword));
-        }
+        tokenList = AddTokenIf(tokenList, methodNode.Static, SyntaxKind.StaticKeyword);
+        tokenList = AddTokenIf(tokenList, methodNode.Async, SyntaxKind.AsyncKeyword);
+        tokenList = AddTokenIf(tokenList, methodNode.Abstract, SyntaxKind.AbstractKeyword);
+        tokenList = AddTokenIf(tokenList, methodNode.Virtual, SyntaxKind.VirtualKeyword);
+        tokenList = AddTokenIf(tokenList, methodNode.Override, SyntaxKind.OverrideKeyword);
+        tokenList = AddTokenIf(tokenList, methodNode.Static, SyntaxKind.StaticKeyword);
 
         MethodDeclarationSyntax methodDeclaration = SF.MethodDeclaration(
             SF.IdentifierName(methodNode.Return),
@@ -89,5 +71,12 @@ internal class MethodBuilder
 
         return methodDeclaration
             .WithModifiers(tokenList);
+    }
+
+    private static SyntaxTokenList AddTokenIf(SyntaxTokenList tokenList, bool state, SyntaxKind syntaxKind)
+    {
+        return state
+            ? tokenList.Add(SF.Token(syntaxKind))
+            : tokenList;
     }
 }
