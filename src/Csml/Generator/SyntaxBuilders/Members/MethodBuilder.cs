@@ -47,7 +47,6 @@ internal class MethodBuilder
         tokenList = AddTokenIf(tokenList, methodNode.Abstract, SyntaxKind.AbstractKeyword);
         tokenList = AddTokenIf(tokenList, methodNode.Virtual, SyntaxKind.VirtualKeyword);
         tokenList = AddTokenIf(tokenList, methodNode.Override, SyntaxKind.OverrideKeyword);
-        tokenList = AddTokenIf(tokenList, methodNode.Static, SyntaxKind.StaticKeyword);
 
         MethodDeclarationSyntax methodDeclaration = SF.MethodDeclaration(
             SF.IdentifierName(methodNode.Return),
