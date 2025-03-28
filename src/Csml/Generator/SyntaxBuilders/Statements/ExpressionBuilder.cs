@@ -10,6 +10,14 @@ internal static class ExpressionBuilder
         {
             return SF.IdentifierName(valueNode.Value);
         }
+        else if (node is AssignmentNode assignmentNode)
+        {
+            return SF.AssignmentExpression(
+                SyntaxKind.SimpleAssignmentExpression,
+                Build(assignmentNode.Left.Expression),
+                Build(assignmentNode.Right.Expression));
+
+        }
         else if (node is UnaryExpressionNode unary)
         {
             IdentifierNameSyntax target = SF.IdentifierName(unary.Target);
@@ -27,7 +35,6 @@ internal static class ExpressionBuilder
         {
             SyntaxKind kind = binary switch
             {
-                AssignmentNode => SyntaxKind.SimpleAssignmentExpression,
                 AddNode => SyntaxKind.AddExpression,
                 SubtractNode => SyntaxKind.SubtractExpression,
                 MultiplyNode => SyntaxKind.MultiplyExpression,

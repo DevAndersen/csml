@@ -41,6 +41,9 @@ public class MethodNode : BaseNode
     [XmlElement("Else", typeof(ElseNode))]
     [XmlElement("ForEach", typeof(ForEachNode))]
     [XmlElement("Increment", typeof(IncrementNode))]
+    [XmlElement("PrefixIncrement", typeof(PrefixIncrementNode))]
     [XmlElement("Decrement", typeof(DecrementNode))]
+    [XmlElement("PrefixDecrement", typeof(PrefixDecrementNode))]
+    [XmlElement("Assignment", typeof(AssignmentNode))]
     public BaseNode[]? Statements { get; init; }
 }
