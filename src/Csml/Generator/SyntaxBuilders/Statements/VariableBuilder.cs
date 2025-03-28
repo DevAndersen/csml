@@ -6,9 +6,10 @@ internal class VariableBuilder
     {
         VariableDeclaratorSyntax variableDeclarator = SF.VariableDeclarator(node.Name);
 
-        if (!string.IsNullOrWhiteSpace(node.Value))
+        if (node.Expression != null)
         {
-            variableDeclarator = variableDeclarator.WithInitializer(SF.EqualsValueClause(SF.IdentifierName(node.Value!)));
+            ExpressionSyntax valueExpression = ExpressionBuilder.Build(node.Expression.Expression);
+            variableDeclarator = variableDeclarator.WithInitializer(SF.EqualsValueClause(valueExpression));
         }
 
         VariableDeclarationSyntax variableDeclaration = SF.VariableDeclaration(SF.IdentifierName(node.Type), [variableDeclarator]);

@@ -14,6 +14,6 @@ public class VariableNode : BaseNode
     [XmlAttribute("Type")]
     public required string Type { get; init; }
 
-    [XmlAttribute("Value")]
-    public string? Value { get; init; }
+    [XmlElement("Expression")]
+    public ExpressionStatementNode? Expression { get; init; }
 }

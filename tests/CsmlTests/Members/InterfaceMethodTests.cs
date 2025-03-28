@@ -39,7 +39,11 @@ public class InterfaceMethodTests
                 <Namespace Name="MyNamespace">
                     <Interface Name="IMyInterface">
                         <Method Return="void" Name="DoStuff">
-                            <Variable Type="int" Name="number" Value="2" />
+                            <Variable Type="int" Name="number">
+                                <Expression>
+                                    <Value Value="2" />
+                                </Expression>
+                            </Variable>
                         </Method>
                     </Interface>
                 </Namespace>

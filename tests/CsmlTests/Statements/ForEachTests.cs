@@ -12,7 +12,11 @@ public class ForEachTests
                     <Class Name="MyClass">
                         <Method Return="void" Name="DoStuff">
                             <ForEach Type="int" Name="number" Collection="numbers">
-                                <Variable Type="int" Name="valA" Value="number" />
+                                <Variable Type="int" Name="valA">
+                                    <Expression>
+                                        <Value Value="number" />
+                                    </Expression>
+                                </Variable>
                             </ForEach>
                         </Method>
                     </Class>

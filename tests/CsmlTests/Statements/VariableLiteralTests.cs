@@ -66,7 +66,11 @@ public class VariableLiteralTests
             	<Namespace Name="MyNamespace">
                     <Class Name="MyClass">
                         <Method Return="void" Name="DoStuff">
-                            <Variable Type="{type}" Name="value" Value="{text}" />
+                            <Variable Type="{type}" Name="value">
+                                <Expression>
+                                    <Value Value="{text}" />
+                                </Expression>
+                            </Variable>
                         </Method>
                     </Class>
                 </Namespace>

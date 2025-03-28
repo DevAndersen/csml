@@ -1,4 +1,5 @@
 ﻿using Csml.Generator.SyntaxBuilders.Statements;
+using Csml.Parser.Nodes.Expressions;
 
 namespace Csml.Generator.SyntaxBuilders;
 
@@ -19,13 +20,12 @@ internal class BlockBuilder
             {
                 BaseNode statementNode = nodes[i];
 
-                StatementContainerNode[] elseNodeChain = [];
+                BaseNode[] elseNodeChain = [];
                 if (statementNode is IfNode)
                 {
                     elseNodeChain = nodes
                         .Skip(i + 1)
                         .TakeWhile(x => x is ElseIfNode or ElseNode)
-                        .OfType<StatementContainerNode>()
                         .ToArray();
 
                     i += elseNodeChain.Length;
@@ -40,6 +40,7 @@ internal class BlockBuilder
                     ContinueNode continueNode => ContinueBuilder.Build(),
                     IfNode ifNode => IfBuilder.Build(ifNode, elseNodeChain),
                     ForEachNode forEachNode => ForEachBuilder.Build(forEachNode),
+                    ExpressionNode expressionNode => SF.ExpressionStatement(ExpressionBuilder.Build(expressionNode)),
                     _ => throw new UnknownCsmlElementException(
                         statementNode.LineNumber,
                         statementNode.GetType().Name)

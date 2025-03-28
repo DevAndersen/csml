@@ -2,14 +2,11 @@
 
 internal static class IfBuilder
 {
-    public static IfStatementSyntax Build(IfNode node, IEnumerable<StatementContainerNode> elseNodeChain)
+    public static IfStatementSyntax Build(IfNode node, IEnumerable<BaseNode> elseNodeChain)
     {
-        BinaryExpressionSyntax condition = SF.BinaryExpression(
-            GetSyntaxKindForComparison(node.Comparison),
-            SF.IdentifierName(node.Left),
-            SF.IdentifierName(node.Right));
+        ExpressionSyntax condition = ExpressionBuilder.Build(node.Expression.Expression);
 
-        BlockSyntax block = BlockBuilder.Build(node.Statements);
+        BlockSyntax block = BlockBuilder.Build(node.Statements.Statements);
         IfStatementSyntax ifStatement = SF.IfStatement(condition, block);
 
         ifStatement = BuildElseChain(ifStatement, elseNodeChain);
@@ -17,9 +14,9 @@ internal static class IfBuilder
         return ifStatement;
     }
 
-    private static IfStatementSyntax BuildElseChain(IfStatementSyntax ifStatement, IEnumerable<StatementContainerNode> elseNodeChain)
+    private static IfStatementSyntax BuildElseChain(IfStatementSyntax ifStatement, IEnumerable<BaseNode> elseNodeChain)
     {
-        StatementContainerNode firstNode = elseNodeChain.FirstOrDefault();
+        BaseNode firstNode = elseNodeChain.FirstOrDefault();
 
         if (firstNode is ElseIfNode elseIfNode)
         {
@@ -33,19 +30,5 @@ internal static class IfBuilder
         }
 
         return ifStatement;
-    }
-
-    private static SyntaxKind GetSyntaxKindForComparison(ComparisonOperator comparison)
-    {
-        return comparison switch
-        {
-            ComparisonOperator.Equal => SyntaxKind.EqualsExpression,
-            ComparisonOperator.NotEqual => SyntaxKind.NotEqualsExpression,
-            ComparisonOperator.LessThan => SyntaxKind.LessThanExpression,
-            ComparisonOperator.LessThanOrEqual => SyntaxKind.LessThanOrEqualExpression,
-            ComparisonOperator.GreaterThan => SyntaxKind.GreaterThanExpression,
-            ComparisonOperator.GreaterThanOrEqual => SyntaxKind.GreaterThanOrEqualExpression,
-            _ => throw new NotImplementedException() // Todo: Throw appropriate exception.
-        };
     }
 }

@@ -14,14 +14,51 @@ public class IfTests
                     <Class Name="MyClass">
                         <Method Return="void" Name="DoStuff">
                             <Call Target="System.Console" Method="WriteLine" />
-                            <If Left="true" Comparison="Equal" Right="false">
-                                <Variable Type="int" Name="valA" Value="1" />
+
+                            <If>
+                                <Expression>
+                                    <Equals>
+                                        <Left>
+                                            <Value Value="true" />
+                                        </Left>
+                                        <Right>
+                                            <Value Value="false" />
+                                        </Right>
+                                    </Equals>
+                                </Expression>
+                                <Statements>
+                                    <Variable Type="int" Name="valA">
+                                        <Expression>
+                                            <Value Value="1" />
+                                        </Expression>
+                                    </Variable>
+                                </Statements>
                             </If>
-                            <ElseIf Left="false" Comparison="Equal" Right="true">
-                                <Variable Type="int" Name="valA" Value="2" />
+                            <ElseIf>
+                                <Expression>
+                                    <Equals>
+                                        <Left>
+                                            <Value Value="false" />
+                                        </Left>
+                                        <Right>
+                                            <Value Value="true" />
+                                        </Right>
+                                    </Equals>
+                                </Expression>
+                                <Statements>
+                                    <Variable Type="int" Name="valA">
+                                        <Expression>
+                                            <Value Value="1" />
+                                        </Expression>
+                                    </Variable>
+                                </Statements>
                             </ElseIf>
                             <Else>
-                                <Variable Type="int" Name="valA" Value="3" />
+                                <Variable Type="int" Name="valA">
+                                    <Expression>
+                                        <Value Value="3" />
+                                    </Expression>
+                                </Variable>
                             </Else>
                             <Call Target="System.Console" Method="WriteLine" />
                         </Method>

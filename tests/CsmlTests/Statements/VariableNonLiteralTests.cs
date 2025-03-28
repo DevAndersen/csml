@@ -46,7 +46,11 @@ public class VariableNonLiteralTests
             	<Namespace Name="MyNamespace">
                     <Class Name="MyClass">
                         <Method Return="void" Name="DoStuff">
-                            <Variable Type="MyClass" Name="value" Value="null" />
+                            <Variable Type="MyClass" Name="value">
+                                    <Expression>
+                                        <Value Value="null" />
+                                    </Expression>
+                                </Variable>
                         </Method>
                     </Class>
                 </Namespace>
@@ -89,7 +93,11 @@ public class VariableNonLiteralTests
             	<Namespace Name="MyNamespace">
                     <Class Name="MyClass">
                         <Method Return="void" Name="DoStuff">
-                            <Variable Type="MyClass" Name="value" Value="default" />
+                            <Variable Type="MyClass" Name="value">
+                                    <Expression>
+                                        <Value Value="default" />
+                                    </Expression>
+                                </Variable>
                         </Method>
                     </Class>
                 </Namespace>

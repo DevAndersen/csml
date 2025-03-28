@@ -1,4 +1,6 @@
-﻿namespace Csml.Parser.Nodes.Statements;
+﻿using Csml.Parser.Nodes.Expressions;
+
+namespace Csml.Parser.Nodes.Statements;
 
 /// <summary>
 /// Base class representing a node that can contain statements as child nodes.
@@ -14,5 +16,7 @@ public abstract class StatementContainerNode : BaseNode
     [XmlElement("ElseIf", typeof(ElseIfNode))]
     [XmlElement("Else", typeof(ElseNode))]
     [XmlElement("ForEach", typeof(ForEachNode))]
+    [XmlElement("Increment", typeof(IncrementNode))]
+    [XmlElement("Decrement", typeof(DecrementNode))]
     public BaseNode[]? Statements { get; init; }
 }

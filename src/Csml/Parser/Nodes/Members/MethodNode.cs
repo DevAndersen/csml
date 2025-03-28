@@ -1,4 +1,6 @@
-﻿namespace Csml.Parser.Nodes.Members;
+﻿using Csml.Parser.Nodes.Expressions;
+
+namespace Csml.Parser.Nodes.Members;
 
 /// <summary>
 /// Represents a method.
@@ -38,5 +40,7 @@ public class MethodNode : BaseNode
     [XmlElement("ElseIf", typeof(ElseIfNode))]
     [XmlElement("Else", typeof(ElseNode))]
     [XmlElement("ForEach", typeof(ForEachNode))]
+    [XmlElement("Increment", typeof(IncrementNode))]
+    [XmlElement("Decrement", typeof(DecrementNode))]
     public BaseNode[]? Statements { get; init; }
 }
