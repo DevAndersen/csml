@@ -56,8 +56,7 @@ In order to get C♯ML source files working, they need to be added to your `.csp
 
 ## Documentation
 
-[WORK IN PROGRESS]
-
+For full technical documentation, see: [Technical documentation](./documentation/README.md)
 
 ## Q & A
 
