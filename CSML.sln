@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloWorld", "demos\HelloWo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FizzBuzz", "demos\FizzBuzz\FizzBuzz.csproj", "{008E4036-A559-40AA-ADF3-CF9352C024AB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloWorldWithoutCSharp", "demos\HelloWorldWithoutCSharp\HelloWorldWithoutCSharp.csproj", "{7C632C5F-E24A-4297-B537-1F7ABE1FA4BC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,6 +45,10 @@ Global
 		{008E4036-A559-40AA-ADF3-CF9352C024AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{008E4036-A559-40AA-ADF3-CF9352C024AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{008E4036-A559-40AA-ADF3-CF9352C024AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C632C5F-E24A-4297-B537-1F7ABE1FA4BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C632C5F-E24A-4297-B537-1F7ABE1FA4BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C632C5F-E24A-4297-B537-1F7ABE1FA4BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C632C5F-E24A-4297-B537-1F7ABE1FA4BC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -50,6 +56,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{FC31A8DC-1AA6-447C-8FAA-0EE7DE8C30DD} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{008E4036-A559-40AA-ADF3-CF9352C024AB} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{7C632C5F-E24A-4297-B537-1F7ABE1FA4BC} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {28238EB7-9C8C-4388-BC0A-B16E0537E512}
