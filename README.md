@@ -1,6 +1,22 @@
 ﻿# C♯ML - The C# Markup Language
 
-**Write C# code in XML**
+**Write C# in XML**
+
+```xml
+<Csml>
+  <Namespace Name="HelloWorld">
+    <Class Static="true" Name="Program">
+      <Method Access="Public" Static="true" Return="void" Name="Main">
+        <Call Target="Console" Method="WriteLine">
+          <Argument Value='"Hello, World!"' />
+        </Call>
+      </Method>
+    </Class>
+  </Namespace>
+</Csml>
+```
+
+*C♯ML implementation of "Hello, World!"*
 
 ## Introduction
 
@@ -34,9 +50,16 @@ In order to get C♯ML source files working, they need to be added to your `.csp
 
 [WORK IN PROGRESS]
 
-## Code examples
+## Demos
+
+- [Hello, World!](./demos/HelloWorld/HelloWorld.c♯)
+- [Hello, World! (without any C#)](./demos/HelloWorldWithoutCSharp/Program.c♯)
+- [FizzBuzz](./demos/FizzBuzz/FizzBuzz.c♯)
+
+## Documentation
 
 [WORK IN PROGRESS]
+
 
 ## Q & A
 
