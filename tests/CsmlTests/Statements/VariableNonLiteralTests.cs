@@ -47,10 +47,10 @@ public class VariableNonLiteralTests
                     <Class Name="MyClass">
                         <Method Return="void" Name="DoStuff">
                             <Variable Type="MyClass" Name="value">
-                                    <Expression>
-                                        <Value Value="null" />
-                                    </Expression>
-                                </Variable>
+                                <Expression>
+                                    <Value Value="null" />
+                                </Expression>
+                            </Variable>
                         </Method>
                     </Class>
                 </Namespace>
