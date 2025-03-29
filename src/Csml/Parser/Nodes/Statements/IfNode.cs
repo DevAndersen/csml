@@ -32,5 +32,6 @@ public class ExpressionStatementNode : BaseNode
     [XmlElement("Multiply", typeof(MultiplyNode))]
     [XmlElement("Divide", typeof(DivideNode))]
     [XmlElement("Remainder", typeof(RemainderNode))]
+    [XmlElement("Call", typeof(CallNode))]
     public required ExpressionNode Expression { get; init; }
 }

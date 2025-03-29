@@ -6,7 +6,11 @@ internal static class ExpressionBuilder
 {
     public static ExpressionSyntax Build(ExpressionNode node)
     {
-        if (node is ValueNode valueNode)
+        if (node is CallNode callNode)
+        {
+            return CallBuilder.Build(callNode).Expression;
+        }
+        else if (node is ValueNode valueNode)
         {
             return SF.IdentifierName(valueNode.Value);
         }

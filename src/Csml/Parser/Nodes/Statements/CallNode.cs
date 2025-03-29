@@ -1,9 +1,11 @@
-﻿namespace Csml.Parser.Nodes.Statements;
+﻿using Csml.Parser.Nodes.Expressions;
+
+namespace Csml.Parser.Nodes.Statements;
 
 /// <summary>
 /// Represents a method invocation statement.
 /// </summary>
-public class CallNode : BaseNode
+public class CallNode : ExpressionNode
 {
     [XmlAttribute("Target")]
     public required string Target { get; init; }
