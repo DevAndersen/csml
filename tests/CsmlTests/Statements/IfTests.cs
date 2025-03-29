@@ -85,7 +85,7 @@ public class IfTests
 
         if (blockSyntax.GetChildNodes() is not [
             ExpressionStatementSyntax,
-            IfStatementSyntax ifStatement,
+            IfStatementSyntax,
             ExpressionStatementSyntax])
         {
             Assert.Fail();
