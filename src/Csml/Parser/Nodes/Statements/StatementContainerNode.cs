@@ -15,6 +15,7 @@ public abstract class StatementContainerNode : BaseNode
     [XmlElement("If", typeof(IfNode))]
     [XmlElement("ElseIf", typeof(ElseIfNode))]
     [XmlElement("Else", typeof(ElseNode))]
+    [XmlElement("For", typeof(ForNode))]
     [XmlElement("ForEach", typeof(ForEachNode))]
     [XmlElement("Increment", typeof(IncrementNode))]
     [XmlElement("Decrement", typeof(DecrementNode))]

@@ -39,6 +39,7 @@ internal class BlockBuilder
                     BreakNode breakNode => BreakBuilder.Build(),
                     ContinueNode continueNode => ContinueBuilder.Build(),
                     IfNode ifNode => IfBuilder.Build(ifNode, elseNodeChain),
+                    ForNode forNode => ForBuilder.Build(forNode),
                     ForEachNode forEachNode => ForEachBuilder.Build(forEachNode),
                     ExpressionNode expressionNode => SF.ExpressionStatement(ExpressionBuilder.Build(expressionNode)),
                     _ => throw new UnknownCsmlElementException(
