@@ -8,11 +8,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <AdditionalFiles Include="Demo.c♯" />
+    <AdditionalFiles Include="FizzBuzz.c♯" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\Csml\Csml.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="true" />
+    <ProjectReference Include="..\..\src\Csml\Csml.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
   </ItemGroup>
 
 </Project>

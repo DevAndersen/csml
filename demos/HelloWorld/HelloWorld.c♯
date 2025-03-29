@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Csml>
+  <Namespace Name="Demo">
+    <Class Static="true" Name="HelloWorld">
+      <Method Access="Public" Static="true" Return="void" Name="Run">
+
+        <Call Target="Console" Method="WriteLine">
+          <Argument Value='"Hello, World!"' />
+        </Call>
+
+      </Method>
+    </Class>
+  </Namespace>
+</Csml>
