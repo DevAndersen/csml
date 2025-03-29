@@ -62,7 +62,7 @@ For full technical documentation, see: [Technical documentation](./documentation
 
 **Q:** Why?
 
-- **A:** [WORK IN PROGRESS]
+- **A:** Software development isn't about "*Why?*", it's about "*Why not?*".
 
 **Q:** Why are some C# language features not supported?
 
