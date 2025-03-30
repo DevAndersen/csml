@@ -37,6 +37,7 @@ Below is a table of C♯ML tags, as well as their corresponding C# equivalent.
 | [`<If>`](./tags/if.md) | [`if`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/statements/selection-statements#the-if-statement) |
 | [`<Increment>`](./tags/increment.md) | [`++`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/arithmetic-operators#increment-operator-) |
 | [`<Interface>`](./tags/interface.md) | [`interface`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/interface) |
+| [`<Inheritance>`](./tags/inheritance.md) | [Inheritance](https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/object-oriented/inheritance) |
 | [`<LeftShift>`](./tags/left-shift.md) | [`<<`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/bitwise-and-shift-operators#left-shift-operator-) |
 | [`<LessThan>`](./tags/less-than.md) | [`<`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/comparison-operators#less-than-operator-) |
 | [`<LessThanOrEqual>`](./tags/less-than-or-equal.md) | [`<=`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/comparison-operators#less-than-or-equal-operator-) |
