@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Csml>
-  <Namespace Name="HelloWorldWithoutCSharp">
+  <Namespace Name="HelloWorld">
     <Class Static="true" Name="Program">
       <Method Access="Public" Static="true" Return="void" Name="Main">
         <Statements>
