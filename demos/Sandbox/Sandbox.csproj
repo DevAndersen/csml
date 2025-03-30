@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <AdditionalFiles Include="HelloWorld.c♯" />
+    <AdditionalFiles Include="MyClass.c♯" />
   </ItemGroup>
 
   <ItemGroup>

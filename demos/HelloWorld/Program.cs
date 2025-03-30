@@ -1,3 +1,0 @@
-﻿using Demo;
-
-HelloWorld.Run();
