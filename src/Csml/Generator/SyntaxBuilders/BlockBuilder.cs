@@ -54,6 +54,7 @@ internal class BlockBuilder
                     ThrowNode throwNode => ThrowBuilder.Build(throwNode),
                     TryNode tryNode => TryBuilder.Build(tryNode, chainedNodes),
                     SwitchNode switchNode => SwitchBuilder.Build(switchNode),
+                    WhileNode whileNode => WhileBuilder.Build(whileNode),
                     _ => throw new UnknownCsmlElementException(
                         statementNode.LineNumber,
                         statementNode.GetType().Name)

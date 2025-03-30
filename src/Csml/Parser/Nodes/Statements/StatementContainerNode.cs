@@ -29,5 +29,6 @@ public abstract class StatementContainerNode : BaseNode
     [XmlElement("Try", typeof(TryNode))]
     [XmlElement("Variable", typeof(VariableNode))]
     [XmlElement("Switch", typeof(SwitchNode))]
+    [XmlElement("While", typeof(WhileNode))]
     public BaseNode[]? Statements { get; init; }
 }
