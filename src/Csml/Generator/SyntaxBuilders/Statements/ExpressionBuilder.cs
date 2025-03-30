@@ -6,7 +6,11 @@ internal static class ExpressionBuilder
 {
     public static ExpressionSyntax Build(ExpressionNode node)
     {
-        if (node is CallNode callNode)
+        if (node is AwaitNode awaitNode)
+        {
+            return BuildAwait(awaitNode);
+        }
+        else if (node is CallNode callNode)
         {
             return CallBuilder.Build(callNode).Expression;
         }
@@ -20,7 +24,6 @@ internal static class ExpressionBuilder
                 SyntaxKind.SimpleAssignmentExpression,
                 Build(assignmentNode.Left.Expression),
                 Build(assignmentNode.Right.Expression));
-
         }
         else if (node is UnaryExpressionNode unaryExpression)
         {
@@ -85,5 +88,10 @@ internal static class ExpressionBuilder
                 right);
         }
         throw new NotImplementedException(); // Todo: Throw appropriate exception.
+    }
+
+    private static AwaitExpressionSyntax BuildAwait(AwaitNode awaitNode)
+    {
+        return SF.AwaitExpression(Build(awaitNode.Expression.Expression));
     }
 }

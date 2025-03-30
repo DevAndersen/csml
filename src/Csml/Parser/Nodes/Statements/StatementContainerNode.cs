@@ -8,6 +8,7 @@ namespace Csml.Parser.Nodes.Statements;
 public abstract class StatementContainerNode : BaseNode
 {
     [XmlElement("Assignment", typeof(AssignmentNode))]
+    [XmlElement("Await", typeof(AwaitNode))]
     [XmlElement("Break", typeof(BreakNode))]
     [XmlElement("Call", typeof(CallNode))]
     [XmlElement("Continue", typeof(ContinueNode))]
