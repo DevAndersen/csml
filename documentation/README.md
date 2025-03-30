@@ -8,7 +8,7 @@ Below is a table of C♯ML tags, as well as their corresponding C# equivalent.
 |---|---|
 | [`<Add>`](./tags/add.md) | [`+`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/arithmetic-operators#addition-operator-) |
 | [`<And>`](./tags/and.md) | [`&&`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/boolean-logical-operators#conditional-logical-and-operator-) |
-| [`<Argument>`](./tags/argument.md) | Method argument |
+| [`<Argument>`](./tags/argument.md) | Method argument (method invocation) |
 | [`<Assignment>`](./tags/assignment.md) | [Assignment](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/assignment-operator) |
 | [`<BitwiseAnd>`](./tags/bitwise-and.md) | [`&`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/bitwise-and-shift-operators#logical-and-operator-) |
 | [`<BitwiseNot>`](./tags/bitwise-not.md) | [`~`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/bitwise-and-shift-operators#bitwise-complement-operator-) |
@@ -43,6 +43,7 @@ Below is a table of C♯ML tags, as well as their corresponding C# equivalent.
 | [`<Not>`](./tags/not.md) | [`!`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/boolean-logical-operators#logical-negation-operator-) |
 | [`<NotEquals>`](./tags/not-equals.md) | [`!=`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/equality-operators#inequality-operator-) |
 | [`<Or>`](./tags/or.md) | [`\|\|`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/boolean-logical-operators#conditional-logical-or-operator-) |
+| [`<Parameter>`](./tags/parameter.md) | [Method parameter](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/method-parameters) (method declaration) |
 | [`<PrefixDecrement>`](./tags/prefix-decrement.md) | [`--`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/arithmetic-operators#decrement-operator---) |
 | [`<PrefixIncrement>`](./tags/prefix-increment.md) | [`++`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/arithmetic-operators#increment-operator-) |
 | [`<Property>`](./tags/property.md) | [Property](https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/properties) |
