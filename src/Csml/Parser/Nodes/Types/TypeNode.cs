@@ -28,4 +28,7 @@ public abstract class TypeNode : BaseNode
 
     [XmlElement("Method")]
     public MethodNode[]? Methods { get; init; }
+
+    [XmlElement("Inheritance")]
+    public InheritanceNode[]? BaseTypes { get; init; }
 }

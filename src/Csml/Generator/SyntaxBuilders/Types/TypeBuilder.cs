@@ -96,8 +96,25 @@ internal static class TypeBuilder
             memberList = memberList.AddRange(MethodBuilder.BuildMultiple(typeNode.Methods, typeNode));
         }
 
+        if (typeNode.BaseTypes != null)
+        {
+            syntax = syntax.WithBaseList(BuildBaseList(typeNode.BaseTypes));
+        }
+
         return syntax
             .WithModifiers(tokenList)
             .WithMembers(memberList);
+    }
+
+    private static BaseListSyntax BuildBaseList(InheritanceNode[] nodes)
+    {
+        SeparatedSyntaxList<BaseTypeSyntax> list = SF.SeparatedList<BaseTypeSyntax>();
+
+        foreach (InheritanceNode node in nodes)
+        {
+            list = list.Add(SF.SimpleBaseType(SF.IdentifierName(node.Type)));
+        }
+
+        return SF.BaseList().WithTypes(list);
     }
 }
