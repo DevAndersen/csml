@@ -19,6 +19,7 @@ Below is a table of C♯ML tags, as well as their corresponding C# equivalent.
 | [`<Call>`](./tags/call.md) | [Method invocation](https://learn.microsoft.com/en-us/dotnet/csharp/methods#method-invocation) |
 | [`<Catch>`](./tags/catch.md) | [`catch`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/statements/exception-handling-statements#the-try-catch-statement) |
 | [`<Class>`](./tags/class.md) | [`class`](https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/types/classes) |
+| [`<Constructor>`](./tags/constructor.md) | [Constructor](https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/constructors) |
 | [`<Continue>`](./tags/continue.md) | [`continue`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/statements/jump-statements#the-continue-statement) |
 | [`<csml>`](./tags/csml.md) | *No equivalent* |
 | [`<Decrement>`](./tags/decrement.md) | [`--`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/arithmetic-operators#decrement-operator---) |
