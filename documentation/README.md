@@ -17,12 +17,14 @@ Below is a table of C♯ML tags, as well as their corresponding C# equivalent.
 | [`<Block>`](./tags/block.md) | Block scope |
 | [`<Break>`](./tags/break.md) | [`break`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/statements/jump-statements#the-break-statement) |
 | [`<Call>`](./tags/call.md) | [Method invocation](https://learn.microsoft.com/en-us/dotnet/csharp/methods#method-invocation) |
+| [`<Case>`](./tags/case.md) | [`case`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/statements/selection-statements#the-switch-statement) |
 | [`<Catch>`](./tags/catch.md) | [`catch`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/statements/exception-handling-statements#the-try-catch-statement) |
 | [`<Class>`](./tags/class.md) | [`class`](https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/types/classes) |
 | [`<Constructor>`](./tags/constructor.md) | [Constructor](https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/constructors) |
 | [`<Continue>`](./tags/continue.md) | [`continue`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/statements/jump-statements#the-continue-statement) |
 | [`<csml>`](./tags/csml.md) | *No equivalent* |
 | [`<Decrement>`](./tags/decrement.md) | [`--`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/arithmetic-operators#decrement-operator---) |
+| [`<Default>`](./tags/default.md) | [`default`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/statements/selection-statements#the-switch-statement) |
 | [`<Divide>`](./tags/divide.md) | [`/`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/arithmetic-operators#division-operator-) |
 | [`<Else>`](./tags/else.md) | [`else`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/statements/selection-statements#the-if-statement) |
 | [`<ElseIf>`](./tags/else-if.md) | [`else if`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/statements/selection-statements#the-if-statement) |
@@ -37,8 +39,8 @@ Below is a table of C♯ML tags, as well as their corresponding C# equivalent.
 | [`<GreaterThanOrEqual>`](./tags/greater-than-or-equal.md) | [`>=`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/comparison-operators#greater-than-or-equal-operator-) |
 | [`<If>`](./tags/if.md) | [`if`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/statements/selection-statements#the-if-statement) |
 | [`<Increment>`](./tags/increment.md) | [`++`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/arithmetic-operators#increment-operator-) |
-| [`<Interface>`](./tags/interface.md) | [`interface`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/interface) |
 | [`<Inheritance>`](./tags/inheritance.md) | [Inheritance](https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/object-oriented/inheritance) |
+| [`<Interface>`](./tags/interface.md) | [`interface`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/interface) |
 | [`<LeftShift>`](./tags/left-shift.md) | [`<<`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/bitwise-and-shift-operators#left-shift-operator-) |
 | [`<LessThan>`](./tags/less-than.md) | [`<`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/comparison-operators#less-than-operator-) |
 | [`<LessThanOrEqual>`](./tags/less-than-or-equal.md) | [`<=`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/comparison-operators#less-than-or-equal-operator-) |
@@ -58,6 +60,7 @@ Below is a table of C♯ML tags, as well as their corresponding C# equivalent.
 | [`<RightShift>`](./tags/right-shift.md) | [`>>`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/bitwise-and-shift-operators#right-shift-operator-) |
 | [`<Struct>`](./tags/struct.md) | [`struct`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/struct) |
 | [`<Subtract>`](./tags/subtract.md) | [`-`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/arithmetic-operators#subtraction-operator--) |
+| [`<Switch>`](./tags/switch.md) | [`switch`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/statements/selection-statements#the-switch-statement) |
 | [`<Throw>`](./tags/throw.md) | [`throw`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/statements/exception-handling-statements#the-throw-statement) |
 | [`<Try>`](./tags/try.md) | [`try`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/statements/exception-handling-statements#the-try-statement) |
 | [`<UnsignedRightShift>`](./tags/unsigned-right-shift.md) | [`>>>`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/bitwise-and-shift-operators#unsigned-right-shift-operator-) |
