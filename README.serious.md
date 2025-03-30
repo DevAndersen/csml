@@ -1,10 +1,10 @@
 ﻿# Readme, serious edition
 
-This project is, of course, not to be taken serious.
+This project is, of course, not to be taken serious. It is, however, functional in accordance with [the technical documentation](./documentation/README.md).
 
-Its primary purpose was to give me an excuse to start looking into source generators.
+The primary purpose of this project was to give me an excuse to start looking into source generators.
 
-Its secondary purpose was to be funny. Hopefully, the fairly absurd idea of writing C# in XML will provide a bit of entertainment for anyone reading this.
+THe secondary purpose was to be fun and silly. Hopefully, the fairly absurd idea of writing C# in XML will provide a bit of entertainment for anyone reading this.
 
 ## Conclusions and takeaways
 
@@ -17,6 +17,8 @@ As the source generator is executed before the application starts, you have to a
 When using Visual Studio, this means you also have to deal with the debugger attachment windows popping up, which it sometimes does multiple times.
 
 A far less frustrating approach to debugging a source generator is by using tests which directly invoke the source generator. This way, debugging a test will hit breakpoints within the source generator, making for a much nicer debugging experience.
+
+It should be noted that the tests in this repository are not meant to cover all scenarios, just the ones that came to mind while designing functionality. The tests are also not necessarily written how they ought to have been written, and were largely written after the code they test in order to raise flags when functionality would break during development.
 
 ### Building C# syntax trees gets rather lengthy
 
