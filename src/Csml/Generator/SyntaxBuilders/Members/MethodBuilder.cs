@@ -62,6 +62,18 @@ internal class MethodBuilder
             methodDeclaration = methodDeclaration.WithBody(block);
         }
 
+        if (methodNode.Parameters != null)
+        {
+            SeparatedSyntaxList<ParameterSyntax> parameterList = SF.SeparatedList<ParameterSyntax>();
+
+            foreach (ParameterNode parameter in methodNode.Parameters)
+            {
+                parameterList = parameterList.Add(BuildParameter(parameter));
+            }
+
+            methodDeclaration = methodDeclaration.WithParameterList(SF.ParameterList(parameterList));
+        }
+
         return methodDeclaration
             .WithModifiers(tokenList);
     }
@@ -71,5 +83,38 @@ internal class MethodBuilder
         return state
             ? tokenList.Add(SF.Token(syntaxKind))
             : tokenList;
+    }
+
+    private static ParameterSyntax BuildParameter(ParameterNode parameterNode)
+    {
+        ParameterSyntax parameter = SF
+            .Parameter(SF.Identifier(parameterNode.Name))
+            .WithType(SF.IdentifierName(parameterNode.Type));
+
+        if (parameterNode.Default != null && !string.IsNullOrWhiteSpace(parameterNode.Default))
+        {
+            EqualsValueClauseSyntax defaultClause = SF.EqualsValueClause(SF.IdentifierName(parameterNode.Default));
+            parameter = parameter.WithDefault(defaultClause);
+        }
+
+        SyntaxKind[] accessModifiers = parameterNode.Modifier switch
+        {
+            ParameterModifier.Ref => [SyntaxKind.RefKeyword],
+            ParameterModifier.Out => [SyntaxKind.OutKeyword],
+            ParameterModifier.RefReadonly => [SyntaxKind.ReadOnlyKeyword, SyntaxKind.RefKeyword],
+            ParameterModifier.In => [SyntaxKind.InKeyword],
+            ParameterModifier.Params => [SyntaxKind.ParamsKeyword],
+            _ => [],
+        };
+
+        SyntaxTokenList modifierTokenList = SF.TokenList();
+
+        foreach (SyntaxKind accessModifier in accessModifiers)
+        {
+            modifierTokenList = modifierTokenList.Add(SF.Token(accessModifier));
+        }
+
+        return parameter
+            .WithModifiers(modifierTokenList);
     }
 }
