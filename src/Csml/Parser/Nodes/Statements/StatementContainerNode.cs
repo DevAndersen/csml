@@ -11,12 +11,14 @@ public abstract class StatementContainerNode : BaseNode
     [XmlElement("Await", typeof(AwaitNode))]
     [XmlElement("Break", typeof(BreakNode))]
     [XmlElement("Call", typeof(CallNode))]
+    [XmlElement("Catch", typeof(CatchNode))]
     [XmlElement("Continue", typeof(ContinueNode))]
     [XmlElement("Decrement", typeof(DecrementNode))]
     [XmlElement("Else", typeof(ElseNode))]
     [XmlElement("ElseIf", typeof(ElseIfNode))]
     [XmlElement("For", typeof(ForNode))]
     [XmlElement("ForEach", typeof(ForEachNode))]
+    [XmlElement("Finally", typeof(FinallyNode))]
     [XmlElement("If", typeof(IfNode))]
     [XmlElement("Increment", typeof(IncrementNode))]
     [XmlElement("New", typeof(NewNode))]
@@ -24,6 +26,7 @@ public abstract class StatementContainerNode : BaseNode
     [XmlElement("PrefixIncrement", typeof(PrefixIncrementNode))]
     [XmlElement("Return", typeof(ReturnNode))]
     [XmlElement("Throw", typeof(ThrowNode))]
+    [XmlElement("Try", typeof(TryNode))]
     [XmlElement("Variable", typeof(VariableNode))]
     public BaseNode[]? Statements { get; init; }
 }

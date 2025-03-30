@@ -19,16 +19,25 @@ internal class BlockBuilder
             for (int i = 0; i < nodes.Length; i++)
             {
                 BaseNode statementNode = nodes[i];
+                BaseNode[] chainedNodes = [];
 
-                BaseNode[] elseNodeChain = [];
                 if (statementNode is IfNode)
                 {
-                    elseNodeChain = nodes
+                    chainedNodes = nodes
                         .Skip(i + 1)
                         .TakeWhile(x => x is ElseIfNode or ElseNode)
                         .ToArray();
 
-                    i += elseNodeChain.Length;
+                    i += chainedNodes.Length;
+                }
+                else if (statementNode is TryNode)
+                {
+                    chainedNodes = nodes
+                        .Skip(i + 1)
+                        .TakeWhile(x => x is CatchNode or FinallyNode)
+                        .ToArray();
+
+                    i += chainedNodes.Length;
                 }
 
                 StatementSyntax statementSyntax = statementNode switch
@@ -38,11 +47,12 @@ internal class BlockBuilder
                     CallNode callNode => CallBuilder.Build(callNode),
                     BreakNode breakNode => BreakBuilder.Build(),
                     ContinueNode continueNode => ContinueBuilder.Build(),
-                    IfNode ifNode => IfBuilder.Build(ifNode, elseNodeChain),
+                    IfNode ifNode => IfBuilder.Build(ifNode, chainedNodes),
                     ForNode forNode => ForBuilder.Build(forNode),
                     ForEachNode forEachNode => ForEachBuilder.Build(forEachNode),
                     ExpressionNode expressionNode => SF.ExpressionStatement(ExpressionBuilder.Build(expressionNode)),
                     ThrowNode throwNode => ThrowBuilder.Build(throwNode),
+                    TryNode tryNode => TryBuilder.Build(tryNode, chainedNodes),
                     _ => throw new UnknownCsmlElementException(
                         statementNode.LineNumber,
                         statementNode.GetType().Name)
