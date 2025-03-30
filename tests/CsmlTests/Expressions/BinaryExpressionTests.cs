@@ -14,6 +14,14 @@ public class BinaryExpressionTests
     [InlineData("LessThanOrEqual", SyntaxKind.LessThanOrEqualExpression)]
     [InlineData("GreaterThan", SyntaxKind.GreaterThanExpression)]
     [InlineData("GreaterThanOrEqual", SyntaxKind.GreaterThanOrEqualExpression)]
+    [InlineData("Or", SyntaxKind.LogicalOrExpression)]
+    [InlineData("And", SyntaxKind.LogicalAndExpression)]
+    [InlineData("BitwiseOr", SyntaxKind.BitwiseOrExpression)]
+    [InlineData("BitwiseAnd", SyntaxKind.BitwiseAndExpression)]
+    [InlineData("Xor", SyntaxKind.ExclusiveOrExpression)]
+    [InlineData("LeftShift", SyntaxKind.LeftShiftExpression)]
+    [InlineData("RightShift", SyntaxKind.RightShiftExpression)]
+    [InlineData("UnsignedRightShift", SyntaxKind.UnsignedRightShiftExpression)]
     public void Tag_ExpectedSyntaxKind(string tag, SyntaxKind kind)
     {
         // Arrange

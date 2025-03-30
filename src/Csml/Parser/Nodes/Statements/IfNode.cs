@@ -33,5 +33,13 @@ public class ExpressionStatementNode : BaseNode
     [XmlElement("Divide", typeof(DivideNode))]
     [XmlElement("Remainder", typeof(RemainderNode))]
     [XmlElement("Call", typeof(CallNode))]
+    [XmlElement("And", typeof(AndNode))]
+    [XmlElement("BitwiseAnd", typeof(BitwiseAndNode))]
+    [XmlElement("BitwiseOr", typeof(BitwiseOrNode))]
+    [XmlElement("LeftShift", typeof(LeftShiftNode))]
+    [XmlElement("Or", typeof(OrNode))]
+    [XmlElement("RightShift", typeof(RightShiftNode))]
+    [XmlElement("UnsignedRightShift", typeof(UnsignedRightShiftNode))]
+    [XmlElement("Xor", typeof(XorNode))]
     public required ExpressionNode Expression { get; init; }
 }

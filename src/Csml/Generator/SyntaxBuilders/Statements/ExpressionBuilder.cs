@@ -40,16 +40,24 @@ internal static class ExpressionBuilder
             SyntaxKind kind = binary switch
             {
                 AddNode => SyntaxKind.AddExpression,
-                SubtractNode => SyntaxKind.SubtractExpression,
-                MultiplyNode => SyntaxKind.MultiplyExpression,
+                AndNode => SyntaxKind.LogicalAndExpression,
+                BitwiseAndNode => SyntaxKind.BitwiseAndExpression,
+                BitwiseOrNode => SyntaxKind.BitwiseOrExpression,
                 DivideNode => SyntaxKind.DivideExpression,
-                RemainderNode => SyntaxKind.ModuloExpression,
                 EqualsNode => SyntaxKind.EqualsExpression,
-                NotEqualsNode => SyntaxKind.NotEqualsExpression,
-                LessThanNode => SyntaxKind.LessThanExpression,
-                LessThanOrEqualNode => SyntaxKind.LessThanOrEqualExpression,
                 GreaterThanNode => SyntaxKind.GreaterThanExpression,
                 GreaterThanOrEqualNode => SyntaxKind.GreaterThanOrEqualExpression,
+                LeftShiftNode => SyntaxKind.LeftShiftExpression,
+                LessThanNode => SyntaxKind.LessThanExpression,
+                LessThanOrEqualNode => SyntaxKind.LessThanOrEqualExpression,
+                MultiplyNode => SyntaxKind.MultiplyExpression,
+                NotEqualsNode => SyntaxKind.NotEqualsExpression,
+                OrNode => SyntaxKind.LogicalOrExpression,
+                RemainderNode => SyntaxKind.ModuloExpression,
+                RightShiftNode => SyntaxKind.RightShiftExpression,
+                SubtractNode => SyntaxKind.SubtractExpression,
+                UnsignedRightShiftNode => SyntaxKind.UnsignedRightShiftExpression,
+                XorNode => SyntaxKind.ExclusiveOrExpression,
                 _ => throw new NotImplementedException() // Todo: Throw appropriate exception.
             };
 
