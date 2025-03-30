@@ -31,4 +31,7 @@ public abstract class TypeNode : BaseNode
 
     [XmlElement("Inheritance")]
     public InheritanceNode[]? BaseTypes { get; init; }
+
+    [XmlElement("Constructor")]
+    public ConstructorNode[]? Constructors { get; init; }
 }

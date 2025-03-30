@@ -70,11 +70,13 @@ internal static class TypeBuilder
             }
         }
 
+        SyntaxList<MemberDeclarationSyntax> constructorList = ConstructorBuilder.BuildMultiple(typeNode.Constructors, typeNode);
         SyntaxList<MemberDeclarationSyntax> memberList = SF.List<MemberDeclarationSyntax>();
         SyntaxList<MemberDeclarationSyntax> typeList = BuildMultiple(typeNode.Types, typeNode);
         SyntaxList<MemberDeclarationSyntax> enumList = EnumBuilder.BuildMultiple(typeNode.Enums, typeNode);
 
         memberList = memberList
+            .AddRange(constructorList)
             .AddRange(typeList)
             .AddRange(enumList);
 
