@@ -67,4 +67,5 @@ Below is a table of C♯ML tags, as well as their corresponding C# equivalent.
 | [`<Using>`](./tags/using-directive.md) (directive) | [`using`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/using-directive) |
 | [`<Value>`](./tags/value.md) | *No direct equivalent* |
 | [`<Variable>`](./tags/variable.md) | [Variable](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/language-specification/variables) |
+| [`<While>`](./tags/while.md) | [`while`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/statements/iteration-statements#the-while-statement) |
 | [`<Xor>`](./tags/xor.md) | [`^`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/bitwise-and-shift-operators#logical-exclusive-or-operator-) |
