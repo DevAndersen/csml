@@ -17,6 +17,7 @@ Below is a table of C♯ML tags, as well as their corresponding C# equivalent.
 | [`<Block>`](./tags/block.md) | Block scope |
 | [`<Break>`](./tags/break.md) | [`break`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/statements/jump-statements#the-break-statement) |
 | [`<Call>`](./tags/call.md) | [Method invocation](https://learn.microsoft.com/en-us/dotnet/csharp/methods#method-invocation) |
+| [`<Catch>`](./tags/catch.md) | [`catch`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/statements/exception-handling-statements#the-try-catch-statement) |
 | [`<Class>`](./tags/class.md) | [`class`](https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/types/classes) |
 | [`<Continue>`](./tags/continue.md) | [`continue`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/statements/jump-statements#the-continue-statement) |
 | [`<csml>`](./tags/csml.md) | *No equivalent* |
@@ -28,6 +29,7 @@ Below is a table of C♯ML tags, as well as their corresponding C# equivalent.
 | [`<EnumValue>`](./tags/enum-value.md) | [Enum value](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/enum) |
 | [`<Equals>`](./tags/equals.md) | [`==`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/equality-operators#equality-operator-) |
 | [`<Field>`](./tags/field.md) | [Field](https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/fields) |
+| [`<Finally>`](./tags/finally.md) | [`finally`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/statements/exception-handling-statements#the-try-finally-statement) |
 | [`<For>`](./tags/for.md) | [`for`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/statements/iteration-statements#the-for-statement) |
 | [`<ForEach>`](./tags/for-each.md) | [`foreach`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/statements/iteration-statements#the-foreach-statement) |
 | [`<GreaterThan>`](./tags/greater-than.md) | [`>`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/comparison-operators#greater-than-operator-) |
@@ -55,6 +57,7 @@ Below is a table of C♯ML tags, as well as their corresponding C# equivalent.
 | [`<Struct>`](./tags/struct.md) | [`struct`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/struct) |
 | [`<Subtract>`](./tags/subtract.md) | [`-`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/arithmetic-operators#subtraction-operator--) |
 | [`<Throw>`](./tags/throw.md) | [`throw`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/statements/exception-handling-statements#the-throw-statement) |
+| [`<Try>`](./tags/try.md) | [`try`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/statements/exception-handling-statements#the-try-statement) |
 | [`<UnsignedRightShift>`](./tags/unsigned-right-shift.md) | [`>>>`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/bitwise-and-shift-operators#unsigned-right-shift-operator-) |
 | [`<Using>`](./tags/using-directive.md) (directive) | [`using`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/using-directive) |
 | [`<Value>`](./tags/value.md) | *No direct equivalent* |
