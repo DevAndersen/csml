@@ -53,6 +53,7 @@ internal class BlockBuilder
                     ExpressionNode expressionNode => SF.ExpressionStatement(ExpressionBuilder.Build(expressionNode)),
                     ThrowNode throwNode => ThrowBuilder.Build(throwNode),
                     TryNode tryNode => TryBuilder.Build(tryNode, chainedNodes),
+                    SwitchNode switchNode => SwitchBuilder.Build(switchNode),
                     _ => throw new UnknownCsmlElementException(
                         statementNode.LineNumber,
                         statementNode.GetType().Name)
