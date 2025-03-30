@@ -29,5 +29,7 @@ public class ExpressionStatementNode : BaseNode
     [XmlElement("RightShift", typeof(RightShiftNode))]
     [XmlElement("UnsignedRightShift", typeof(UnsignedRightShiftNode))]
     [XmlElement("Xor", typeof(XorNode))]
+    [XmlElement("Not", typeof(NotNode))]
+    [XmlElement("BitwiseNot", typeof(BitwiseNotNode))]
     public required ExpressionNode Expression { get; init; }
 }

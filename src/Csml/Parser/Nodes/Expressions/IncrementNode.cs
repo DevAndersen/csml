@@ -1,5 +1,5 @@
 ﻿namespace Csml.Parser.Nodes.Expressions;
 
-public class IncrementNode : UnaryExpressionNode
+public class IncrementNode : UnaryValueExpressionNode
 {
 }

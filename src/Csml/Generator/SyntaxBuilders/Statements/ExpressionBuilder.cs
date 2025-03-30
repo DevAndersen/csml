@@ -22,11 +22,26 @@ internal static class ExpressionBuilder
                 Build(assignmentNode.Right.Expression));
 
         }
-        else if (node is UnaryExpressionNode unary)
+        else if (node is UnaryExpressionNode unaryExpression)
         {
-            IdentifierNameSyntax target = SF.IdentifierName(unary.Target);
+            SyntaxKind kind = unaryExpression switch
+            {
+                NotNode => SyntaxKind.LogicalNotExpression,
+                BitwiseNotNode => SyntaxKind.BitwiseNotExpression,
+                _ => throw new NotImplementedException() // Todo: Throw appropriate exception.
+            };
 
-            return unary switch
+            ExpressionSyntax expression = Build(unaryExpression.Expression.Expression);
+
+            return SF.PrefixUnaryExpression(
+                kind,
+                SF.ParenthesizedExpression(expression));
+        }
+        else if (node is UnaryValueExpressionNode unaryValue)
+        {
+            IdentifierNameSyntax target = SF.IdentifierName(unaryValue.Target);
+
+            return unaryValue switch
             {
                 IncrementNode => SF.PostfixUnaryExpression(SyntaxKind.PostIncrementExpression, target),
                 DecrementNode => SF.PostfixUnaryExpression(SyntaxKind.PostDecrementExpression, target),
