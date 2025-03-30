@@ -54,6 +54,7 @@ Below is a table of C♯ML tags, as well as their corresponding C# equivalent.
 | [`<RightShift>`](./tags/right-shift.md) | [`>>`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/bitwise-and-shift-operators#right-shift-operator-) |
 | [`<Struct>`](./tags/struct.md) | [`struct`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/struct) |
 | [`<Subtract>`](./tags/subtract.md) | [`-`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/arithmetic-operators#subtraction-operator--) |
+| [`<Throw>`](./tags/throw.md) | [`throw`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/statements/exception-handling-statements#the-throw-statement) |
 | [`<UnsignedRightShift>`](./tags/unsigned-right-shift.md) | [`>>>`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/bitwise-and-shift-operators#unsigned-right-shift-operator-) |
 | [`<Using>`](./tags/using-directive.md) (directive) | [`using`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/using-directive) |
 | [`<Value>`](./tags/value.md) | *No direct equivalent* |
