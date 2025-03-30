@@ -41,6 +41,7 @@ Below is a table of C♯ML tags, as well as their corresponding C# equivalent.
 | [`<Method>`](./tags/method.md) | [Method](https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/methods) |
 | [`<Multiply>`](./tags/multiply.md) | [`*`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/arithmetic-operators#multiplication-operator-) |
 | [`<Namespace>`](./tags/namespace.md) | [`namespace`](https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/types/namespaces) |
+| [`<New>`](./tags/new.md) | [`new`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/new-operator) |
 | [`<Not>`](./tags/not.md) | [`!`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/boolean-logical-operators#logical-negation-operator-) |
 | [`<NotEquals>`](./tags/not-equals.md) | [`!=`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/equality-operators#inequality-operator-) |
 | [`<Or>`](./tags/or.md) | [`\|\|`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/boolean-logical-operators#conditional-logical-or-operator-) |
