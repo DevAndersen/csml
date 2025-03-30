@@ -7,19 +7,11 @@ public class ContinueTests
     {
         // Arrange
         string csml = """
-            <Csml>
-            	<Namespace Name="MyNamespace">
-                    <Class Name="MyClass">
-                        <Method Return="void" Name="DoStuff">
-                            <Continue/>
-                        </Method>
-                    </Class>
-                </Namespace>
-            </Csml>
+            <Continue/>
             """;
 
         // Act
-        SyntaxNode[] output = AssertCompileNoDiagnostics(csml);
+        SyntaxNode[] output = AssertCompileNoDiagnostics(CsmlSyntaxWrapper.WrapInMethod(csml));
 
         // Assert
         if (!output.FirstDescendant(out MethodDeclarationSyntax? methodDeclaration))

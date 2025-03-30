@@ -3,129 +3,131 @@
   <Namespace Name="Demo">
     <Class Static="true" Name="FizzBuzz">
       <Method Access="Public" Static="true" Return="void" Name="Run">
+        <Statements>
 
-        <For>
-          <Variable Type="int" Name="i">
-            <Expression>
-              <Value Value="1" />
-            </Expression>
-          </Variable>
-          <Condition>
-            <LessThanOrEqual>
-              <Left>
-                <Value Value="i" />
-              </Left>
-              <Right>
-                <Value Value="100" />
-              </Right>
-            </LessThanOrEqual>
-          </Condition>
-          <Iterator>
-            <Increment Target="i" />
-          </Iterator>
-          <Statements>
-
-            <Variable Type="List&lt;string&gt;" Name="items">
+          <For>
+            <Variable Type="int" Name="i">
               <Expression>
-                <Value Value="[]" />
+                <Value Value="1" />
               </Expression>
             </Variable>
+            <Condition>
+              <LessThanOrEqual>
+                <Left>
+                  <Value Value="i" />
+                </Left>
+                <Right>
+                  <Value Value="100" />
+                </Right>
+              </LessThanOrEqual>
+            </Condition>
+            <Iterator>
+              <Increment Target="i" />
+            </Iterator>
+            <Statements>
 
-            <If>
-              <Expression>
-                <Equals>
-                  <Left>
-                    <Remainder>
-                      <Left>
-                        <Value Value="i" />
-                      </Left>
-                      <Right>
-                        <Value Value="3" />
-                      </Right>
-                    </Remainder>
-                  </Left>
-                  <Right>
-                    <Value Value="0" />
-                  </Right>
-                </Equals>
-              </Expression>
-              <Statements>
-
-                <Call Target="items" Method="Add">
-                  <Argument Value='"fizz"'/>
-                </Call>
-
-              </Statements>
-            </If>
-
-            <If>
-              <Expression>
-                <Equals>
-                  <Left>
-                    <Remainder>
-                      <Left>
-                        <Value Value="i" />
-                      </Left>
-                      <Right>
-                        <Value Value="5" />
-                      </Right>
-                    </Remainder>
-                  </Left>
-                  <Right>
-                    <Value Value="0" />
-                  </Right>
-                </Equals>
-              </Expression>
-              <Statements>
-
-                <Call Target="items" Method="Add">
-                  <Argument Value='"buzz"'/>
-                </Call>
-
-              </Statements>
-            </If>
-
-            <If>
-              <Expression>
-                <Equals>
-                  <Left>
-                    <Value Value="items.Count" />
-                  </Left>
-                  <Right>
-                    <Value Value="0" />
-                  </Right>
-                </Equals>
-              </Expression>
-              <Statements>
-
-                <Call Target="Console" Method="WriteLine">
-                  <Argument Value="i" />
-                </Call>
-
-              </Statements>
-            </If>
-            <Else>
-
-              <Variable Type="string" Name="text">
+              <Variable Type="List&lt;string&gt;" Name="items">
                 <Expression>
-
-                  <Call Target="string" Method="Join">
-                    <Argument Value='" "' />
-                    <Argument Value="items" />
-                  </Call>
-
+                  <Value Value="[]" />
                 </Expression>
               </Variable>
 
-              <Call Target="Console" Method="WriteLine">
-                <Argument Value="text" />
-              </Call>
+              <If>
+                <Expression>
+                  <Equals>
+                    <Left>
+                      <Remainder>
+                        <Left>
+                          <Value Value="i" />
+                        </Left>
+                        <Right>
+                          <Value Value="3" />
+                        </Right>
+                      </Remainder>
+                    </Left>
+                    <Right>
+                      <Value Value="0" />
+                    </Right>
+                  </Equals>
+                </Expression>
+                <Statements>
 
-            </Else>
+                  <Call Target="items" Method="Add">
+                    <Argument Value='"fizz"'/>
+                  </Call>
 
-          </Statements>
-        </For>
+                </Statements>
+              </If>
 
+              <If>
+                <Expression>
+                  <Equals>
+                    <Left>
+                      <Remainder>
+                        <Left>
+                          <Value Value="i" />
+                        </Left>
+                        <Right>
+                          <Value Value="5" />
+                        </Right>
+                      </Remainder>
+                    </Left>
+                    <Right>
+                      <Value Value="0" />
+                    </Right>
+                  </Equals>
+                </Expression>
+                <Statements>
+
+                  <Call Target="items" Method="Add">
+                    <Argument Value='"buzz"'/>
+                  </Call>
+
+                </Statements>
+              </If>
+
+              <If>
+                <Expression>
+                  <Equals>
+                    <Left>
+                      <Value Value="items.Count" />
+                    </Left>
+                    <Right>
+                      <Value Value="0" />
+                    </Right>
+                  </Equals>
+                </Expression>
+                <Statements>
+
+                  <Call Target="Console" Method="WriteLine">
+                    <Argument Value="i" />
+                  </Call>
+
+                </Statements>
+              </If>
+              <Else>
+
+                <Variable Type="string" Name="text">
+                  <Expression>
+
+                    <Call Target="string" Method="Join">
+                      <Argument Value='" "' />
+                      <Argument Value="items" />
+                    </Call>
+
+                  </Expression>
+                </Variable>
+
+                <Call Target="Console" Method="WriteLine">
+                  <Argument Value="text" />
+                </Call>
+
+              </Else>
+
+            </Statements>
+          </For>
+
+        </Statements>
       </Method>
     </Class>
   </Namespace>

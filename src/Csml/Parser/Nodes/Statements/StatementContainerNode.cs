@@ -7,17 +7,20 @@ namespace Csml.Parser.Nodes.Statements;
 /// </summary>
 public abstract class StatementContainerNode : BaseNode
 {
-    [XmlElement("Return", typeof(ReturnNode))]
-    [XmlElement("Variable", typeof(VariableNode))]
-    [XmlElement("Call", typeof(CallNode))]
+    [XmlElement("Assignment", typeof(AssignmentNode))]
     [XmlElement("Break", typeof(BreakNode))]
+    [XmlElement("Call", typeof(CallNode))]
     [XmlElement("Continue", typeof(ContinueNode))]
-    [XmlElement("If", typeof(IfNode))]
-    [XmlElement("ElseIf", typeof(ElseIfNode))]
+    [XmlElement("Decrement", typeof(DecrementNode))]
     [XmlElement("Else", typeof(ElseNode))]
+    [XmlElement("ElseIf", typeof(ElseIfNode))]
     [XmlElement("For", typeof(ForNode))]
     [XmlElement("ForEach", typeof(ForEachNode))]
+    [XmlElement("If", typeof(IfNode))]
     [XmlElement("Increment", typeof(IncrementNode))]
-    [XmlElement("Decrement", typeof(DecrementNode))]
+    [XmlElement("PrefixDecrement", typeof(PrefixDecrementNode))]
+    [XmlElement("PrefixIncrement", typeof(PrefixIncrementNode))]
+    [XmlElement("Return", typeof(ReturnNode))]
+    [XmlElement("Variable", typeof(VariableNode))]
     public BaseNode[]? Statements { get; init; }
 }

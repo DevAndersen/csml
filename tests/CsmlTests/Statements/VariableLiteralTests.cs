@@ -20,19 +20,11 @@ public class VariableLiteralTests
     {
         // Arrange
         string csml = $"""
-            <Csml>
-            	<Namespace Name="MyNamespace">
-                    <Class Name="MyClass">
-                        <Method Return="void" Name="DoStuff">
-                            <Variable Type="{type}" Name="value" />
-                        </Method>
-                    </Class>
-                </Namespace>
-            </Csml>
+            <Variable Type="{type}" Name="value" />
             """;
 
         // Act
-        SyntaxNode[] output = AssertCompileNoDiagnostics(csml);
+        SyntaxNode[] output = AssertCompileNoDiagnostics(CsmlSyntaxWrapper.WrapInMethod(csml));
 
         // Assert
         if (!output.FirstDescendant(out LocalDeclarationStatementSyntax? variableDeclaration))
@@ -62,23 +54,15 @@ public class VariableLiteralTests
     {
         // Arrange
         string csml = $"""
-            <Csml>
-            	<Namespace Name="MyNamespace">
-                    <Class Name="MyClass">
-                        <Method Return="void" Name="DoStuff">
-                            <Variable Type="{type}" Name="value">
-                                <Expression>
-                                    <Value Value="{text}" />
-                                </Expression>
-                            </Variable>
-                        </Method>
-                    </Class>
-                </Namespace>
-            </Csml>
+            <Variable Type="{type}" Name="value">
+                <Expression>
+                    <Value Value="{text}" />
+                </Expression>
+            </Variable>
             """;
 
         // Act
-        SyntaxNode[] output = AssertCompileNoDiagnostics(csml);
+        SyntaxNode[] output = AssertCompileNoDiagnostics(CsmlSyntaxWrapper.WrapInMethod(csml));
 
         // Assert
         if (!output.FirstDescendant(out LocalDeclarationStatementSyntax? variableDeclaration))

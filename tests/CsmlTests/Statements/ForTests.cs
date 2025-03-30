@@ -7,41 +7,33 @@ public class ForTests
     {
         // Arrange
         string csml = """
-            <Csml>
-            	<Namespace Name="MyNamespace">
-                    <Class Name="MyClass">
-                        <Method Return="void" Name="DoStuff">
-                            <For>
-                                <Variable Type="int" Name="i">
-                                    <Expression>
-                                        <Value Value="0" />
-                                    </Expression>
-                                </Variable>
-                                <Condition>
-                                    <LessThan>
-                                        <Left>
-                                            <Value Value="i" />
-                                        </Left>
-                                        <Right>
-                                            <Value Value="10" />
-                                        </Right>
-                                    </LessThan>
-                                </Condition>
-                                <Iterator>
-                                    <Increment Target="i" />
-                                </Iterator>
-                                <Statements>
-                                    <Call Target="System.Console" Method="WriteLine" />
-                                </Statements>
-                            </For>
-                        </Method>
-                    </Class>
-                </Namespace>
-            </Csml>
+            <For>
+                <Variable Type="int" Name="i">
+                    <Expression>
+                        <Value Value="0" />
+                    </Expression>
+                </Variable>
+                <Condition>
+                    <LessThan>
+                        <Left>
+                            <Value Value="i" />
+                        </Left>
+                        <Right>
+                            <Value Value="10" />
+                        </Right>
+                    </LessThan>
+                </Condition>
+                <Iterator>
+                    <Increment Target="i" />
+                </Iterator>
+                <Statements>
+                    <Call Target="System.Console" Method="WriteLine" />
+                </Statements>
+            </For>
             """;
 
         // Act
-        SyntaxNode[] output = AssertCompileNoDiagnostics(csml);
+        SyntaxNode[] output = AssertCompileNoDiagnostics(CsmlSyntaxWrapper.WrapInMethod(csml));
 
         // Assert
         if (!output.FirstDescendant(out ForStatementSyntax? forStatement))

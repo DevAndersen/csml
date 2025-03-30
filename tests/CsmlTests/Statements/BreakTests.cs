@@ -7,19 +7,11 @@ public class BreakTests
     {
         // Arrange
         string csml = """
-            <Csml>
-            	<Namespace Name="MyNamespace">
-                    <Class Name="MyClass">
-                        <Method Return="void" Name="DoStuff">
-                            <Break/>
-                        </Method>
-                    </Class>
-                </Namespace>
-            </Csml>
+            <Break />
             """;
 
         // Act
-        SyntaxNode[] output = AssertCompileNoDiagnostics(csml);
+        SyntaxNode[] output = AssertCompileNoDiagnostics(CsmlSyntaxWrapper.WrapInMethod(csml));
 
         // Assert
         if (!output.FirstDescendant(out MethodDeclarationSyntax? methodDeclaration))

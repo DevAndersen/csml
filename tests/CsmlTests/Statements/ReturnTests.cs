@@ -7,19 +7,11 @@ public class ReturnTests
     {
         // Arrange
         string csml = """
-            <Csml>
-            	<Namespace Name="MyNamespace">
-                    <Class Name="MyClass">
-                        <Method Return="void" Name="DoStuff">
-                            <Return/>
-                        </Method>
-                    </Class>
-                </Namespace>
-            </Csml>
+            <Return/>
             """;
 
         // Act
-        SyntaxNode[] output = AssertCompileNoDiagnostics(csml);
+        SyntaxNode[] output = AssertCompileNoDiagnostics(CsmlSyntaxWrapper.WrapInMethod(csml));
 
         // Assert
         if (!output.FirstDescendant(out MethodDeclarationSyntax? methodDeclaration))
@@ -41,19 +33,11 @@ public class ReturnTests
     {
         // Arrange
         string csml = $"""
-            <Csml>
-            	<Namespace Name="MyNamespace">
-                    <Class Name="MyClass">
-                        <Method Return="{type}" Name="DoStuff">
-                            <Return Value="{text}"/>
-                        </Method>
-                    </Class>
-                </Namespace>
-            </Csml>
+            <Return Value="{text}"/>
             """;
 
         // Act
-        SyntaxNode[] output = AssertCompileNoDiagnostics(csml);
+        SyntaxNode[] output = AssertCompileNoDiagnostics(CsmlSyntaxWrapper.WrapInMethod(csml));
 
         // Assert
         if (!output.FirstDescendant(out ReturnStatementSyntax? ret))
@@ -77,19 +61,11 @@ public class ReturnTests
     {
         // Arrange
         string csml = $"""
-            <Csml>
-            	<Namespace Name="MyNamespace">
-                    <Class Name="MyClass">
-                        <Method Return="string" Name="DoStuff">
-                            <Return Value='"Abc"'/>
-                        </Method>
-                    </Class>
-                </Namespace>
-            </Csml>
+            <Return Value='"Abc"'/>
             """;
 
         // Act
-        SyntaxNode[] output = AssertCompileNoDiagnostics(csml);
+        SyntaxNode[] output = AssertCompileNoDiagnostics(CsmlSyntaxWrapper.WrapInMethod(csml));
 
         // Assert
         if (!output.FirstDescendant(out ReturnStatementSyntax? ret))
@@ -113,19 +89,11 @@ public class ReturnTests
     {
         // Arrange
         string csml = $"""
-            <Csml>
-            	<Namespace Name="MyNamespace">
-                    <Class Name="MyClass">
-                        <Method Return="string" Name="DoStuff">
-                            <Return Value="&quot;Abc&quot;"/>
-                        </Method>
-                    </Class>
-                </Namespace>
-            </Csml>
+            <Return Value="&quot;Abc&quot;"/>
             """;
 
         // Act
-        SyntaxNode[] output = AssertCompileNoDiagnostics(csml);
+        SyntaxNode[] output = AssertCompileNoDiagnostics(CsmlSyntaxWrapper.WrapInMethod(csml));
 
         // Assert
         if (!output.FirstDescendant(out ReturnStatementSyntax? ret))

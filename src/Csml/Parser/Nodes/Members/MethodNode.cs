@@ -1,6 +1,4 @@
-﻿using Csml.Parser.Nodes.Expressions;
-
-namespace Csml.Parser.Nodes.Members;
+﻿namespace Csml.Parser.Nodes.Members;
 
 /// <summary>
 /// Represents a method.
@@ -31,20 +29,9 @@ public class MethodNode : BaseNode
     [XmlAttribute("Override")]
     public bool Override { get; init; }
 
-    [XmlElement("Return", typeof(ReturnNode))]
-    [XmlElement("Variable", typeof(VariableNode))]
-    [XmlElement("Call", typeof(CallNode))]
-    [XmlElement("Break", typeof(BreakNode))]
-    [XmlElement("Continue", typeof(ContinueNode))]
-    [XmlElement("If", typeof(IfNode))]
-    [XmlElement("ElseIf", typeof(ElseIfNode))]
-    [XmlElement("Else", typeof(ElseNode))]
-    [XmlElement("For", typeof(ForNode))]
-    [XmlElement("ForEach", typeof(ForEachNode))]
-    [XmlElement("Increment", typeof(IncrementNode))]
-    [XmlElement("PrefixIncrement", typeof(PrefixIncrementNode))]
-    [XmlElement("Decrement", typeof(DecrementNode))]
-    [XmlElement("PrefixDecrement", typeof(PrefixDecrementNode))]
-    [XmlElement("Assignment", typeof(AssignmentNode))]
-    public BaseNode[]? Statements { get; init; }
+    [XmlElement("Parameter")]
+    public ParameterNode[]? Parameters { get; init; }
+
+    [XmlElement("Statements")]
+    public BlockNode? Statements { get; init; }
 }

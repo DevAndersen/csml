@@ -52,13 +52,13 @@ internal class MethodBuilder
             SF.IdentifierName(methodNode.Return),
             SF.Identifier(methodNode.Name));
 
-        if (methodNode.Abstract || (parentType is InterfaceNode && methodNode.Statements?.Any() != true))
+        if (methodNode.Abstract || (parentType is InterfaceNode && methodNode.Statements?.Statements?.Any() != true))
         {
             methodDeclaration = methodDeclaration.WithSemicolonToken(SF.Token(SyntaxKind.SemicolonToken));
         }
         else if (methodNode.Statements != null)
         {
-            BlockSyntax block = BlockBuilder.Build(methodNode.Statements);
+            BlockSyntax block = BlockBuilder.Build(methodNode.Statements.Statements);
             methodDeclaration = methodDeclaration.WithBody(block);
         }
 

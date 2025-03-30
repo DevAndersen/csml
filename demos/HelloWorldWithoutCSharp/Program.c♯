@@ -3,11 +3,13 @@
   <Namespace Name="HelloWorldWithoutCSharp">
     <Class Static="true" Name="Program">
       <Method Access="Public" Static="true" Return="void" Name="Main">
+        <Statements>
 
-        <Call Target="Console" Method="WriteLine">
-          <Argument Value='"Hello, World!"' />
-        </Call>
+          <Call Target="Console" Method="WriteLine">
+            <Argument Value='"Hello, World!"' />
+          </Call>
 
+        </Statements>
       </Method>
     </Class>
   </Namespace>

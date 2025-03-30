@@ -9,7 +9,9 @@ internal static class CsmlSyntaxWrapper
             	<Namespace Name="MyNamespace">
                     <Class Name="MyClass">
                         <Method Name="MyMethod" Return="void">
-                            {markup}
+                            <Statements>
+                                {markup}
+                            </Statements>
                         </Method>
                     </Class>
                 </Namespace>

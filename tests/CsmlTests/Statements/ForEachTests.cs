@@ -7,25 +7,17 @@ public class ForEachTests
     {
         // Arrange
         string csml = """
-            <Csml>
-            	<Namespace Name="MyNamespace">
-                    <Class Name="MyClass">
-                        <Method Return="void" Name="DoStuff">
-                            <ForEach Type="int" Name="number" Collection="numbers">
-                                <Variable Type="int" Name="valA">
-                                    <Expression>
-                                        <Value Value="number" />
-                                    </Expression>
-                                </Variable>
-                            </ForEach>
-                        </Method>
-                    </Class>
-                </Namespace>
-            </Csml>
+            <ForEach Type="int" Name="number" Collection="numbers">
+                <Variable Type="int" Name="valA">
+                    <Expression>
+                        <Value Value="number" />
+                    </Expression>
+                </Variable>
+            </ForEach>
             """;
 
         // Act
-        SyntaxNode[] output = AssertCompileNoDiagnostics(csml);
+        SyntaxNode[] output = AssertCompileNoDiagnostics(CsmlSyntaxWrapper.WrapInMethod(csml));
 
         // Assert
         if (!output.FirstDescendant(out MethodDeclarationSyntax? methodDeclaration))

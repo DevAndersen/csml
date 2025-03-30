@@ -7,19 +7,11 @@ public class CallTests
     {
         // Arrange
         string csml = """
-            <Csml>
-            	<Namespace Name="MyNamespace">
-                    <Class Name="MyClass">
-                        <Method Return="void" Name="DoStuff">
-                            <Call Target="System.Console" Method="WriteLine"/>
-                        </Method>
-                    </Class>
-                </Namespace>
-            </Csml>
+            <Call Target="System.Console" Method="WriteLine"/>
             """;
 
         // Act
-        SyntaxNode[] output = AssertCompileNoDiagnostics(csml);
+        SyntaxNode[] output = AssertCompileNoDiagnostics(CsmlSyntaxWrapper.WrapInMethod(csml));
 
         // Assert
         if (!output.FirstDescendant(out MemberAccessExpressionSyntax? methodAccess))
@@ -54,9 +46,11 @@ public class CallTests
             	<Namespace Name="MyNamespace">
                     <Class Name="MyClass">
                         <Method Return="void" Name="DoStuff">
-                            <Call Target="System.Console" Method="WriteLine">
-                                <Argument Value="123"/>
-                            </Call>
+                            <Statements>
+                                <Call Target="System.Console" Method="WriteLine">
+                                    <Argument Value="123"/>
+                                </Call>
+                            </Statements>
                         </Method>
                     </Class>
                 </Namespace>

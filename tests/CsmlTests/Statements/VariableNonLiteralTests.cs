@@ -7,19 +7,11 @@ public class VariableNonLiteralTests
     {
         // Arrange
         string csml = $"""
-            <Csml>
-            	<Namespace Name="MyNamespace">
-                    <Class Name="MyClass">
-                        <Method Return="void" Name="DoStuff">
-                            <Variable Type="MyClass" Name="value" />
-                        </Method>
-                    </Class>
-                </Namespace>
-            </Csml>
+            <Variable Type="MyClass" Name="value" />
             """;
 
         // Act
-        SyntaxNode[] output = AssertCompileNoDiagnostics(csml);
+        SyntaxNode[] output = AssertCompileNoDiagnostics(CsmlSyntaxWrapper.WrapInMethod(csml));
 
         // Assert
         if (!output.FirstDescendant(out LocalDeclarationStatementSyntax? variableDeclaration))
@@ -42,23 +34,15 @@ public class VariableNonLiteralTests
     {
         // Arrange
         string csml = $"""
-            <Csml>
-            	<Namespace Name="MyNamespace">
-                    <Class Name="MyClass">
-                        <Method Return="void" Name="DoStuff">
-                            <Variable Type="MyClass" Name="value">
-                                <Expression>
-                                    <Value Value="null" />
-                                </Expression>
-                            </Variable>
-                        </Method>
-                    </Class>
-                </Namespace>
-            </Csml>
+            <Variable Type="MyClass" Name="value">
+                <Expression>
+                    <Value Value="null" />
+                </Expression>
+            </Variable>
             """;
 
         // Act
-        SyntaxNode[] output = AssertCompileNoDiagnostics(csml);
+        SyntaxNode[] output = AssertCompileNoDiagnostics(CsmlSyntaxWrapper.WrapInMethod(csml));
 
         // Assert
         if (!output.FirstDescendant(out LocalDeclarationStatementSyntax? variableDeclaration))
@@ -89,23 +73,15 @@ public class VariableNonLiteralTests
     {
         // Arrange
         string csml = $"""
-            <Csml>
-            	<Namespace Name="MyNamespace">
-                    <Class Name="MyClass">
-                        <Method Return="void" Name="DoStuff">
-                            <Variable Type="MyClass" Name="value">
-                                    <Expression>
-                                        <Value Value="default" />
-                                    </Expression>
-                                </Variable>
-                        </Method>
-                    </Class>
-                </Namespace>
-            </Csml>
+            <Variable Type="MyClass" Name="value">
+                <Expression>
+                    <Value Value="default" />
+                </Expression>
+            </Variable>
             """;
 
         // Act
-        SyntaxNode[] output = AssertCompileNoDiagnostics(csml);
+        SyntaxNode[] output = AssertCompileNoDiagnostics(CsmlSyntaxWrapper.WrapInMethod(csml));
 
         // Assert
         if (!output.FirstDescendant(out LocalDeclarationStatementSyntax? variableDeclaration))
