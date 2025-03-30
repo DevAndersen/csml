@@ -19,6 +19,7 @@ public abstract class StatementContainerNode : BaseNode
     [XmlElement("ForEach", typeof(ForEachNode))]
     [XmlElement("If", typeof(IfNode))]
     [XmlElement("Increment", typeof(IncrementNode))]
+    [XmlElement("New", typeof(NewNode))]
     [XmlElement("PrefixDecrement", typeof(PrefixDecrementNode))]
     [XmlElement("PrefixIncrement", typeof(PrefixIncrementNode))]
     [XmlElement("Return", typeof(ReturnNode))]

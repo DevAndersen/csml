@@ -1,4 +1,6 @@
 ﻿using Csml.Parser.Nodes.Expressions;
+using System.Linq.Expressions;
+using System.Xml.Linq;
 
 namespace Csml.Generator.SyntaxBuilders.Statements;
 
@@ -6,7 +8,11 @@ internal static class ExpressionBuilder
 {
     public static ExpressionSyntax Build(ExpressionNode node)
     {
-        if (node is AwaitNode awaitNode)
+        if (node is NewNode newNode)
+        {
+            return BuildNew(newNode);
+        }
+        else if (node is AwaitNode awaitNode)
         {
             return BuildAwait(awaitNode);
         }
@@ -93,5 +99,17 @@ internal static class ExpressionBuilder
     private static AwaitExpressionSyntax BuildAwait(AwaitNode awaitNode)
     {
         return SF.AwaitExpression(Build(awaitNode.Expression.Expression));
+    }
+
+    private static ObjectCreationExpressionSyntax BuildNew(NewNode newNode)
+    {
+        ObjectCreationExpressionSyntax expression = SF.ObjectCreationExpression(SF.IdentifierName(newNode.Type));
+
+        if (newNode.Arguments != null)
+        {
+            expression = expression.WithArgumentList(ArgumentListBuilder.BuildArgumentList(newNode.Arguments));
+        }
+
+        return expression;
     }
 }

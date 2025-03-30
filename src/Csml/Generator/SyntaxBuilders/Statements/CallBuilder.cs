@@ -13,14 +13,7 @@ internal class CallBuilder
 
         if (node.Arguments != null)
         {
-            ArgumentListSyntax argumentList = SF.ArgumentList();
-
-            foreach (ArgumentNode argument in node.Arguments)
-            {
-                argumentList = argumentList.AddArguments(SF.Argument(SF.IdentifierName(argument.Value)));
-            }
-
-            invocationExpression = invocationExpression.WithArgumentList(argumentList);
+            invocationExpression = invocationExpression.WithArgumentList(ArgumentListBuilder.BuildArgumentList(node.Arguments));
         }
 
         return SF.ExpressionStatement(invocationExpression);

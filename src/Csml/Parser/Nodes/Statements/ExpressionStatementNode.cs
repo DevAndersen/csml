@@ -32,5 +32,6 @@ public class ExpressionStatementNode : BaseNode
     [XmlElement("Not", typeof(NotNode))]
     [XmlElement("BitwiseNot", typeof(BitwiseNotNode))]
     [XmlElement("Await", typeof(AwaitNode))]
+    [XmlElement("New", typeof(NewNode))]
     public required ExpressionNode Expression { get; init; }
 }
