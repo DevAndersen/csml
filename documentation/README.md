@@ -10,6 +10,7 @@ Below is a table of C♯ML tags, as well as their corresponding C# equivalent.
 | [`<And>`](./tags/and.md) | [`&&`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/boolean-logical-operators#conditional-logical-and-operator-) |
 | [`<Argument>`](./tags/argument.md) | Method argument (method invocation) |
 | [`<Assignment>`](./tags/assignment.md) | [Assignment](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/assignment-operator) |
+| [`<Await>`](./tags/await.md) | [`await`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/await) |
 | [`<BitwiseAnd>`](./tags/bitwise-and.md) | [`&`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/bitwise-and-shift-operators#logical-and-operator-) |
 | [`<BitwiseNot>`](./tags/bitwise-not.md) | [`~`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/bitwise-and-shift-operators#bitwise-complement-operator-) |
 | [`<BitwiseOr>`](./tags/bitwise-or.md) | [`\|`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/bitwise-and-shift-operators#logical-or-operator-) |
