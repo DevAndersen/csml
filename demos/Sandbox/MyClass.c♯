@@ -3,6 +3,13 @@
   <Namespace Name="Sandbox">
 
     <Class Name="MyClass">
+
+      <Method Access="Public" Return="void" Name="MyMethod">
+        <Statements>
+
+        </Statements>
+      </Method>
+
     </Class>
 
   </Namespace>
