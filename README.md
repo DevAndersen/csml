@@ -5,9 +5,11 @@
   <Namespace Name="HelloWorld">
     <Class Static="true" Name="Program">
       <Method Access="Public" Static="true" Return="void" Name="Main">
-        <Call Target="Console" Method="WriteLine">
-          <Argument Value='"Hello, World!"' />
-        </Call>
+        <Statements>
+          <Call Target="Console" Method="WriteLine">
+            <Argument Value='"Hello, World!"' />
+          </Call>
+        </Statements>
       </Method>
     </Class>
   </Namespace>
