@@ -23,6 +23,7 @@ public abstract class StatementContainerNode : BaseNode
     [XmlElement("PrefixDecrement", typeof(PrefixDecrementNode))]
     [XmlElement("PrefixIncrement", typeof(PrefixIncrementNode))]
     [XmlElement("Return", typeof(ReturnNode))]
+    [XmlElement("Throw", typeof(ThrowNode))]
     [XmlElement("Variable", typeof(VariableNode))]
     public BaseNode[]? Statements { get; init; }
 }

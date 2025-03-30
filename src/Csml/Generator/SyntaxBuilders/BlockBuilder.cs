@@ -42,6 +42,7 @@ internal class BlockBuilder
                     ForNode forNode => ForBuilder.Build(forNode),
                     ForEachNode forEachNode => ForEachBuilder.Build(forEachNode),
                     ExpressionNode expressionNode => SF.ExpressionStatement(ExpressionBuilder.Build(expressionNode)),
+                    ThrowNode throwNode => ThrowBuilder.Build(throwNode),
                     _ => throw new UnknownCsmlElementException(
                         statementNode.LineNumber,
                         statementNode.GetType().Name)
