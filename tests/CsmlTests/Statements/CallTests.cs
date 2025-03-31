@@ -14,6 +14,12 @@ public class CallTests
         SyntaxNode[] output = AssertCompileNoDiagnostics(CsmlSyntaxWrapper.WrapInMethod(csml));
 
         // Assert
+        if (!output.FirstDescendant(out InvocationExpressionSyntax? _))
+        {
+            Assert.Fail();
+            return;
+        }
+
         if (!output.FirstDescendant(out MemberAccessExpressionSyntax? methodAccess))
         {
             Assert.Fail();
@@ -90,5 +96,32 @@ public class CallTests
         Assert.Equal("WriteLine", methodAccess.Name.Identifier.Text);
         Assert.True(invocation.ArgumentList.Arguments is [ArgumentSyntax { Expression: LiteralExpressionSyntax expression }]
             && expression.Token is { Value: 123 });
+    }
+
+    [Fact]
+    public void Call_WithoutTarget()
+    {
+        // Arrange
+        string csml = """
+            <Call Method="MyMethod"/>
+            """;
+
+        // Act
+        SyntaxNode[] output = AssertCompileNoDiagnostics(CsmlSyntaxWrapper.WrapInMethod(csml));
+
+        // Assert
+        if (!output.FirstDescendant(out InvocationExpressionSyntax? invocation))
+        {
+            Assert.Fail();
+            return;
+        }
+
+        if (output.FirstDescendant(out MemberAccessExpressionSyntax? _))
+        {
+            Assert.Fail();
+            return;
+        }
+
+        Assert.True(invocation.Expression is IdentifierNameSyntax { Identifier.Value: "MyMethod" });
     }
 }

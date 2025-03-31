@@ -8,7 +8,7 @@ namespace Csml.Parser.Nodes.Statements;
 public class CallNode : ExpressionNode
 {
     [XmlAttribute("Target")]
-    public required string Target { get; init; }
+    public string? Target { get; init; }
 
     [XmlAttribute("Method")]
     public required string Method { get; init; }

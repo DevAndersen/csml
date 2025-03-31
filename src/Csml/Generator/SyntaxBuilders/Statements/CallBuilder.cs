@@ -4,12 +4,21 @@ internal class CallBuilder
 {
     public static ExpressionStatementSyntax Build(CallNode node)
     {
-        MemberAccessExpressionSyntax methodAccessExpression = SF.MemberAccessExpression(
-            SyntaxKind.SimpleMemberAccessExpression,
-            SF.IdentifierName(node.Target),
-            SF.IdentifierName(node.Method));
+        InvocationExpressionSyntax invocationExpression;
 
-        InvocationExpressionSyntax invocationExpression = SF.InvocationExpression(methodAccessExpression);
+        if (node.Target != null && !string.IsNullOrWhiteSpace(node.Target))
+        {
+            MemberAccessExpressionSyntax methodAccessExpression = SF.MemberAccessExpression(
+                SyntaxKind.SimpleMemberAccessExpression,
+                SF.IdentifierName(node.Target),
+                SF.IdentifierName(node.Method));
+
+            invocationExpression = SF.InvocationExpression(methodAccessExpression);
+        }
+        else
+        {
+            invocationExpression = SF.InvocationExpression(SF.IdentifierName(node.Method));
+        }
 
         if (node.Arguments != null)
         {
