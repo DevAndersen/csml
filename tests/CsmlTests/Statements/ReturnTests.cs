@@ -24,12 +24,12 @@ public class ReturnTests
     }
 
     [Theory]
-    [InlineData("int", "123", 123, SyntaxKind.NumericLiteralExpression)]
-    [InlineData("long", "9223372036854775807L", long.MaxValue, SyntaxKind.NumericLiteralExpression)]
-    [InlineData("float", "3.14F", 3.14F, SyntaxKind.NumericLiteralExpression)]
-    [InlineData("double", "3.14", 3.14, SyntaxKind.NumericLiteralExpression)]
-    [InlineData("char", "'A'", 'A', SyntaxKind.CharacterLiteralExpression)]
-    public void ReturnLiteral_LiteralValue_ExpectedValue(string type, string text, object value, SyntaxKind literalType)
+    [InlineData("123", 123, SyntaxKind.NumericLiteralExpression)]
+    [InlineData("9223372036854775807L", long.MaxValue, SyntaxKind.NumericLiteralExpression)]
+    [InlineData("3.14F", 3.14F, SyntaxKind.NumericLiteralExpression)]
+    [InlineData("3.14", 3.14, SyntaxKind.NumericLiteralExpression)]
+    [InlineData("'A'", 'A', SyntaxKind.CharacterLiteralExpression)]
+    public void ReturnLiteral_LiteralValue_ExpectedValue(string text, object value, SyntaxKind literalType)
     {
         // Arrange
         string csml = $"""
