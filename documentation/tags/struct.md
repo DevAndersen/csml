@@ -8,19 +8,24 @@ Declares a struct.
 
 | Name | Type | Default | Mandatory | Description |
 |---|---|---|---|---|
-| `Name` | `string` | *None* | Yes | The name of the struct |
 | `Access` | [Access modifiers](../types/access-modifiers.md) | *Context dependent* | No | The [access modifiers](https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/access-modifiers) of the struct. |
-| `Ref` | `bool` | `false` | No | Marks the struct as a ref struct. |
+| `Name` | `string` | *None* | Yes | The name of the struct. |
+| `ReadOnly` | `bool` | `false` | No | Marks the struct as [`readonly`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/struct#readonly-struct). |
+| `Ref` | `bool` | `false` | No | Marks the struct as [`ref`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/ref-struct). |
 
 ## Elements
 
-- `<Field>` (multiple): Contained fields.
-- `<Property>` (multiple): Contained properties.
-- `<Method>` (multiple): Contained methods.
-- `<Class>` (multiple): Nested classes.
-- `<Struct>` (multiple): Nested structs.
-- `<Interface>` (multiple): Nested interfaces.
-- `<Enum>` (multiple): Nested enums.
+| Name | Type | Default | Mandatory | Multiple allowed | Description |
+|---|---|---|---|---|---|
+| `<Class>` | [`<Class>`](../tags/class.md) | *None* | No | Yes | Nested class declarations. |
+| `<Constructor>` | [`<Constructor>`](../tags/constructor.md) | *None* | No | Yes | Constructors. |
+| `<Enum>` | [`<Enum>`](../tags/enum.md) | *None* | No | Yes | Nested enum declarations. |
+| `<Field>` | [`<Field>`](../tags/field.md) | *None* | No | Yes | Field declarations. |
+| `<Inheritance>` | [`<Inheritance>`](../tags/inheritance.md) | *None* | No | Yes | Class- and interface inheritence. |
+| `<Interface>` | [`<Interface>`](../tags/interface.md) | *None* | No | Yes | Nested interface declarations. |
+| `<Method>` | [`<Method>`](../tags/method.md) | *None* | No | Yes | Method declarations. |
+| `<Property>` | [`<Property>`](../tags/property.md) | *None* | No | Yes | Property declarations. |
+| `<Struct>` | [`<Struct>`](../tags/struct.md) | *None* | No | Yes | Nested struct declarations. |
 
 ## C# equivalent
 
@@ -31,14 +36,14 @@ The `struct` keyword and an associated struct declaration.
 ### C♯ML
 
 ```xml
-<Struct Access="Public" Name="MyStruct">
+<Struct Access="Internal" Name="MyStruct">
 </Struct>
 ```
 
 ### C#
 
 ```csharp
-public struct MyStruct
+internal struct MyStruct
 {
 }
 ```

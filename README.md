@@ -40,20 +40,16 @@ In order to get C♯ML source files working, they need to be added to your `.csp
   </ItemGroup>
 ```
 
-[IDE EXAMPLE]
-
 **Note:** IDEs such as Visual Studio and Rider have yet to add syntax highlight for C♯ML, and it is therefore recommended that you add the following at the beginning of the source files:
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
 ```
 
-[WORK IN PROGRESS]
-
 ## Demos
 
-- [Hello, World!](./demos/HelloWorld/HelloWorld.c♯)
-- [Hello, World! (without any C#)](./demos/HelloWorldWithoutCSharp/Program.c♯)
+- [Sandbox](./demos/Sandbox/MyClass.c♯)
+- [Hello, World!](./demos/HelloWorld/Program.c♯)
 - [FizzBuzz](./demos/FizzBuzz/FizzBuzz.c♯)
 
 ## Documentation
