@@ -1,5 +1,9 @@
 # Technical documentation
 
+## General
+
+While tags and attributes are case-insensitive, the value of attributes is case sensitive.
+
 ## Tags
 
 Below is a table of C♯ML tags, as well as their corresponding C# equivalent.

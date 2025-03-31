@@ -48,9 +48,10 @@ In order to get C♯ML source files working, they need to be added to your `.csp
 
 ## Demos
 
-- [Sandbox](./demos/Sandbox/MyClass.c♯)
-- [Hello, World!](./demos/HelloWorld/Program.c♯)
-- [FizzBuzz](./demos/FizzBuzz/FizzBuzz.c♯)
+- [Sandbox](./demos/Sandbox/README.md)
+- [Hello, World!](./demos/HelloWorld/README.md)
+- [FizzBuzz](./demos/FizzBuzz/README.md)
+- [WebAPI](./demos/WebAPI/README.md)
 
 ## Documentation
 
