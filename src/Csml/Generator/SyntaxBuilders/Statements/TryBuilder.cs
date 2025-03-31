@@ -16,7 +16,7 @@ internal static class TryBuilder
             }
             else if (chainedNode is FinallyNode finallyNode)
             {
-                finallyClause =  BuildFinallyClause(finallyNode);
+                finallyClause = BuildFinallyClause(finallyNode);
             }
         }
 

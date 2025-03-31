@@ -30,7 +30,7 @@ public class SwitchTests
             return;
         }
 
-        if (switchStatement.Sections is not [ SwitchSectionSyntax case1, SwitchSectionSyntax case2, SwitchSectionSyntax case3 ])
+        if (switchStatement.Sections is not [SwitchSectionSyntax case1, SwitchSectionSyntax case2, SwitchSectionSyntax case3])
         {
             Assert.Fail();
             return;

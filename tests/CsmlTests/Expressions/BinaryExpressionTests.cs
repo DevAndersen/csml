@@ -51,11 +51,13 @@ public class BinaryExpressionTests
         }
 
         Assert.Equal(kind, expression.Kind());
-        Assert.True(expression.Left is LiteralExpressionSyntax {
+        Assert.True(expression.Left is LiteralExpressionSyntax
+        {
             RawKind: (int)SyntaxKind.NumericLiteralExpression,
             Token.Value: 1
         });
-        Assert.True(expression.Right is LiteralExpressionSyntax {
+        Assert.True(expression.Right is LiteralExpressionSyntax
+        {
             RawKind: (int)SyntaxKind.NumericLiteralExpression,
             Token.Value: 2
         });
