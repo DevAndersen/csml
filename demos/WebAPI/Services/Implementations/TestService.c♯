@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Csml>
+  <UsingDirective Namespace="WebAPI.Models" />
+  <UsingDirective Namespace="WebAPI.Services.Abstractions" />
+  <Namespace Name="WebAPI.Services.Implementations">
+    <Class Access="Public" Name="TestService">
+
+      <Inheritance Type="ITestService" />
+
+      <Method Access="Public" Return="TestModel" Name="Double">
+        <Parameter Type="int" Name="input" />
+        <Statements>
+
+          <Variable Type="int" Name="output">
+            <Expression>
+              <Multiply>
+                <Left>
+                  <Value Value="input" />
+                </Left>
+                <Right>
+                  <Value Value="2" />
+                </Right>
+              </Multiply>
+            </Expression>
+          </Variable>
+
+          <Variable Type="TestModel" Name="result">
+            <Expression>
+              <New Type="TestModel">
+                <Argument Value="input" />
+                <Argument Value="output" />
+              </New>
+            </Expression>
+          </Variable>
+
+          <Return Value="result" />
+        </Statements>
+      </Method>
+
+    </Class>
+  </Namespace>
+</Csml>

@@ -1,0 +1,6 @@
+@WebAPI_HostAddress = http://localhost:5178
+
+GET {{WebAPI_HostAddress}}/double?input=7
+Accept: application/json
+
+###

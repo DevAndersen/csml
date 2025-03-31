@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Csml>
+  <Namespace Name="WebAPI.Models">
+    <Class Access="Public" Name="TestModel">
+
+      <Property Access="Public" Type="int" Name="Input" Getter="Get" />
+      <Property Access="Public" Type="int" Name="Output" Getter="Get" />
+
+      <Constructor Access="Public">
+        <Parameter Type="int" Name="input" />
+        <Parameter Type="int" Name="output" />
+        <Statements>
+
+          <Assignment>
+            <Left>
+              <Value Value="Input" />
+            </Left>
+            <Right>
+              <Value Value="input" />
+            </Right>
+          </Assignment>
+
+          <Assignment>
+            <Left>
+              <Value Value="Output" />
+            </Left>
+            <Right>
+              <Value Value="output" />
+            </Right>
+          </Assignment>
+
+        </Statements>
+      </Constructor>
+    </Class>
+  </Namespace>
+</Csml>

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Csml>
+  <UsingDirective Namespace="WebAPI.Models" />
+  <Namespace Name="WebAPI.Services.Abstractions">
+    <Interface Access="Public" Name="ITestService">
+
+      <Method Access="Public" Return="TestModel" Name="Double">
+        <Parameter Type="int" Name="input" />
+      </Method>
+
+    </Interface>
+  </Namespace>
+</Csml>
