@@ -4,7 +4,7 @@ This project is, of course, not to be taken serious. It is, however, functional 
 
 The primary purpose of this project was to give me an excuse to start looking into source generators.
 
-THe secondary purpose was to be fun and silly. Hopefully, the fairly absurd idea of writing C# in XML will provide a bit of entertainment for anyone reading this.
+The secondary purpose was to be fun and silly. Hopefully, the fairly absurd idea of writing C# in XML will provide a bit of entertainment for anyone reading this.
 
 ## Conclusions and takeaways
 
