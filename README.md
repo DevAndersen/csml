@@ -71,7 +71,7 @@ For full technical documentation, see: [Technical documentation](./documentation
 
 - **A:** The question of what constitutes a programming language has been the source of much debate in the software development community. C# itself is traditionally compiled to CIL, which itself traditionally gets JIT-compiled into native code at runtime. This is quite similar to how C♯ML works, from a certain point of view. I say we give C♯ML the benefit of the doubt, and consider it a programming language until proven otherwise.
 
-**Q:** Why does C♯ML succesfully building C# code that does not compile?
+**Q:** Why does C♯ML successfully building C# code that does not compile?
 
 - **A:** While C♯ML will provide analyzer warnings and errors for broken syntax, it is designed to be flexible and future-proof, and therefore does not perform strict compilability validation. Ultimately, the responsibility for writing code correctly lies with the developer, not the language or associated tooling.
 
