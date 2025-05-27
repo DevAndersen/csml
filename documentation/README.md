@@ -68,7 +68,7 @@ Below is a table of C♯ML tags, as well as their corresponding C# equivalent.
 | [`<Throw>`](./tags/throw.md) | [`throw`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/statements/exception-handling-statements#the-throw-statement) |
 | [`<Try>`](./tags/try.md) | [`try`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/statements/exception-handling-statements#the-try-statement) |
 | [`<UnsignedRightShift>`](./tags/unsigned-right-shift.md) | [`>>>`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/bitwise-and-shift-operators#unsigned-right-shift-operator-) |
-| [`<UsingDirective>`](./tags/using-directive.md) | [`using`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/using-directive) |
+| [`<UsingDirective>`](./tags/using-directive.md) | [`using`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/using-directive) directive |
 | [`<Value>`](./tags/value.md) | *No direct equivalent* |
 | [`<Variable>`](./tags/variable.md) | [Variable](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/language-specification/variables) |
 | [`<While>`](./tags/while.md) | [`while`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/statements/iteration-statements#the-while-statement) |
